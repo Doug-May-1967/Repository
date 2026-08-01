@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Framework — Orbit-Mech</title>
+<link rel="stylesheet" href="style.css">
+<script>
+  MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<header>
+  <a class="site-title" href="index.html">Orbit-Mech</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="background.html">Background</a>
+    <a href="framework.html" class="active">Framework</a>
+    <a href="elliptical.html">Elliptical Orbits</a>
+    <a href="hyperbolic.html">Hyperbolic Orbits</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow">Section I</p>
+  <h1>The conical reference frame</h1>
+
+  <p>
+    A conical reference frame sits inside the classical spherical reference frame common
+    to every orbit type. It shares a common apex and spherical center with that frame and
+    uses classical nomenclature throughout.
+  </p>
+
+  <figure class="figure">
+    <img src="img/fig1-conic-frame.png" alt="Conic reference frame within a spherical field, showing apex, radius R, and angles Phi and Theta">
+    <figcaption>Fig. 1 — Conic reference frame in a spherical field.</figcaption>
+  </figure>
+
+  <h2>Equivalent variable sets</h2>
+  <p>
+    Sphere radii and cone generators are orbit variables, equivalent to the common in-plane
+    variables. Orbital position and motion can be designated using either set, and the
+    sphere-radii/cone-generator set yields a new form of the governing equations.
+  </p>
+
+  <h2>Families of orbits</h2>
+  <p>
+    Framing orbits on the cone gives a new commonality across orbit families:
+  </p>
+  <ul>
+    <li>Elliptical orbits with the same total energy have a unique orientation depending on eccentricity.</li>
+    <li>Hyperbolic orbits are modeled on cones whose apex angle depends on eccentricity.</li>
+  </ul>
+
+  <div class="callout">
+    Elliptical orbits occupy a fixed cone with a 45° half-angle. Hyperbolic orbits occupy a
+    cone with a varying half-angle greater than 45°.
+    \[ \sin(2\Phi_h) = e \quad \text{(elliptical)} \qquad \sin(\Phi_h) = \frac{1}{e} \quad \text{(hyperbolic)} \]
+  </div>
+
+  <p class="placeholder-note">
+    This page mirrors the storyboard's framework slide. As the geometric and structural
+    comparison between the elliptical and hyperbolic results is worked out, this section
+    will expand with the full derivation and the R² = r² + ap relation.
+  </p>
+</main>
+
+<footer>
+  D. H. May · Orbit-Mech research site · updated as work progresses
+</footer>
+</body>
+</html>

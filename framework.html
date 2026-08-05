@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Framework — Orbit-Mech</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nomenclature.css">
 <script>
   MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
 </script>
@@ -21,53 +22,78 @@
     <a href="hyperbolic.html">Hyperbolic Orbits</a>
   </nav>
 </header>
-
 <main>
   <p class="eyebrow">Section I</p>
   <h1>The conical reference frame</h1>
 
-  <p>
-    A conical reference frame sits inside the classical spherical reference frame common
-    to every orbit type. It shares a common apex and spherical center with that frame and
-    uses classical nomenclature throughout.
-  </p>
+  <!-- PLACEHOLDER: general introductory slide goes here — not yet written -->
+  <p class="placeholder-note">[Introductory section — in progress]</p>
 
+  <div id="nomenclature-widget"></div>
+
+  <h2>Reference Frames</h2>
+  <p>
+    Gravitational fields generated from a single body have a spherically radiated force.
+    Newton quantified the force acting on a second body in the force field. Typical
+    analyses of motion of the second body are in two dimensions. Orbital motion of the
+    second body about the primary body in the absence of other forces is two dimensional
+    and constrained to a plane justifying two-dimensional analyses. However, a
+    three-dimensional analysis captures all motion, including every conic type and their
+    rectilinear limits.
+  </p>
+  <p>
+    In this research, all orbital motion is analyzed in a classical spherical reference
+    frame, and since each type of orbit is a conic section, a conical reference frame is
+    constructed within the spherical frame. The conical frame is itself a specialization
+    of this spherical frame, as developed in the Elliptical section. Figure 1 shows the
+    reference configuration with Cartesian coordinates and superimposed spherical
+    coordinates on the left with nomenclature that is the mathematical convention in many
+    geometry references. On the right a conical reference frame is shown centered at the
+    common origin.
+  </p>
   <figure class="figure">
     <img src="img/fig1-conic-frame.png" alt="Conic reference frame within a spherical field, showing apex, radius R, and angles Phi and Theta">
-    <figcaption>Fig. 1 — Conic reference frame in a spherical field.</figcaption>
+    <figcaption>Fig. 1 — Conic Reference Frame in a Spherical Coordinate System.</figcaption>
   </figure>
 
-  <h2>Equivalent variable sets</h2>
+  <h2>Rectilinear trajectories</h2>
   <p>
-    Sphere radii and cone generators are orbit variables, equivalent to the common in-plane
-    variables. Orbital position and motion can be designated using either set, and the
-    sphere-radii/cone-generator set yields a new form of the governing equations.
+    A parabolic orbit has an eccentricity of one and a total energy of zero in the
+    conservation of energy (vis&ndash;viva) equation. It will be shown that elliptical and
+    hyperbolic trajectories that have no rotational component are linear and have
+    eccentricities, \(e\), of one while their total energies have the classical values.
+    Eccentricity alone does not identify the orbit type, total energy discriminates them.
+    Additionally, the origin of the linear radius vectors is the apex of the cone shown in
+    Figure 1. The cone apex is a singularity but gives a common reference point for these
+    special cases for the three orbit types.
   </p>
-
-  <h2>Families of orbits</h2>
   <p>
-    Framing orbits on the cone gives a new commonality across orbit families:
+    The vis-viva equation is classic, and its terms have the units of velocity squared
+    (energy). It can be written as:
   </p>
-  <ul>
-    <li>Elliptical orbits with the same total energy have a unique orientation depending on eccentricity.</li>
-    <li>Hyperbolic orbits are modeled on cones whose apex angle depends on eccentricity.</li>
-  </ul>
-
-  <div class="callout">
-    Elliptical orbits occupy a fixed cone with a 45° half-angle. Hyperbolic orbits occupy a
-    cone with a varying half-angle greater than 45°.
-    \[ \sin(2\Phi_h) = e \quad \text{(elliptical)} \qquad \sin(\Phi_h) = \frac{1}{e} \quad \text{(hyperbolic)} \]
-  </div>
-
-  <p class="placeholder-note">
-    This page mirrors the storyboard's framework slide. As the geometric and structural
-    comparison between the elliptical and hyperbolic results is worked out, this section
-    will expand with the full derivation and the R² = r² + ap relation.
+  \[
+    \underbrace{\frac{\dot r^2}{2} + \frac{\mu p}{2 r^2}}_{\text{kinetic,}}
+    \;-\;
+    \underbrace{\frac{\mu}{r}}_{\text{potential,}}
+    \;=\;
+    \underbrace{\pm\frac{\mu}{2a}}_{\text{total, energy.}}
+  \]
+  <p>
+    Analyses of each orbit type shows the application of this equation to the derivation
+    of each motion equation. The symbol \(p\) is the semi latus rectum, or semi parameter,
+    for each conic section or orbit, and it becomes zero for the rectilinear trajectories
+    when \(e = 1\). Motion to the cone apex (zero for each reference frame) is physically
+    and mathematically negated because of division by zero, but the point serves as a
+    convenient reference. The three types of rectilinear trajectories are real given the
+    governing eccentricity and total energy values, but only a realistic segment is
+    viable.
   </p>
+
 </main>
-
 <footer>
-  D. H. May · Orbit-Mech research site · updated as work progresses
+  D. H. May &middot; Orbit-Mech research site &middot; updated as work progresses
 </footer>
+<script src="nomenclature-data.js"></script>
+<script src="nomenclature-widget.js"></script>
 </body>
 </html>

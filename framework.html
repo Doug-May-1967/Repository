@@ -90,6 +90,67 @@
     viable.
   </p>
 
+  <h2>Commonality across conic types</h2>
+  <p>
+    Drawings of conic sections with planes intersecting cones in three dimensions are
+    widespread. Documented analyses produced for geometric, physical, and motion equation
+    derivations are generally two dimensional, which is justified because two body orbital
+    motion is planar. However, the three-dimensional approach followed throughout this
+    research yields additional relationships not visible in the two-dimensional treatment.
+    Figure 2 shows edge views of each orbit type, and Table 1 summarizes the findings that
+    are developed in detail in the individual sections.
+  </p>
+  <figure class="figure">
+    <img src="fig2-conic-comparison.png" alt="Edge-view comparison of elliptical, parabolic, and hyperbolic cone constructions, with Table 1 summarizing Phi_c, Phi_h, and rho for each type">
+    <figcaption>Fig. 2 — Conic Sections, Commonality and Differences.</figcaption>
+  </figure>
+
+  <table class="conic-table">
+    <caption>Table 1 &mdash; Conical Parameters by Type of Orbit</caption>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Elliptical</th>
+        <th>Parabolic</th>
+        <th>Hyperbolic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\(\Phi_c\)</td>
+        <td>\(\pi/4\)</td>
+        <td>\(\pi/4\)</td>
+        <td>\(\sin(\Phi_c) = 1/e\)</td>
+      </tr>
+      <tr>
+        <td>\(\Phi_h\)</td>
+        <td>\(\sin(2\Phi_h) = e\)</td>
+        <td>\(\pi/4\)</td>
+        <td>\(\pi/4\)</td>
+      </tr>
+      <tr>
+        <td>\(\rho\)</td>
+        <td>\(\sqrt{ap}\)</td>
+        <td>\(p\)</td>
+        <td>\(ae / \sqrt{e^2 - 1}\)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Two features of Table 1 stand out. First, the eccentricity-bearing angle swaps roles
+    between the elliptical and hyperbolic cases: for elliptical orbits \(\Phi_c\) is fixed
+    at \(\pi/4\) while \(\Phi_h\) carries the dependence on \(e\) through
+    \(\sin(2\Phi_h) = e\); for hyperbolic orbits the roles reverse, with \(\Phi_h\) fixed at
+    \(\pi/4\) and \(\Phi_c\) carrying the dependence through \(\sin(\Phi_c) = 1/e\). The
+    parabolic case sits at the degenerate point where both relations collapse onto the same
+    fixed value, since \(e = 1\) exactly. Second, \(\rho\) takes a different closed form in
+    each case &mdash; \(\sqrt{ap}\), \(p\), and \(ae/\sqrt{e^2-1}\) &mdash; yet each reduces
+    to the same geometric role: the offset of the cutting plane from the cone apex. The
+    Elliptical and Hyperbolic sections develop each relation in full and return to this
+    comparison.
+  </p>
+
 </main>
 <footer>
   D. H. May &middot; Orbit-Mech research site &middot; updated as work progresses

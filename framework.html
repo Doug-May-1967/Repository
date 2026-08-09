@@ -8,7 +8,16 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="nomenclature.css">
 <script>
-  MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      macros: {
+        Phi: "{\\mathit{\\Phi}}",
+        Theta: "{\\mathit{\\Theta}}"
+      }
+    }
+  };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 </head>
@@ -126,7 +135,7 @@
         <td>\(\Phi_h\)</td>
         <td>\(\sin(2\Phi_h) = e\)</td>
         <td>\(\pi/4\)</td>
-        <td>\(\pi/4\)</td>
+        <td>\(\pi/2\)</td>
       </tr>
       <tr>
         <td>\(\rho\)</td>
@@ -142,10 +151,10 @@
     between the elliptical and hyperbolic cases: for elliptical orbits \(\Phi_c\) is fixed
     at \(\pi/4\) while \(\Phi_h\) carries the dependence on \(e\) through
     \(\sin(2\Phi_h) = e\); for hyperbolic orbits the roles reverse, with \(\Phi_h\) fixed at
-    \(\pi/4\) and \(\Phi_c\) carrying the dependence through \(\sin(\Phi_c) = 1/e\). The
+    \(\pi/2\) and \(\Phi_c\) carrying the dependence through \(\sin(\Phi_c) = 1/e\). The
     parabolic case sits at the degenerate point where both relations collapse onto the same
     fixed value, since \(e = 1\) exactly. Second, \(\rho\) takes a different closed form in
-    each case &mdash; \(\sqrt{ap}\), \(p\), and \(ae/\sqrt{e^2-1}\) &mdash; yet each reduces
+    each case (\(\sqrt{ap}\), \(p\), and \(ae/\sqrt{e^2-1}\)) yet each reduces
     to the same geometric role: the offset of the cutting plane from the cone apex. The
     Elliptical and Hyperbolic sections develop each relation in full and return to this
     comparison.

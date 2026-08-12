@@ -17,6 +17,16 @@
   };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js"></script>
+<style>
+  .eq-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5em 0;
+  }
+  .eq-row > .eq-body { flex: 1; }
+  .eq-row > .eq-num  { flex: 0 0 auto; margin-left: 1.5em; }
+</style>
 </head>
 <body>
 <header>
@@ -52,7 +62,7 @@
     In this research, all orbital motion is analyzed in a classical spherical reference
     frame, and since each type of orbit is a conic section, a conical reference frame is
     constructed within the spherical frame. The conical frame is itself a specialization
-    of this spherical frame, as developed in the Elliptical section. Figure 1 shows the
+    of this spherical frame, as developed in the Elliptical section. Figure F-1 shows the
     reference configuration with Cartesian coordinates and superimposed spherical
     coordinates on the left with nomenclature that is the mathematical convention in many
     geometry references. On the right a conical reference frame is shown centered at the
@@ -60,7 +70,7 @@
   </p>
   <figure class="figure">
     <img src="fig1-conic-frame.png" alt="Conic reference frame within a spherical field, showing apex, radius R, and angles Phi and Theta">
-    <figcaption>Fig. 1 — Conic Reference Frame in a Spherical Coordinate System.</figcaption>
+    <figcaption>Fig. F-1 — Conic Reference Frame in a Spherical Coordinate System.</figcaption>
   </figure>
 
   <h2>Rectilinear trajectories</h2>
@@ -71,22 +81,27 @@
     eccentricities, \(e\), of one while their total energies have the classical values.
     Eccentricity alone does not identify the orbit type, total energy discriminates them.
     Additionally, the origin of the linear radius vectors is the apex of the cone shown in
-    Figure 1. The cone apex is a singularity but gives a common reference point for these
+    Fig. F-1. The cone apex is a singularity but gives a common reference point for these
     special cases for the three orbit types.
   </p>
   <p>
     The vis-viva equation is classic, and its terms have the units of velocity squared
     (energy). It can be written as:
   </p>
-  \[
-    \underbrace{\frac{\dot r^2}{2} + \frac{\mu p}{2 r^2}}_{\text{kinetic,}}
-    \;-\;
-    \underbrace{\frac{\mu}{r}}_{\text{potential,}}
-    \;=\;
-    \underbrace{\pm\frac{\mu}{2a}}_{\text{total, energy.}}
-  \]
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \underbrace{\frac{\dot r^2}{2} + \frac{\mu p}{2 r^2}}_{\text{kinetic,}}
+      \;-\;
+      \underbrace{\frac{\mu}{r}}_{\text{potential,}}
+      \;=\;
+      \underbrace{\pm\frac{\mu}{2a}}_{\text{total, energy.}}
+    \]
+    </div>
+    <div class="eq-num">(F-1)</div>
+  </div>
   <p>
-    Analyses of each orbit type shows the application of this equation to the derivation
+    Analyses of each orbit type shows the application of Eq. (F-1) to the derivation
     of each motion equation. The symbol \(p\) is the semi latus rectum, or semi parameter,
     for each conic section or orbit, and it becomes zero for the rectilinear trajectories
     when \(e = 1\). Motion to the cone apex (zero for each reference frame) is physically
@@ -103,16 +118,16 @@
     derivations are generally two dimensional, which is justified because two body orbital
     motion is planar. However, the three-dimensional approach followed throughout this
     research yields additional relationships not visible in the two-dimensional treatment.
-    Figure 2 shows edge views of each orbit type, and Table 1 summarizes the findings that
+    Figure F-2 shows edge views of each orbit type, and Table F-1 summarizes the findings that
     are developed in detail in the individual sections.
   </p>
   <figure class="figure">
-    <img src="fig2-conic-comparison.png" alt="Edge-view comparison of elliptical, parabolic, and hyperbolic cone constructions, with Table 1 summarizing Phi_c, Phi_h, and rho for each type">
-    <figcaption>Fig. 2 — Conic Sections, Commonality and Differences.</figcaption>
+    <img src="fig2-conic-comparison.png" alt="Edge-view comparison of elliptical, parabolic, and hyperbolic cone constructions, with Table F-1 summarizing Phi_c, Phi_h, and rho for each type">
+    <figcaption>Fig. F-2 — Conic Sections, Commonality and Differences.</figcaption>
   </figure>
 
   <table class="conic-table">
-    <caption>Table 1 &mdash; Conical Parameters by Type of Orbit</caption>
+    <caption>Table F-1 &mdash; Conical Parameters by Type of Orbit</caption>
     <thead>
       <tr>
         <th>Parameter</th>
@@ -138,23 +153,30 @@
         <td>\(\rho\)</td>
         <td>\(\sqrt{ap}\)</td>
         <td>\(p\)</td>
-        <td>\(ae / \sqrt{e^2 - 1}\)</td>
+        <td>\(\sqrt{ap}\)</td>
       </tr>
     </tbody>
   </table>
 
   <p>
-    Two features of Table 1 stand out. First, the eccentricity-bearing angle swaps roles
+    Two features of Table F-1 stand out. First, the eccentricity-bearing angle swaps roles
     between the elliptical and hyperbolic cases: for elliptical orbits \(\Phi_c\) is fixed
     at \(\pi/4\) while \(\Phi_h\) carries the dependence on \(e\) through
     \(\sin(2\Phi_h) = e\); for hyperbolic orbits the roles reverse, with \(\Phi_h\) fixed at
     \(\pi/2\) and \(\Phi_c\) carrying the dependence through \(\sin(\Phi_c) = 1/e\). The
     parabolic case sits at the degenerate point where both relations collapse onto the same
-    fixed value, since \(e = 1\) exactly. Second, \(\rho\) takes a different closed form in
-    each case (\(\sqrt{ap}\), \(p\), and \(ae/\sqrt{e^2-1}\)) yet each reduces
-    to the same geometric role: the offset of the cutting plane from the cone apex. The
-    Elliptical and Hyperbolic sections develop each relation in full and return to this
-    comparison.
+    fixed value, since \(e = 1\) exactly. Second, \(\rho\) shares the same closed form,
+    \(\sqrt{ap}\), across the elliptical and hyperbolic cases &mdash; a consequence of the
+    simplifying constructions chosen for each (the 45&deg; cone half-angle for the ellipse;
+    the cutting plane parallel to the axis for the hyperbola) rather than a general property
+    of every possible cutting geometry &mdash; while the parabolic case reduces to the
+    simpler \(\rho = p\), since \(a\) is undefined there. In every case \(\rho\) retains the
+    same geometric role: the offset of the cutting plane from the cone apex. These results
+    depend on the specific constructions chosen for each case, not on properties intrinsic
+    to every conic-cutting geometry; the justification for each choice, and what would
+    change under a different construction, is developed in the corresponding Elliptical and
+    Hyperbolic sections, which return to this comparison after deriving each relation in
+    full.
   </p>
 
 </main>

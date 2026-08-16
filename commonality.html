@@ -66,7 +66,7 @@
   </p>
   <p>
     <strong>Doug's note on the geometry:</strong> for a Dandelin sphere tangent to the orbit
-    plane at focus F, the segment from the sphere's center to F is perpendicular to the
+    plane at focus <em>F</em>, the segment from the sphere's center to <em>F</em> is perpendicular to the
     orbit plane (that's just what tangency to a plane means). But the cone's apex is
     <em>not</em>, in general, on that same perpendicular line, because the cone's axis is
     tilted relative to the orbit-plane normal for every non-circular conic (that tilt is
@@ -79,23 +79,23 @@
     <strong>Resolved: apex-to-focus vs. the cone's axis.</strong> The apparent conflict with
     the elliptical focal-point construction (AAS 05-354) traced back to conflating two
     different lines through the apex. <em>OF</em>, the segment from apex to focus used in
-    the Bridge Relation, runs along <strong>h</strong> and is perpendicular to the orbital
+    the Bridge Relation, runs along <strong><em>h</em></strong> and is perpendicular to the orbital
     plane. The cone's <em>axis</em>, the line from the apex through the centers of its
     circular cross-sections (and so through the Dandelin sphere's center), is a separate
-    line, tilted relative to <strong>h</strong> except in the circular case, matching the
+    line, tilted relative to <strong><em>h</em></strong> except in the circular case, matching the
     note above. Since these are two distinct segments from the same apex point rather than
-    one line playing both roles, the sphere-tangency derivation of F and the OF-perpendicular
-    derivation of F are both valid and don't conflict.
+    one line playing both roles, the sphere-tangency derivation of <em>F</em> and the <em>OF</em>-perpendicular
+    derivation of <em>F</em> are both valid and don't conflict.
   </p>
 
   <figure class="figure">
-    <img src="figc1-dandelin-ellipse.png" alt="Elliptical Dandelin construction: cone apex C, z-axis, two spheres tangent to the cutting plane at foci F and F prime, far sphere shown only as an upper cap">
+    <img src="figc1-dandelin-ellipse.png" alt="Elliptical Dandelin construction: cone apex C, z-axis, two spheres tangent to the cutting plane at foci F and F prime, far sphere shown only as its lower hemisphere">
     <figcaption>Fig. C-1 — Elliptical Dandelin construction.</figcaption>
   </figure>
   <p>
-    The smaller Dandelin sphere, near the apex C, is tangent to the cutting plane at the
-    near focus F. The larger sphere, farther from the apex, is tangent at the far focus F′;
-    only its upper cap is drawn, since the rest of the sphere touches neither the cone nor
+    The smaller Dandelin sphere, near the apex <em>C</em>, is tangent to the cutting plane at the
+    near focus <em>F</em>. The larger sphere, farther from the apex, is tangent at the far focus <em>F′</em>;
+    only its lower hemisphere is drawn, since the rest of the sphere touches neither the cone nor
     the cutting plane and adds no geometric content. No separate parabolic figure is needed
     here: the three-orbit composite on the Framework page already shows that case.
   </p>
@@ -140,8 +140,8 @@
     convention of keeping derivations local to individual pages).
   </p>
   <p>
-    <strong>Level 3: Orbital.</strong> The satellite's actual position, r, \(\theta\), and
-    its slant-distance and axis-perpendicular coordinates R and R′ within the cone, lives
+    <strong>Level 3: Orbital.</strong> The satellite's actual position, <em>r</em>, \(\theta\), and
+    its slant-distance and axis-perpendicular coordinates <em>R</em> and <em>R′</em> within the cone, lives
     at this innermost level. This is where the classical two-body orbit (periapsis,
     apoapsis, true anomaly) is actually described, and where the cone's fixed geometry from
     Level 2 gets tied to the moving satellite.
@@ -232,7 +232,7 @@
   <p>
     Gauss's law for gravitation states that the total outward gravitational flux through
     any closed surface equals \(-4\pi\mu\), where \(\mu = GM\) is the gravitational
-    parameter of the enclosed mass. For a sphere of radius R centered on the primary body,
+    parameter of the enclosed mass. For a sphere of radius <em>R</em> centered on the primary body,
     the field magnitude is \(\mu/R^{2}\) and the surface area is \(4\pi R^{2}\), so the
     integrand is constant and the \(R^{2}\) factors cancel identically. The flux is
     \(-4\pi\mu\) regardless of the sphere's size.
@@ -242,7 +242,7 @@
     <li>
       <strong>Enclosure, not position, is what matters.</strong> The theorem places no
       constraint on <em>where</em> within the surface the mass sits, only that it's
-      enclosed. For the two-body problem, the primary body at focus F remains enclosed for
+      enclosed. For the two-body problem, the primary body at focus <em>F</em> remains enclosed for
       every satellite position, so the flux argument holds across the full range of
       eccentricity without modification.
     </li>
@@ -260,7 +260,7 @@
       radial generators of the cone, and the \(R^{2}\) cancellation holds at every radius,
       a conic sector of fixed half-angle subtends a fixed solid angle regardless of how far
       along the generator you measure. The flux through that sector therefore stays
-      constant as the satellite moves along its orbit, even though R itself is changing.
+      constant as the satellite moves along its orbit, even though <em>R</em> itself is changing.
     </li>
   </ul>
   <p>
@@ -335,20 +335,20 @@
   </div>
   <p>
     Eq. (C-5) is the template: one integral, general across conic type, that each
-    individual conic page carries out with its own values of a, e, p, and sign
+    individual conic page carries out with its own values of <em>a</em>, <em>e</em>, <em>p</em>, and sign
     substituted in. Table C-1 collects those substitutions, both for the general orbit and
-    for the rectilinear (e = 1, purely radial) special case each conic type reduces to.
+    for the rectilinear (<em>e</em> = 1, purely radial) special case each conic type reduces to.
   </p>
   <p>
-    <strong>A note on a.</strong> The classical treatment of hyperbolic orbits often
-    carries the sign difference from the elliptical case inside a itself. For a hyperbola,
-    a is taken negative so that \(-\mu/2a\) and \(+\mu/2|a|\) end up meaning the same thing.
-    This framework does not do that: a stays a positive, definite geometric distance for
+    <strong>A note on <em>a</em>.</strong> The classical treatment of hyperbolic orbits often
+    carries the sign difference from the elliptical case inside <em>a</em> itself. For a hyperbola,
+    <em>a</em> is taken negative so that \(-\mu/2a\) and \(+\mu/2|a|\) end up meaning the same thing.
+    This framework does not do that: <em>a</em> stays a positive, definite geometric distance for
     every conic type (for the hyperbolic case, half the distance between the two nappes'
     periapses, as above), and the sign difference between ellipse and hyperbola is carried
     entirely by the \(\pm\) in the vis-viva derivation and by \(p = a(e^{2} - 1)\) rather
-    than by the sign of a. That choice is what Table C-1 reflects. Any places where this
-    diverges from the classical negative-a convention in ways that matter for the
+    than by the sign of <em>a</em>. That choice is what Table C-1 reflects. Any places where this
+    diverges from the classical negative-<em>a</em> convention in ways that matter for the
     derivation are better explained where they actually show up, on the Hyperbolic page
     itself, rather than asserted here in general terms.
   </p>
@@ -365,21 +365,21 @@
     </thead>
     <tbody>
       <tr>
-        <td>a</td>
+        <td><em>a</em></td>
         <td>Semi-major axis</td>
         <td>N/A</td>
         <td>Half the distance between the two nappes' periapses</td>
       </tr>
       <tr>
-        <td>e</td>
-        <td>0 ≤ e ≤ 1</td>
+        <td><em>e</em></td>
+        <td>0 ≤ <em>e</em> ≤ 1</td>
         <td>1</td>
-        <td>1 ≤ e → ∞</td>
+        <td>1 ≤ <em>e</em> → ∞</td>
       </tr>
       <tr>
-        <td>p</td>
+        <td><em>p</em></td>
         <td>\(a(1-e^{2})\)</td>
-        <td>p</td>
+        <td><em>p</em></td>
         <td>\(a(e^{2}-1)\)</td>
       </tr>
       <tr>
@@ -392,19 +392,19 @@
         <td colspan="4"><strong>Rectilinear special case</strong></td>
       </tr>
       <tr>
-        <td>a</td>
+        <td><em>a</em></td>
         <td>Half linear axis</td>
         <td>N/A</td>
         <td>See Hyperbolic page</td>
       </tr>
       <tr>
-        <td>e</td>
+        <td><em>e</em></td>
         <td>1</td>
         <td>N/A</td>
         <td>1</td>
       </tr>
       <tr>
-        <td>p</td>
+        <td><em>p</em></td>
         <td>0</td>
         <td>N/A</td>
         <td>0</td>
@@ -418,21 +418,21 @@
     carried out in the individual pages rather than here.
   </p>
   <p>
-    <strong>Parabolic a.</strong> A does not exist for the parabola. There is no finite
+    <strong>Parabolic <em>a</em>.</strong> The parameter <em>a</em> does not exist for the parabola. There is no finite
     semi-major axis, which is why Table C-1 marks it N/A rather than assigning it a value
     the way the elliptical and hyperbolic rows do. The Parabolic page derives its motion
     equation directly from \(\mathcal{E} = 0\) in the vis-viva relation rather than through
-    this template's \(\pm\) form, which is built around a.
+    this template's \(\pm\) form, which is built around <em>a</em>.
   </p>
   <p class="placeholder-note">
-    [OPEN] <strong>Hyperbolic rectilinear a.</strong> The hyperbolic rectilinear a is left
-    to the Hyperbolic page rather than defined here. In the general hyperbolic case, a is
+    [OPEN] <strong>Hyperbolic rectilinear <em>a</em>.</strong> The hyperbolic rectilinear <em>a</em> is left
+    to the Hyperbolic page rather than defined here. In the general hyperbolic case, <em>a</em> is
     half the distance between the two nappes' periapses, a real geometric span with two
     distinct points. At the rectilinear limit those periapses collapse to the origin (the
     cone apex), so that definition no longer has two points to span, and the cone itself no
     longer constrains the trajectory the way it does off the rectilinear limit: a
     rectilinear path can radiate in any spherical direction, not just along the cone's
-    surface. Table C-1 still gives e = 1 and p = 0 for this row, so a retains a numerical
+    surface. Table C-1 still gives <em>e</em> = 1 and <em>p</em> = 0 for this row, so <em>a</em> retains a numerical
     role in the integral; its geometric meaning at that limit is deferred to the Hyperbolic
     page. The rectilinear collapse of the figure below is deferred to the Hyperbolic page
     along with it.
@@ -443,10 +443,10 @@
     <figcaption>Fig. C-2 — Hyperbolic focal geometry.</figcaption>
   </figure>
   <p>
-    The vertex, center, and both foci F and F′ sit on the transverse axis, with the
-    asymptotes drawn through the center. a is the center-to-vertex distance; ae is the
-    center-to-focus distance. For a point P on the right branch, r = FP and r′ = F′P, with
-    \(\theta\) the true anomaly measured at F.
+    The vertex, center, and both foci <em>F</em> and <em>F′</em> sit on the transverse axis, with the
+    asymptotes drawn through the center. <em>a</em> is the center-to-vertex distance; <em>ae</em> is the
+    center-to-focus distance. For a point <em>P</em> on the right branch, <em>r</em> = <em>FP</em> and <em>r′</em> = <em>F′P</em>, with
+    \(\theta\) the true anomaly measured at <em>F</em>.
   </p>
 
 </main>

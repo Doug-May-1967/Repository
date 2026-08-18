@@ -5,6 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elliptical Orbits — Orbit-Mech</title>
 <link rel="stylesheet" href="style.css">
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      mathStyle: 'ISO'
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js"></script>
+<style>
+  .eq-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5em 0;
+  }
+  .eq-row > .eq-body { flex: 1; }
+  .eq-row > .eq-num  { flex: 0 0 auto; margin-left: 1.5em; }
+</style>
 </head>
 <body>
 <header>
@@ -30,6 +50,139 @@
     sin(2&Phi;<sub>h</sub>) = e, and the R-frame TOF interpolation advantage — and link out to
     the derivation for readers who want the full chain.
   </p>
+
+  <h2>The Dandelin Construction, Specific to the Ellipse</h2>
+  <p>
+    Commonality introduced the Dandelin sphere construction in general terms, true for any
+    conic section. Here it's specialized: the apex is labeled <em>C</em>, the cone's axis is
+    the <em>z</em>-axis, and the two spheres are tangent to the orbital plane at the near
+    focus <em>F</em> and far focus <em>F′</em>.
+  </p>
+
+  <p>
+    <strong>Doug's note on the geometry:</strong> for a Dandelin sphere tangent to the orbit
+    plane at focus <em>F</em>, the segment from the sphere's center to <em>F</em> is perpendicular to the
+    orbit plane (that's just what tangency to a plane means). But the cone's apex is
+    <em>not</em>, in general, on that same perpendicular line, because the cone's axis is
+    tilted relative to the orbit-plane normal for every non-circular conic (that tilt is
+    what produces the eccentricity in the first place). The two lines, sphere-center-to-focus
+    and apex-to-focus, only coincide in the degenerate circular case. This distinction
+    matters for the framework's own derivations, which build the cone from the apex outward
+    rather than from the sphere inward.
+  </p>
+  <p>
+    <strong>Resolved: apex-to-focus vs. the cone's axis.</strong> The apparent conflict with
+    the elliptical focal-point construction (AAS 05-354) traced back to conflating two
+    different lines through the apex. <em>OF</em>, the segment from apex to focus used in
+    the Bridge Relation below, runs along <strong><em>h</em></strong> and is perpendicular to the orbital
+    plane. The cone's <em>axis</em>, the line from the apex through the centers of its
+    circular cross-sections (and so through the Dandelin sphere's center), is a separate
+    line, tilted relative to <strong><em>h</em></strong> except in the circular case, matching the
+    note above. Since these are two distinct segments from the same apex point rather than
+    one line playing both roles, the sphere-tangency derivation of <em>F</em> and the <em>OF</em>-perpendicular
+    derivation of <em>F</em> are both valid and don't conflict.
+  </p>
+
+  <figure class="figure">
+    <img src="figc1-dandelin-ellipse.png" alt="Elliptical Dandelin construction: cone apex C, z-axis, two spheres tangent to the cutting plane at foci F and F prime, far sphere shown only as its lower hemisphere">
+    <figcaption>Fig. E-1 — Elliptical Dandelin construction.</figcaption>
+  </figure>
+  <p>
+    The smaller Dandelin sphere, near the apex <em>C</em>, is tangent to the cutting plane at the
+    near focus <em>F</em>. The larger sphere, farther from the apex, is tangent at the far focus <em>F′</em>;
+    only its lower hemisphere is drawn, since the rest of the sphere touches neither the cone nor
+    the cutting plane and adds no geometric content. No separate parabolic figure is needed
+    here: the three-orbit composite on the Framework page already shows that case.
+  </p>
+
+  <p>
+    The Dandelin spheres above establish where the foci sit and give PF + PF′ = 2<em>a</em>.
+    They don't, on their own, hand us the specific length the Bridge Relation needs:
+    \(\sqrt{ap}\), the perpendicular distance from the apex to the orbital plane. The
+    following construction isolates that length directly, using the same cutting plane and
+    axis but a simpler auxiliary circle: inscribe a circle on the axis segment from apex
+    <em>C</em> to the point <em>S</em> where the axis meets the orbital plane. By Thales'
+    theorem, this circle is tangent to the orbital-plane trace at the foot of the
+    perpendicular from <em>C</em> — so the tangent point falls out of the construction
+    itself, without a tangent-length equality to invoke.
+  </p>
+
+  <figure class="figure">
+    <img src="fige1-apex-circle-placeholder.png" alt="Placeholder: apex-circle construction, Thales circle on axis segment CS tangent to the orbital-plane trace, giving root ap directly">
+    <figcaption>Fig. E-2 — Apex-circle construction for \(\sqrt{ap}\) (placeholder — companion to Fig. E-1).</figcaption>
+  </figure>
+  <p class="placeholder-note">
+    [PLACEHOLDER] To be drawn in the site's figure style: apex <em>C</em>, axis segment
+    <em>CS</em>, the circle on diameter <em>CS</em>, its tangent point with the cutting
+    plane, and the angle \(\Phi_h\) at the apex. Pairs directly with Fig. E-1 above — same
+    cone, same cutting plane, different auxiliary construction, different target length.
+  </p>
+
+  <div id="bridge-relation">
+    <h2>The Bridge Relation</h2>
+    <p>
+      With the cone apex angle fixed at 90° (\(\Phi_c = \pi/4\)), the edge-view derivation
+      gives <em>OF</em>, the perpendicular distance from the apex to the orbital plane, as
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        OF = a\sqrt{1 - e^{2}} = \sqrt{ap}
+      \]
+      </div>
+      <div class="eq-num">(E-1)</div>
+    </div>
+    <p>
+      Because <em>OF</em> is perpendicular to the <em>entire</em> orbital plane, not just to
+      one point in it, it is perpendicular to the radius vector <em>r</em> for every satellite
+      position. The triangle formed by the apex, focus <em>F</em>, and the satellite is
+      therefore a right triangle at every point on the orbit, with legs <em>OF</em> =
+      \(\sqrt{ap}\) and <em>r</em>, and hypotenuse <em>R</em> (the slant distance from apex to
+      satellite):
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        R^{2} = r^{2} + ap
+      \]
+      </div>
+      <div class="eq-num">(E-2)</div>
+    </div>
+    <p>
+      <em>R′</em>, the component of <em>R</em> perpendicular to the cone's <em>z</em>-axis
+      (rather than to the orbital plane), follows as a corollary. At the 90° apex angle,
+      <em>R′</em> = <em>R</em>/\(\sqrt{2}\), giving
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        R'^{2} = \frac{1}{2}\left( r^{2} + ap \right)
+      \]
+      </div>
+      <div class="eq-num">(E-3)</div>
+    </div>
+    <p>
+      Both relations hold at <em>every</em> point on the orbit: <em>r</em> and <em>R</em>
+      both vary as the satellite moves, but <em>ap</em> is fixed for a given orbit, playing
+      the same role as a geometric constant that the specific mechanical energy
+      \(-\mu/(2a)\) plays as a physical constant.
+    </p>
+    <p>
+      <strong>Status for the other conic types.</strong> This is confirmed for the elliptical
+      case only. The hyperbolic and parabolic pages are less developed, and a more general
+      form of this relation, \(R^{2} = r^{2} + 2a(r - p) + R'^{2}\), has appeared in earlier
+      framework notes without a matching derivation confirming it across all three conic
+      types. Given that \(\Phi_c\) and \(\Phi_h\) swap roles between the elliptical and
+      hyperbolic cases (Table F-1), the bridge relation should not be assumed to carry over
+      unmodified; it needs to be re-derived from each type's own edge-view geometry once
+      those pages mature, the same way \(\rho\) took a different closed form
+      (\(\sqrt{ap}\), \(p\), \(ae/\sqrt{e^{2}-1}\)) in each case while keeping the same
+      geometric role.
+    </p>
+    <p class="placeholder-note">
+      [OPEN, no direction set] Carried forward as-is; no resolution attempted yet.
+    </p>
+  </div>
 </main>
 
 <footer>

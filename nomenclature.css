@@ -16,6 +16,8 @@
   white-space: nowrap;
   user-select: none;
   margin-left: auto;   /* push to far right of the nav */
+  vertical-align: baseline;
+  align-self: center;
 }
 
 .nom-btn:hover {

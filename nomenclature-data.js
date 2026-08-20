@@ -50,12 +50,12 @@ const NOMENCLATURE_GROUPS = [
       {
         symbol: "\\(\\Phi_c\\)",
         meaning: "Cone half-angle",
-        notes: "Varies with eccentricity. Carries both eccentricity relations: \\(\\sin(2\\Phi_c) = e\\) (elliptical), \\(\\sin(\\Phi_c) = 1/e\\) (hyperbolic). Replaces the earlier H_C notation."
+        notes: "Fixed at \\(\\pi/4\\) for the elliptical case (structural constant). Carries the eccentricity dependence for the hyperbolic case: \\(\\cos(\\Phi_c) = 1/e\\). Replaces the earlier H_C notation."
       },
       {
         symbol: "\\(\\Phi_h\\)",
         meaning: "Angle to the angular momentum vector \\(\\mathbf{h}\\)",
-        notes: "Fixed at 90\u00b0 for the hyperbolic case by construction. Does not appear in the eccentricity relations — those belong to \\(\\Phi_c\\). Magnitude of \\(\\mathbf{h}\\): general definition \\(h = r^2\\dot\\theta\\) (holds for both conic types). Elliptical closed form: \\(\\sqrt{ap}\\). Hyperbolic closed form in terms of a, p: [open — not yet resolved]."
+        notes: "Carries the eccentricity dependence for the elliptical case: \\(\\sin(2\\Phi_h) = e\\). Fixed at \\(\\pi/2\\) for the hyperbolic case by construction — the mirror image of the elliptical row (Table F-1). Magnitude of \\(\\mathbf{h}\\): general definition \\(h = r^2\\dot\\theta\\) (holds for both conic types). Elliptical closed form: \\(\\sqrt{ap}\\). Hyperbolic closed form in terms of a, p: [open — not yet resolved]."
       },
       {
         symbol: "\\(\\rho\\)",
@@ -131,11 +131,11 @@ const NOMENCLATURE_RELATIONS = [
     where: "General form"
   },
   {
-    relation: "\\(\\sin(2\\Phi_c) = e\\)",
+    relation: "\\(\\sin(2\\Phi_h) = e\\)",
     where: "Elliptical case"
   },
   {
-    relation: "\\(\\sin(\\Phi_c) = 1/e\\)",
+    relation: "\\(\\cos(\\Phi_c) = 1/e\\)",
     where: "Hyperbolic case"
   },
   {

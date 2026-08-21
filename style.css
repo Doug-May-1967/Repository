@@ -115,6 +115,10 @@ figure.figure img {
   border: 1px solid var(--rule-color);
 }
 
+figure.figure.figure-narrow img {
+  max-width: 80%;
+}
+
 figcaption {
   margin-top: 0.5rem;
   font-size: 0.95rem;

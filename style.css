@@ -168,13 +168,13 @@ table.conic-table th:first-child {
 
 .figure-strip figure {
   margin: 0;
-  width: 170px;
   text-align: center;
 }
 
 .figure-strip img {
+  height: 185px;
+  width: auto;
   max-width: 100%;
-  height: auto;
   border: 1px solid var(--rule-color);
 }
 

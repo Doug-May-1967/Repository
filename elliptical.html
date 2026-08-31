@@ -25,6 +25,36 @@
   }
   .eq-row > .eq-body { flex: 1; }
   .eq-row > .eq-num  { flex: 0 0 auto; margin-left: 1.5em; }
+
+  .figure-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+    justify-content: center;
+    margin: 1.8rem 0;
+  }
+  .figure-row figure.figure {
+    margin: 0;
+    flex: 1 1 280px;
+    max-width: 46%;
+  }
+  @media (max-width: 640px) {
+    .figure-row figure.figure { max-width: 100%; }
+  }
+
+  .footnote {
+    font-size: 0.88rem;
+    color: #555;
+    border-top: 1px solid var(--rule-color);
+    margin-top: 2.5rem;
+    padding-top: 0.8rem;
+  }
+  .footnote-ref {
+    font-size: 0.75em;
+    vertical-align: super;
+    text-decoration: none;
+    color: var(--accent-color);
+  }
 </style>
 </head>
 <body>
@@ -44,102 +74,264 @@
   <p class="eyebrow">Section II</p>
   <h1>Elliptical orbit analysis and results</h1>
 
-  <p class="placeholder-note">
-    Placeholder — this page will summarize the elliptical orbit analysis and results from
-    "Conical Coordinates for Elliptical Orbits." Unlike the paper, which carries the full
-    derivation for a reviewer, this page can lead with the result — the 45° half-angle cone,
-    sin(2&Phi;<sub>h</sub>) = e, and the R-frame TOF interpolation advantage — and link out to
-    the derivation for readers who want the full chain.
+  <p>
+    Classical analyses of elliptical orbits are two-dimensional, reflecting the fact that in
+    the absence of other forces, orbital motion is confined to a plane. It is also well
+    established that orbital geometries are conic sections, a consequence of the
+    inverse-square gravitational force law. What is less commonly exploited is that this
+    constraint can be built directly into a three-dimensional reference frame: rather than
+    treating "planar motion" and "conic section" as two separate facts about the orbit, both
+    can be captured at once by embedding the orbit in a cone, as introduced in Fig. F-1.
+    Consistent with that construction, an elliptical orbit is shown here in a conical frame in
+    Fig. E-1. The shaded area represents the area swept in equal times, per Kepler's second
+    law, as a reminder that the geometric picture developed on this page is not a substitute
+    for the orbit's dynamics, but a supporting structure that sits alongside it and, as later
+    sections show, reproduces results like Kepler's equation directly from the cone's
+    geometry.
   </p>
+
+  <figure class="figure">
+    <img src="fige1-conic-section.png" alt="Elliptical orbit shown as a conic section: sphere with inscribed cone, cutting plane forming an ellipse, focus F, radius vector r, shaded area-swept sector, x, y, z axes">
+    <figcaption>Fig. E-1 — Elliptic orbit shown as a conic section, with focus <em>F</em>, radius <em>r</em>, and the shaded sector marking area swept per Kepler's second law.</figcaption>
+  </figure>
+
+  <h2>Edge-View Derivation of ρ</h2>
+  <p>
+    A useful pattern emerges when the construction in Fig. E-1 is arranged so that a line
+    through the primary focus, aligned with the angular momentum vector, extends to the cone
+    apex. Fig. E-2 shows this in edge view, with known parameters and the unknown line
+    denoted <em>ρ</em>.
+  </p>
+
+  <div class="figure-row">
+    <figure class="figure">
+      <img src="fige2-edge-view.png" alt="Elliptical orbit edge view: apex C, points A and F and P, segment rho from C to F, angles alpha and beta at C, distances a plus ae and a minus ae">
+      <figcaption>Fig. E-2 — Elliptical orbit edge view, with the unknown segment <em>ρ</em> and angles <em>α</em>, <em>β</em> at apex <em>C</em>.</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="fige3-edge-view-solved.png" alt="Edge view after solving for rho, alpha, beta, CA, and CP: same triangle with root ap labeled for rho, and CA and CP labeled a root(2+2e) and a root(2-2e)">
+      <figcaption>Fig. E-3 — Edge view after solving for <em>ρ</em>, <em>α</em>, <em>β</em>, <em>CA</em>, and <em>CP</em>.</figcaption>
+    </figure>
+  </div>
+
+  <p>
+    Figure E-3 shows that <em>ρ</em> = \(\sqrt{ap}\), derived as follows. The right triangles
+    in Fig. E-2 relate the apex angle to the angles <em>α</em> and <em>β</em> via the
+    cotangent:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \cot\alpha = \frac{\rho}{a(1-e)}\,, \qquad \cot\beta = \frac{\rho}{a(1+e)}
+    \]
+    </div>
+    <div class="eq-num">(E-1)</div>
+  </div>
+  <p>
+    Applying the cotangent-sum identity and substituting for <em>α</em> and <em>β</em> gives,
+    after simplification,
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \cot(\alpha+\beta) = \frac{\rho^{2} - a^{2}(1-e^{2})}{2a\rho}
+    \]
+    </div>
+    <div class="eq-num">(E-2)</div>
+  </div>
+  <p>which rearranges to</p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \rho^{2} - 2a\rho\cot(\alpha+\beta) - a^{2}(1-e^{2}) = 0
+    \]
+    </div>
+    <div class="eq-num">(E-3)</div>
+  </div>
+  <p>
+    A simplified solution is found when <em>α</em> + <em>β</em> = <em>π</em>/2: if the vertical
+    line in Fig. E-3 is the cone's true axis, symmetry forces <em>α</em> = <em>β</em> =
+    \(\Phi_c\), so <em>α</em> + <em>β</em> = <em>π</em>/2 and \(\Phi_c\) = 45° are the same
+    statement. With \(\cot(\pi/2) = 0\), Eq. E-3 reduces directly to
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \rho = \sqrt{ap}
+    \]
+    </div>
+    <div class="eq-num">(E-4)</div>
+  </div>
+  <p>
+    This same length <em>ρ</em> reappears as <em>CF</em> in the Bridge Relation below. These
+    are two names for the same segment, arrived at from two different auxiliary
+    constructions.
+  </p>
+
+  <h2>An Equal-Energy Family</h2>
+  <p>
+    For a fixed semi-major axis <em>a</em>, equivalent to a fixed total specific energy of
+    \(-\mu/2a\), the eccentricity <em>e</em> is free to range between the limiting cases of a
+    circle (<em>e</em> = 0) and a degenerate linear trajectory (<em>e</em> = 1). Every
+    intermediate value describes an ellipse of the same energy but a different shape. Fig. E-4
+    shows several members of this equal-energy family in edge view within the conical frame.
+    All retain a rotational component about the focus except the linear limiting case, which
+    is purely radial. In the vis-viva equation, it is the eccentricity-dependent term that
+    varies across this family; the energy term itself is unchanged.
+  </p>
+
+  <figure class="figure">
+    <img src="fige4-equal-energy-family.png" alt="Elliptic orbits in edge view with equal total energy: fan of generators from the apex to a common 2a chord, root ap marked, spanning from near-circular to the linear limiting case">
+    <figcaption>Fig. E-4 — Elliptic orbits in edge view with equal total energy, ranging from near-circular to the linear limiting case, all sharing the same <em>a</em>.</figcaption>
+  </figure>
 
   <h2>The Dandelin Construction, Specific to the Ellipse</h2>
   <p>
     Commonality introduced the Dandelin sphere construction in general terms, true for any
-    conic section. Here it's specialized: the apex is labeled <em>C</em>, the cone's axis is
-    the <em>z</em>-axis, and the two spheres are tangent to the orbital plane at the near
-    focus <em>F</em> and far focus <em>F′</em>.
-  </p>
-
-  <p>
-    <strong>Doug's note on the geometry:</strong> for a Dandelin sphere tangent to the orbit
-    plane at focus <em>F</em>, the segment from the sphere's center to <em>F</em> is perpendicular to the
-    orbit plane (that's just what tangency to a plane means). But the cone's apex is
-    <em>not</em>, in general, on that same perpendicular line, because the cone's axis is
-    tilted relative to the orbit-plane normal for every non-circular conic (that tilt is
-    what produces the eccentricity in the first place). The two lines, sphere-center-to-focus
-    and apex-to-focus, only coincide in the degenerate circular case. This distinction
-    matters for the framework's own derivations, which build the cone from the apex outward
-    rather than from the sphere inward.
+    conic section. Here it specializes with the apex labeled <em>C</em>, the cone's axis as
+    the <em>z</em>-axis, and the two spheres tangent to the orbital plane at the primary focus
+    <em>F</em> and empty focus <em>F′</em>.
   </p>
   <p>
-    <strong>Resolved: apex-to-focus vs. the cone's axis.</strong> The apparent conflict with
-    the elliptical focal-point construction (AAS 05-354) traced back to conflating two
-    different lines through the apex. <em>OF</em>, the segment from apex to focus used in
-    the Bridge Relation below, runs along <strong><em>h</em></strong> and is perpendicular to the orbital
-    plane. The cone's <em>axis</em>, the line from the apex through the centers of its
-    circular cross-sections (and so through the Dandelin sphere's center), is a separate
-    line, tilted relative to <strong><em>h</em></strong> except in the circular case, matching the
-    note above. Since these are two distinct segments from the same apex point rather than
-    one line playing both roles, the sphere-tangency derivation of <em>F</em> and the <em>OF</em>-perpendicular
-    derivation of <em>F</em> are both valid and don't conflict.
+    Two different lines pass through the apex <em>C</em>. <em>CF</em>, used in the Bridge
+    Relation below, runs along <strong><em>h</em></strong> and is perpendicular to the orbital
+    plane. The cone's axis, which passes through the Dandelin sphere's center, is tilted
+    relative to <strong><em>h</em></strong> for every non-circular conic. The two lines
+    coincide only in the degenerate circular case. Because these are distinct segments from
+    the same apex, not one line playing two roles, the sphere-tangency construction of
+    <em>F</em> and the <em>CF</em>-perpendicular derivation of <em>F</em> are both valid
+    descriptions of the same point. There's no conflict between them, only a visual difference
+    in which line is drawn.
   </p>
 
   <figure class="figure">
-    <img src="figc1-dandelin-ellipse.png" alt="Elliptical Dandelin construction: cone apex C, z-axis, two spheres tangent to the cutting plane at foci F and F prime, far sphere shown only as its lower hemisphere">
-    <figcaption>Fig. E-1 — Elliptical Dandelin construction.</figcaption>
+    <img src="fige5-dandelin-construction.png" alt="Elliptical Dandelin construction: cone apex C, z-axis, two Dandelin spheres tangent to the cutting plane at foci F and F prime, angles Phi c and Phi h at the apex, only the lower hemisphere of the far sphere drawn">
+    <figcaption>Fig. E-5 — Elliptical Dandelin construction: apex <em>C</em>, the <em>z</em>-axis, and spheres tangent to the orbital plane at primary focus <em>F</em> and empty focus <em>F′</em>.</figcaption>
   </figure>
   <p>
-    The smaller Dandelin sphere, near the apex <em>C</em>, is tangent to the cutting plane at the
-    near focus <em>F</em>. The larger sphere, farther from the apex, is tangent at the far focus <em>F′</em>;
-    only its lower hemisphere is drawn, since the rest of the sphere touches neither the cone nor
-    the cutting plane and adds no geometric content. No separate parabolic figure is needed
-    here: the three-orbit composite on the Framework page already shows that case.
+    The smaller Dandelin sphere, near the apex <em>C</em>, is tangent to the cutting plane at
+    the primary focus <em>F</em>. The larger sphere, farther from the apex, is tangent at the
+    empty focus <em>F′</em>; only its lower hemisphere is drawn, since the rest of the sphere
+    touches neither the cone nor the cutting plane and adds no geometric content. No separate
+    parabolic figure is needed here: the three-orbit composite on the Framework page already
+    shows that case.
   </p>
 
-  <p>
-    The Dandelin spheres above establish where the foci sit and give PF + PF′ = 2<em>a</em>.
-    They don't, on their own, hand us the specific length the Bridge Relation needs:
-    \(\sqrt{ap}\), the perpendicular distance from the apex to the orbital plane. The
-    following construction isolates that length directly, using the same cutting plane and
-    axis but a simpler auxiliary circle: inscribe a circle on the axis segment from apex
-    <em>C</em> to the point <em>S</em> where the axis meets the orbital plane. By Thales'
-    theorem, this circle is tangent to the orbital-plane trace at the foot of the
-    perpendicular from <em>C</em> — so the tangent point falls out of the construction
-    itself, without a tangent-length equality to invoke.
-  </p>
-
+  <h2>Tilt Angle and the Cone Half-Angle</h2>
   <figure class="figure">
-    <img src="fige1-apex-circle-placeholder.png" alt="Placeholder: apex-circle construction, Thales circle on axis segment CS tangent to the orbital-plane trace, giving root ap directly">
-    <figcaption>Fig. E-2 — Apex-circle construction for \(\sqrt{ap}\) (placeholder — companion to Fig. E-1).</figcaption>
+    <img src="fige6-tilt-angle.png" alt="Tilt angle Phi h measured from the Dandelin sphere's center at height z sub D, contrasted with the cone half-angle Phi c measured from the apex C, tangent right angles marked">
+    <figcaption>Fig. E-6 — Tilt angle \(\Phi_h\) measured from the Dandelin sphere's center, for two cones of different half-angle \(\Phi_c\) cutting the same ellipse.</figcaption>
   </figure>
+  <p>
+    Fig. E-6 shows two different cones, with different half-angles \(\Phi_c\), each with its
+    own correctly sized and positioned Dandelin sphere, cut by planes at different tilts
+    \(\Phi_h\), producing the same ellipse. The cone's half-angle is not fixed by the ellipse
+    it produces; <em>a</em> and <em>e</em> leave \(\Phi_c\) free.
+  </p>
+  <p>
+    What does constrain the geometry, in this framework, is not the cone's shape but the
+    direction established in Fig. E-3: <em>CF</em> runs along <strong><em>h</em></strong>,
+    perpendicular to the orbital plane. That is the physically meaningful constraint here, not
+    the cone's apex angle.
+  </p>
+  <p>
+    This may be why over two thousand years of work on conic sections has never assigned the
+    cone's apex angle a specific value for a given ellipse: none exists, absent some outside
+    constraint like the one <strong><em>h</em></strong> provides.
+  </p>
   <p class="placeholder-note">
-    [PLACEHOLDER] To be drawn in the site's figure style: apex <em>C</em>, axis segment
-    <em>CS</em>, the circle on diameter <em>CS</em>, its tangent point with the cutting
-    plane, and the angle \(\Phi_h\) at the apex. Pairs directly with Fig. E-1 above — same
-    cone, same cutting plane, different auxiliary construction, different target length.
+    Note: \(\Phi_h\) only needs to be determined at periapsis.
+  </p>
+  <p>
+    Since \(\Phi_c\) is free, this page fixes it at 45°, the same choice already made in Fig.
+    F-1. That choice isn't forced by physics, a different half-angle would do just as well,
+    but it supports further development. It lets \(\Phi_h\) alone track eccentricity across
+    the entire elliptical range, meets the parabolic case exactly at \(\Phi_h = \Phi_c\) =
+    45°, and continues smoothly partway into the hyperbolic regime before a varying
+    \(\Phi_c\) becomes necessary. Figs. E-2 and E-3 carry out the edge-view derivation of
+    <em>ρ</em> = \(\sqrt{ap}\) in this fixed 45° conical frame.
+  </p>
+
+  <h2>Deriving sin(2Φh) = e</h2>
+  <p>
+    The same edge view that fixed <em>ρ</em> = \(\sqrt{ap}\) also pins down \(\Phi_h\)
+    directly. With \(\Phi_c\) fixed at 45°, Fig. E-3's two generators sit at 45° from the
+    axis, and <em>CF</em> sits at angle \(\Phi_h\) from that same axis, measured toward
+    periapsis.
+  </p>
+  <p>
+    The distance from <em>F</em> to periapsis <em>P</em> is <em>a</em>(1 − <em>e</em>).
+    <em>CP</em>, along the 45° generator, has length \(a\sqrt{2-2e}\): from
+    \(CP^{2} = CF^{2} + FP^{2} = ap + a^{2}(1-e)^{2}\), and
+    <em>p</em> = <em>a</em>(1 − <em>e</em>)(1 + <em>e</em>), this reduces to
+    \(CP^{2} = 2a^{2}(1-e)\).
+  </p>
+  <p>
+    In right triangle <em>CFP</em>, the right angle is at <em>F</em>, since <em>CF</em> ⊥ the
+    orbital plane and <em>FP</em> lies within it. The angle at <em>C</em>, between <em>CP</em>
+    and <em>CF</em>, is (45° − \(\Phi_h\)), since <em>CP</em> sits at 45° from the axis and
+    <em>CF</em> at \(\Phi_h\). So:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \sin(45^\circ - \Phi_h) = \frac{FP}{CP} = \frac{a(1-e)}{a\sqrt{2-2e}} = \sqrt{\frac{1-e}{2}}
+    \]
+    </div>
+    <div class="eq-num">(E-5)</div>
+  </div>
+  <p>with the complementary angle giving</p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \cos(45^\circ - \Phi_h) = \sqrt{\frac{1+e}{2}}
+    \]
+    </div>
+    <div class="eq-num">(E-6)</div>
+  </div>
+  <p>
+    Applying the double-angle identity
+    \(\cos(90^\circ - 2\Phi_h) = 1 - 2\sin^{2}(45^\circ - \Phi_h)\) and substituting Eq. E-5:
+  </p>
+  <p>
+    \[
+      \cos(90^\circ - 2\Phi_h) = 1 - (1-e) = e
+    \]
+  </p>
+  <p>Since \(\cos(90^\circ - 2\Phi_h) = \sin(2\Phi_h)\), this gives</p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \sin(2\Phi_h) = e
+    \]
+    </div>
+    <div class="eq-num">(E-7)</div>
+  </div>
+  <p>
+    matching Table F-1 and the Level 2 entry on the Commonality page.
   </p>
 
   <div id="bridge-relation">
     <h2>The Bridge Relation</h2>
     <p>
-      With the cone apex angle fixed at 90° (\(\Phi_c = \pi/4\)), the edge-view derivation
-      gives <em>OF</em>, the perpendicular distance from the apex to the orbital plane, as
+      With the cone apex angle fixed at 90° (\(\Phi_c = \pi/4\), as established above), the
+      edge-view derivation gives <em>CF</em>, the perpendicular distance from the apex to the
+      orbital plane, as
     </p>
     <div class="eq-row">
       <div class="eq-body">
       \[
-        OF = a\sqrt{1 - e^{2}} = \sqrt{ap}
+        CF = a\sqrt{1 - e^{2}} = \sqrt{ap}
       \]
       </div>
-      <div class="eq-num">(E-1)</div>
+      <div class="eq-num">(E-8)</div>
     </div>
     <p>
-      Because <em>OF</em> is perpendicular to the <em>entire</em> orbital plane, not just to
-      one point in it, it is perpendicular to the radius vector <em>r</em> for every satellite
-      position. The triangle formed by the apex, focus <em>F</em>, and the satellite is
-      therefore a right triangle at every point on the orbit, with legs <em>OF</em> =
-      \(\sqrt{ap}\) and <em>r</em>, and hypotenuse <em>R</em> (the slant distance from apex to
-      satellite):
+      Because <em>CF</em> is perpendicular to the entire orbital plane, not just to one point
+      in it, it is perpendicular to the radius vector <em>r</em> for every satellite position.
+      The triangle formed by the apex, focus <em>F</em>, and the satellite is therefore a
+      right triangle at every point on the orbit, with legs <em>CF</em> = \(\sqrt{ap}\) and
+      <em>r</em>, and hypotenuse <em>R</em> (the slant distance from apex to satellite):
     </p>
     <div class="eq-row">
       <div class="eq-body">
@@ -147,7 +339,7 @@
         R^{2} = r^{2} + ap
       \]
       </div>
-      <div class="eq-num">(E-2)</div>
+      <div class="eq-num">(E-9)</div>
     </div>
     <p>
       <em>R′</em>, the component of <em>R</em> perpendicular to the cone's <em>z</em>-axis
@@ -160,7 +352,7 @@
         R'^{2} = \frac{1}{2}\left( r^{2} + ap \right)
       \]
       </div>
-      <div class="eq-num">(E-3)</div>
+      <div class="eq-num">(E-10)</div>
     </div>
     <p>
       Both relations hold at <em>every</em> point on the orbit: <em>r</em> and <em>R</em>
@@ -171,19 +363,100 @@
     <p>
       <strong>Status for the other conic types.</strong> This is confirmed for the elliptical
       case only. The hyperbolic and parabolic pages are less developed, and a more general
-      form of this relation, \(R^{2} = r^{2} + 2a(r - p) + R'^{2}\), has appeared in earlier
+      form of this relation, \(R^{2} = r^{2} + 2a(r-p) + R'^{2}\), has appeared in earlier
       framework notes without a matching derivation confirming it across all three conic
       types. Given that \(\Phi_c\) and \(\Phi_h\) swap roles between the elliptical and
       hyperbolic cases (Table F-1), the bridge relation should not be assumed to carry over
       unmodified; it needs to be re-derived from each type's own edge-view geometry once
-      those pages mature, the same way \(\rho\) took a different closed form
-      (\(\sqrt{ap}\), \(p\), \(ae/\sqrt{e^{2}-1}\)) in each case while keeping the same
+      those pages mature, the same way <em>ρ</em> took a different closed form
+      (\(\sqrt{ap}\), <em>p</em>, \(ae/\sqrt{e^{2}-1}\)) in each case while keeping the same
       geometric role.
     </p>
     <p class="placeholder-note">
       [OPEN, no direction set] Carried forward as-is; no resolution attempted yet.
     </p>
   </div>
+
+  <h2 id="kepler-equation">From Vis-Viva to Kepler's Equation<a class="footnote-ref" href="#fn-1" id="fnref-1">1</a></h2>
+  <p>
+    The introduction noted that the geometric picture on this page sits alongside the orbit's
+    dynamics rather than replacing it. This section makes that connection directly.
+    Commonality develops the vis-viva relation together with conservation of angular momentum
+    into a single integral, good for all three conic types (Eq. C-4, C-5):
+  </p>
+  <p>
+    \[
+      \int \frac{r\,dr}{\sqrt{2ar - ap \pm r^{2}}} = \sqrt{\frac{\mu}{a}} \int dt
+    \]
+  </p>
+  <p>
+    with the minus sign for the elliptical case (\(\mathcal{E} = -\mu/2a\)). Substituting
+    <em>p</em> = <em>a</em>(1 − <em>e</em><sup>2</sup>) turns the quantity under the root into
+    \(a^{2}e^{2} - (a-r)^{2}\), so the elliptical integral is
+  </p>
+  <p>
+    \[
+      \int \frac{r\,dr}{\sqrt{a^{2}e^{2} - (a-r)^{2}}} = \sqrt{\frac{\mu}{a}}\, t + C
+    \]
+  </p>
+  <p>Carrying out the integral gives</p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \sqrt{\frac{\mu}{a}}\, t = -ae \cdot \frac{\sqrt{a^{2}e^{2} - (a-r)^{2}}}{ae} + a\sin^{-1}\!\left(\frac{a-r}{ae}\right) + C
+    \]
+    </div>
+    <div class="eq-num">(E-11)</div>
+  </div>
+  <p>
+    The inverse-sine term is the complement of the angle that actually interests us. Writing
+    <em>E</em> = \(\cos^{-1}\!\left(\dfrac{a-r}{ae}\right)\) gives the standard
+    eccentric-anomaly relation
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      r = a - ae\cos E
+    \]
+    </div>
+    <div class="eq-num">(E-12)</div>
+  </div>
+  <p>
+    Taking <em>E</em> = 0 at periapsis (<em>t</em> = 0) fixes the constant, so Eq. E-11
+    reduces to
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \sqrt{\frac{\mu}{a}}\, t = aE - ae\sin E
+    \]
+    </div>
+    <div class="eq-num">(E-13)</div>
+  </div>
+  <p>
+    Kepler's equation. It comes out directly from the same starting integral used for every
+    conic type, with no separate argument needed for this one.
+  </p>
+  <p>
+    The same starting integral also covers the rectilinear (<em>e</em> = 1) case, and the
+    vis-viva sign is what tells the two rectilinear limits apart. Setting <em>p</em> = 0 in
+    Eq. C-4 collapses the rotational term and leaves a purely radial fall or escape; whether
+    that motion closes back on itself or runs away is decided by which sign, \(-\mu/2a\) or
+    \(+\mu/2a\), was substituted for \(\mathcal{E}\), the same sign choice that separates the
+    elliptical and hyperbolic integrals above. Nothing about the integration method changes at
+    <em>e</em> = 1; only the sign carried in from the energy does, which is why the
+    rectilinear case falls out of the general result rather than needing a derivation of its
+    own.
+  </p>
+
+  <div class="footnote" id="fn-1">
+    <sup>1</sup> This page leaves out a Gauss's-law-based derivation in favor of the geometric
+    route above. For that derivation, see D. May, "Conical Coordinates for Elliptical
+    Orbits," engrXiv preprint,
+    <a href="https://doi.org/10.31224/8022">https://doi.org/10.31224/8022</a>.
+    <a href="#fnref-1">↩</a>
+  </div>
+
 </main>
 
 <footer>

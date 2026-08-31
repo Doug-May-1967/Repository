@@ -26,17 +26,32 @@
   .eq-row > .eq-body { flex: 1; }
   .eq-row > .eq-num  { flex: 0 0 auto; margin-left: 1.5em; }
 
+  figure.figure.w60 {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  figure.figure.w80 {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 640px) {
+    figure.figure.w60,
+    figure.figure.w80 { max-width: 100%; }
+  }
+
   .figure-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.8rem;
+    gap: 1.5rem;
     justify-content: center;
     margin: 1.8rem 0;
   }
   .figure-row figure.figure {
     margin: 0;
-    flex: 1 1 280px;
-    max-width: 46%;
+    flex: 1 1 0;
+    max-width: 38%;
   }
   @media (max-width: 640px) {
     .figure-row figure.figure { max-width: 100%; }
@@ -90,7 +105,7 @@
     geometry.
   </p>
 
-  <figure class="figure">
+  <figure class="figure w60">
     <img src="fige1-conic-section.png" alt="Elliptical orbit shown as a conic section: sphere with inscribed cone, cutting plane forming an ellipse, focus F, radius vector r, shaded area-swept sector, x, y, z axes">
     <figcaption>Fig. E-1 — Elliptic orbit shown as a conic section, with focus <em>F</em>, radius <em>r</em>, and the shaded sector marking area swept per Kepler's second law.</figcaption>
   </figure>
@@ -180,8 +195,8 @@
     varies across this family; the energy term itself is unchanged.
   </p>
 
-  <figure class="figure">
-    <img src="fige4-equal-energy-family.png" alt="Elliptic orbits in edge view with equal total energy: fan of generators from the apex to a common 2a chord, root ap marked, spanning from near-circular to the linear limiting case">
+  <figure class="figure w80">
+    <img src="fige6-tilt-angle.png" alt="Tilt angle Phi h measured from the Dandelin sphere's center at height z sub D, contrasted with the cone half-angle Phi c measured from the apex C, tangent right angles marked">
     <figcaption>Fig. E-4 — Elliptic orbits in edge view with equal total energy, ranging from near-circular to the linear limiting case, all sharing the same <em>a</em>.</figcaption>
   </figure>
 
@@ -204,9 +219,9 @@
     in which line is drawn.
   </p>
 
-  <figure class="figure">
+  <figure class="figure w60">
     <img src="fige5-dandelin-construction.png" alt="Elliptical Dandelin construction: cone apex C, z-axis, two Dandelin spheres tangent to the cutting plane at foci F and F prime, angles Phi c and Phi h at the apex, only the lower hemisphere of the far sphere drawn">
-    <figcaption>Fig. E-5 — Elliptical Dandelin construction: apex <em>C</em>, the <em>z</em>-axis, and spheres tangent to the orbital plane at primary focus <em>F</em> and empty focus <em>F′</em>.</figcaption>
+    <figcaption>Fig. E-5 — Elliptical Dandelin construction, with apex <em>C</em> and the <em>z</em>-axis.<br>Spheres are tangent to the orbital plane at primary focus <em>F</em> and empty focus <em>F′</em>.</figcaption>
   </figure>
   <p>
     The smaller Dandelin sphere, near the apex <em>C</em>, is tangent to the cutting plane at
@@ -218,8 +233,8 @@
   </p>
 
   <h2>Tilt Angle and the Cone Half-Angle</h2>
-  <figure class="figure">
-    <img src="fige6-tilt-angle.png" alt="Tilt angle Phi h measured from the Dandelin sphere's center at height z sub D, contrasted with the cone half-angle Phi c measured from the apex C, tangent right angles marked">
+  <figure class="figure w60">
+    <img src="fige4-equal-energy-family.png" alt="Elliptic orbits in edge view with equal total energy: fan of generators from the apex to a common 2a chord, root ap marked, spanning from near-circular to the linear limiting case">
     <figcaption>Fig. E-6 — Tilt angle \(\Phi_h\) measured from the Dandelin sphere's center, for two cones of different half-angle \(\Phi_c\) cutting the same ellipse.</figcaption>
   </figure>
   <p>

@@ -26,6 +26,24 @@
   }
   .eq-row > .eq-body { flex: 1; }
   .eq-row > .eq-num  { flex: 0 0 auto; margin-left: 1.5em; }
+
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  figure.figure.figure-float {
+    float: right;
+    max-width: 36%;
+    margin: 0 0 1rem 1.8rem;
+  }
+  @media (max-width: 640px) {
+    figure.figure.figure-float {
+      float: none;
+      max-width: 60%;
+      margin: 1.8rem auto;
+    }
+  }
 </style>
 </head>
 <body>
@@ -50,33 +68,27 @@
   </p>
 
   <h2>Dandelin Spheres</h2>
-  <p>
-    A Dandelin sphere is a sphere inscribed inside a cone so that it is tangent both to the
-    conical surface and to a plane that cuts the cone. The construction was introduced in
-    1822 by the Belgian mathematician Germinal Pierre Dandelin. The point where a Dandelin
-    sphere touches the cutting plane is a focus of the conic section formed by that cut.
-  </p>
-  <p>
-    For the elliptical case, two Dandelin spheres sit in the same nappe of the cone, one
-    above the cutting plane and one below, tangent to the plane at the ellipse's two foci
-    (the smaller sphere, nearer the apex, at the primary focus; the larger sphere at the
-    empty focus). For the parabolic case, the cutting plane is parallel to a generator of
-    the cone, and a single Dandelin sphere is tangent at the parabola's one focus. For the
-    hyperbolic case, the cutting plane crosses both nappes, and a Dandelin sphere in each
-    nappe is tangent at one of the two branches' foci.
-  </p>
-  <figure class="figure">
-    <img src="figc1-dandelin-general-placeholder.png" alt="Placeholder: general Dandelin sphere construction, apex, two spheres tangent to a cutting plane at foci, tangent circles where each sphere meets the cone">
-    <figcaption>Fig. C-1 — General Dandelin sphere construction (placeholder — to be redrawn in site style).</figcaption>
-  </figure>
-  <p class="placeholder-note">
-    [PLACEHOLDER] This figure will show the standard, conic-agnostic Dandelin picture: apex,
-    axis, cutting plane, the two spheres tangent to both the cone and the plane, and their
-    circles of tangency with the cone. It establishes the concept generally, before the
-    conic-specific pages introduce their own labeled apex/axis notation and pair this
-    construction with the apex-circle (\(\sqrt{ap}\)) figure. Doug is redrawing this in the
-    site's existing figure style rather than sourcing it externally.
-  </p>
+  <div class="clearfix">
+    <figure class="figure figure-float">
+      <img src="figc1-dandelin-general.png" alt="Dandelin sphere construction: cone with apex and z-axis, two spheres of different size both tangent to the cone and to the same cutting plane, at foci F and F prime, with tilt angle Phi h and cone half-angle Phi c marked">
+      <figcaption>Fig. C-1 — Dandelin sphere construction: two spheres tangent to the cone and to a common cutting plane, at foci <em>F</em> and <em>F′</em>.</figcaption>
+    </figure>
+    <p>
+      A Dandelin sphere is a sphere inscribed inside a cone so that it is tangent both to the
+      conical surface and to a plane that cuts the cone. The construction was introduced in
+      1822 by the Belgian mathematician Germinal Pierre Dandelin. The point where a Dandelin
+      sphere touches the cutting plane is a focus of the conic section formed by that cut.
+    </p>
+    <p>
+      For the elliptical case, two Dandelin spheres sit in the same nappe of the cone, one
+      above the cutting plane and one below, tangent to the plane at the ellipse's two foci
+      (the smaller sphere, nearer the apex, at the primary focus; the larger sphere at the
+      empty focus). For the parabolic case, the cutting plane is parallel to a generator of
+      the cone, and a single Dandelin sphere is tangent at the parabola's one focus. For the
+      hyperbolic case, the cutting plane crosses both nappes, and a Dandelin sphere in each
+      nappe is tangent at one of the two branches' foci.
+    </p>
+  </div>
 
   <h2>Transition</h2>
   <p>

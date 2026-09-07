@@ -92,6 +92,12 @@ h3 {
   margin-top: 1.6rem;
 }
 
+.subtitle {
+  color: #666;
+  font-size: 1.05rem;
+  margin-top: 0.75rem;
+}
+
 p {
   margin: 1rem 0;
   text-align: justify;
@@ -102,6 +108,30 @@ p {
   color: #777;
   border-left: 3px solid var(--rule-color);
   padding-left: 0.8rem;
+}
+
+ul.refs {
+  list-style: none;
+  padding: 0;
+}
+
+ul.refs li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule-color);
+}
+
+ul.refs li:first-child {
+  padding-top: 0;
+}
+
+.ref-title {
+  font-style: italic;
+}
+
+.ref-meta {
+  color: #666;
+  font-size: 0.92rem;
+  margin-top: 0.15rem;
 }
 
 figure.figure {

@@ -7,20 +7,20 @@
   function buildTermsTable() {
     var rows = NOMENCLATURE_GROUPS.map(function (group) {
       var termRows = group.terms.map(function (t) {
+        var symbolClass = 'nom-symbol' + (t.vector ? ' nom-vector' : '');
         return (
           '<tr>' +
-            '<td class="nom-symbol">' + t.symbol + '</td>' +
+            '<td class="' + symbolClass + '">' + t.symbol + '</td>' +
             '<td>' + t.meaning + '</td>' +
-            '<td class="nom-notes">' + (t.notes || '') + '</td>' +
           '</tr>'
         );
       }).join('');
-      return '<tr class="nom-group-row"><td colspan="3">' + group.title + '</td></tr>' + termRows;
+      return '<tr class="nom-group-row"><td colspan="2">' + group.title + '</td></tr>' + termRows;
     }).join('');
 
     return (
       '<table class="nom-table">' +
-        '<thead><tr><th>Symbol</th><th>Meaning</th><th>Notes</th></tr></thead>' +
+        '<thead><tr><th>Symbol</th><th>Meaning</th></tr></thead>' +
         '<tbody>' + rows + '</tbody>' +
       '</table>'
     );

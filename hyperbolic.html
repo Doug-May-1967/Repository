@@ -30,6 +30,174 @@
     contrast with the elliptical case below.
   </p>
 
+  <div id="bridge-relation">
+    <h2>The Hyperbolic Bridge Relation</h2>
+    <p>
+      Place the cone apex <em>C</em> at the origin with its axis along <em>z</em>, and measure
+      the half-angle \(\Phi_c\) from the axis to the generator. A point on the cone at height
+      <em>z</em> lies at horizontal distance \(z\tan\Phi_c\) from the axis:
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        x^{2} + y^{2} = z^{2}\tan^{2}\Phi_c
+      \]
+      </div>
+      <div class="eq-num">(H-1)</div>
+    </div>
+    <p>
+      Cut the cone with the plane \(x = \rho\), parallel to the axis. Substituting into
+      Eq. H-1 and dividing through gives the hyperbola in standard form:
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \frac{z^{2}}{(\rho\cot\Phi_c)^{2}} - \frac{y^{2}}{\rho^{2}} = 1,
+        \qquad a = \rho\cot\Phi_c, \quad b = \rho
+      \]
+      </div>
+      <div class="eq-num">(H-2)</div>
+    </div>
+    <p>
+      The center <em>O</em> of the hyperbola is the point \((\rho, 0, 0)\), directly across
+      from the apex, so the orbit's transverse coordinate measured from <em>O</em> is the
+      height <em>z</em> itself. The vertex lies on the generator at height <em>a</em> and
+      horizontal distance <em>ρ</em>, so \(\cot\Phi_c = a/\rho\). With
+      \(c^{2} = a^{2} + b^{2} = \rho^{2}\csc^{2}\Phi_c\), the eccentricity is
+      \(e = c/a = \sec\Phi_c\):
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \cos\Phi_c = \frac{1}{e}
+      \]
+      </div>
+      <div class="eq-num">(H-3)</div>
+    </div>
+    <p>
+      matching Table F-1. The plane offset then follows from \(\rho = a\tan\Phi_c\) and
+      \(p = a(e^{2}-1)\):
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \rho = a\sqrt{e^{2}-1} = \sqrt{ap} = b
+      \]
+      </div>
+      <div class="eq-num">(H-4)</div>
+    </div>
+    <p>
+      The offset of the cutting plane from the cone axis is exactly the semi-conjugate axis
+      <em>b</em>.
+    </p>
+
+    <figure class="figure w38">
+      <img src="figh1-equal-energy-family.png" alt="Hyperbolic orbits in edge view with equal total energy: generators fanning from the apex at different half-angles, a dashed line at height a, and vertical cutting planes rising from where each generator meets that line, with each orbit drawn rotated into the page">
+      <figcaption>Fig. H-1 — Hyperbolic orbits in edge view with equal total energy, all sharing the same <em>a</em>. Each cutting plane lies a distance \(\rho = a\tan\Phi_c = a\sqrt{e^{2}-1}\) from the axis, and each orbit is drawn rotated into the page from its vertex at height <em>a</em>. (Preliminary sketch, to be redrawn in site style.)</figcaption>
+    </figure>
+
+    <p>
+      Fig. H-1 is the hyperbolic counterpart of the elliptical equal-energy family
+      (Fig. E-4). Holding <em>a</em> fixed holds the energy \(+\mu/2a\) fixed, and the
+      eccentricity then sets the half-angle through Eq. H-3 and the plane offset through
+      Eq. H-4. Low-eccentricity orbits lie on steep generators with planes close to the
+      axis; as \(e \to 1\), \(\Phi_c \to 0\) and the plane approaches the axis itself.
+      As \(e\) grows, the generator flattens and the plane moves outward.
+    </p>
+
+    <figure class="figure w38">
+      <img src="figh2-bridge.png" alt="Hyperbola in its plane: center O, foci, point P, focal distances r and r-prime, and r-double-prime from O to P">
+      <figcaption>Fig. H-2 — Hyperbolic orbit in its plane, with center <em>O</em>, focal distances <em>r</em> and <em>r′</em>, and <em>r″</em> = <em>OP</em>. (Placeholder, to be drawn in site style.)</figcaption>
+    </figure>
+
+    <p>
+      <strong>Slant distance.</strong> For a point <em>P</em> on the orbit, the slant distance
+      from the apex is \(R^{2} = x^{2} + y^{2} + z^{2}\). On the cone, Eq. H-1 turns this into
+      \(R^{2} = z^{2}\sec^{2}\Phi_c\), and by Eq. H-3:
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        R = e\,z
+      \]
+      </div>
+      <div class="eq-num">(H-5)</div>
+    </div>
+    <p>
+      The eccentricity is the secant of the half-angle, converting axial height into slant
+      distance. On the near branch the focal distance is \(r = ez - a\), so
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        R = r + a
+      \]
+      </div>
+      <div class="eq-num">(H-6)</div>
+    </div>
+    <p>
+      <strong>In-plane view.</strong> The perpendicular from <em>C</em> meets the orbital plane
+      at <em>O</em>, so with \(r'' = OP\),
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        R^{2} = \rho^{2} + r''^{2}, \qquad r''^{2} = (r + a)^{2} - b^{2}
+      \]
+      </div>
+      <div class="eq-num">(H-7)</div>
+    </div>
+    <p>
+      and with \(\rho = b\) from Eq. H-4, Eq. H-7 collapses to Eq. H-6.
+    </p>
+    <p>
+      <strong>General form.</strong> The focus <em>F</em> lies a distance \(c = ae\) from
+      <em>O</em>. With the true anomaly \(\theta\) measured from periapsis, the periapsis
+      direction from <em>F</em> points toward <em>O</em>, and the law of cosines gives
+      \(r''^{2} = c^{2} + r^{2} - 2cr\cos\theta\). The orbit equation gives
+      \(e\,r\cos\theta = p - r\), so \(c\,r\cos\theta = a(p - r)\), and
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        R^{2} = r^{2} + 2a(r - p) + CF^{2}, \qquad CF^{2} = \rho^{2} + c^{2} = a^{2} + 2ap
+      \]
+      </div>
+      <div class="eq-num">(H-8)</div>
+    </div>
+    <p>
+      where <em>CF</em> is the distance from the apex to the focus. Expanding confirms that
+      Eq. H-8 is identical to \((r + a)^{2}\). This is the general form carried in earlier
+      framework notes, now derived for the hyperbolic case.
+    </p>
+    <p>
+      <strong>Comparison with the ellipse.</strong> In the elliptical construction the
+      perpendicular from the apex lands on the focus itself, so there is no in-plane offset
+      and the cross term vanishes, giving Eq. E-9, \(R^{2} = r^{2} + ap\). In the hyperbolic
+      construction it lands on the center, offset from the focus by <em>c</em>. Both are
+      instances of
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        R^{2} = r^{2} + CF^{2} - 2\,d\,r\cos\theta
+      \]
+      </div>
+      <div class="eq-num">(H-9)</div>
+    </div>
+    <p>
+      where <em>d</em> is the in-plane distance from the foot of the apex perpendicular to
+      <em>F</em>: \(d = 0\) for the ellipse and \(d = c\) for the hyperbola.
+    </p>
+  </div>
+
+  <!-- ON HOLD (9-29-2026): add after the bridge relation, general case first:
+       (1) Conjugate pairing: complementary cone, rho' = a^2/sqrt(ap), 1/e^2 + 1/e'^2 = 1,
+           reflection about the 45-degree line in Fig. H-1.
+       (2) e = sqrt(2) special case: self-conjugate member on the 45-degree cone, rho = a = b,
+           auxiliary hyperbola for the time solution (parallels Kepler's auxiliary circle).
+       Also pending: Doug's model corresponding to the elliptical model, time equation in trig terms. -->
+
   <h2>Elliptical-to-hyperbolic transition</h2>
   <p>
     Conic sections — elliptical, parabolic, and hyperbolic — take on a renewed structure in

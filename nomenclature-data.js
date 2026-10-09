@@ -102,5 +102,30 @@ const NOMENCLATURE_GROUPS = [
         meaning: "Logarithmic position variable"
       }
     ]
+  },
+  {
+    title: "Hyperbolic construction (Hyperbolic page)",
+    terms: [
+      {
+        symbol: "\\(Q\\)",
+        meaning: "Center of the Dandelin sphere, on the cone axis"
+      },
+      {
+        symbol: "\\(T\\)",
+        meaning: "Point where a cone surface line touches the circle of contact"
+      },
+      {
+        symbol: "\\(S'\\)",
+        meaning: "Position of \\(S\\) revolved about the cone axis onto the cone outline"
+      },
+      {
+        symbol: "\\(r''\\)",
+        meaning: "Distance from the hyperbola center \\(O\\) to the satellite \\(S\\)"
+      },
+      {
+        symbol: "\\(\\delta\\)",
+        meaning: "Turn angle between the incoming and outgoing asymptote directions"
+      }
+    ]
   }
 ];

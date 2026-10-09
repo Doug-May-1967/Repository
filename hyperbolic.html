@@ -6,6 +6,70 @@
 <title>Hyperbolic Orbits — Orbit-Mech</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="nomenclature.css">
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      mathStyle: 'ISO'
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js"></script>
+<style>
+  .eq-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5em 0;
+  }
+  .eq-row > .eq-body { flex: 1; }
+  .eq-row > .eq-num  { flex: 0 0 auto; margin-left: 1.5em; }
+
+  figure.figure.w38 {
+    width: 38%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 640px) {
+    figure.figure.w38 { width: 100%; }
+  }
+
+  .figure-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 1.8rem 0;
+  }
+  .figure-row figure.figure {
+    margin: 0;
+    flex: 0 1 auto;
+    width: 36.1%;
+  }
+  @media (max-width: 640px) {
+    .figure-row figure.figure { width: 100%; }
+  }
+
+  figure.figure.wpx { margin-left: auto; margin-right: auto; }
+  @media (max-width: 640px) {
+    figure.figure.wpx { width: 100% !important; }
+  }
+
+  .footnote {
+    font-size: 0.88rem;
+    color: #555;
+    border-top: 1px solid var(--rule-color);
+    margin-top: 2.5rem;
+    padding-top: 0.8rem;
+  }
+  .footnote-ref {
+    font-size: 0.75em;
+    vertical-align: super;
+    text-decoration: none;
+    color: var(--accent-color);
+  }
+</style>
 </head>
 <body>
 <header>
@@ -24,172 +88,437 @@
   <p class="eyebrow">Hyperbolic Orbits</p>
   <h1>Hyperbolic orbit analysis and results</h1>
 
-  <p class="placeholder-note">
-    Placeholder — this section is being built more slowly, per the storyboard note. It will
-    summarize the hyperbolic derivation (cos(&Phi;<sub>c</sub>) = 1/e) and the geometric
-    contrast with the elliptical case below.
+  <p>
+    As with elliptical orbits, classical analyses of hyperbolic orbits are two-dimensional.
+    In the absence of other forces, the constant angular momentum vector,
+    \(\mathbf{h}\), constrains orbital motion to a plane. Unlike the ellipse, the hyperbolic
+    cutting plane slices both nappes of the cone (Fig. F-3). Both "planar motion" and
+    "conic section" can be captured together by embedding the orbit in a cone, as introduced
+    in Fig. F-2. Consistent with that construction, a hyperbolic orbit is shown in a conical
+    frame in Fig. H-1. The shaded area represents the area swept in equal times, per the
+    constant angular momentum and analogous to Kepler's second law.
+  </p>
+  <p>
+    The construction in Fig. H-1 relies on a special alignment: the orbit axis, the line
+    through the focus <em>F</em> and periapsis, is parallel to the cone axis <em>z</em>.
+    Equivalently, the orbital plane is parallel to the cone axis, offset from it by a
+    distance <em>ρ</em>. Any plane parallel to a cone's axis cuts both nappes, so this
+    alignment always produces a hyperbola. The branch on the upper nappe is the physical
+    trajectory about <em>F</em>, and the branch on the lower nappe is its mirror image. The
+    perpendicular from the apex <em>C</em> meets the orbital plane at a point <em>O</em>, so
+    line <em>CO</em> is parallel to \(\mathbf{h}\). The edge view that follows shows that
+    <em>O</em> is the center of the hyperbola, that the offset <em>ρ</em> equals the
+    semi-conjugate axis <em>b</em>, and that the cone half angle is fixed by the eccentricity.
   </p>
 
-  <div id="bridge-relation">
-    <h2>The Hyperbolic Bridge Relation</h2>
-    <p>
-      Place the cone apex <em>C</em> at the origin with its axis along <em>z</em>, and measure
-      the half-angle \(\Phi_c\) from the axis to the generator. A point on the cone at height
-      <em>z</em> lies at horizontal distance \(z\tan\Phi_c\) from the axis:
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        x^{2} + y^{2} = z^{2}\tan^{2}\Phi_c
-      \]
-      </div>
-      <div class="eq-num">(H-1)</div>
-    </div>
-    <p>
-      Cut the cone with the plane \(x = \rho\), parallel to the axis. Substituting into
-      Eq. H-1 and dividing through gives the hyperbola in standard form:
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        \frac{z^{2}}{(\rho\cot\Phi_c)^{2}} - \frac{y^{2}}{\rho^{2}} = 1,
-        \qquad a = \rho\cot\Phi_c, \quad b = \rho
-      \]
-      </div>
-      <div class="eq-num">(H-2)</div>
-    </div>
-    <p>
-      The center <em>O</em> of the hyperbola is the point \((\rho, 0, 0)\), directly across
-      from the apex, so the orbit's transverse coordinate measured from <em>O</em> is the
-      height <em>z</em> itself. The vertex lies on the generator at height <em>a</em> and
-      horizontal distance <em>ρ</em>, so \(\cot\Phi_c = a/\rho\). With
-      \(c^{2} = a^{2} + b^{2} = \rho^{2}\csc^{2}\Phi_c\), the eccentricity is
-      \(e = c/a = \sec\Phi_c\):
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        \cos\Phi_c = \frac{1}{e}
-      \]
-      </div>
-      <div class="eq-num">(H-3)</div>
-    </div>
-    <p>
-      matching Table F-1. The plane offset then follows from \(\rho = a\tan\Phi_c\) and
-      \(p = a(e^{2}-1)\):
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        \rho = a\sqrt{e^{2}-1} = \sqrt{ap} = b
-      \]
-      </div>
-      <div class="eq-num">(H-4)</div>
-    </div>
-    <p>
-      The offset of the cutting plane from the cone axis is exactly the semi-conjugate axis
-      <em>b</em>.
-    </p>
+  <figure class="figure w38">
+    <img src="figh1-conic-section.png" alt="Hyperbolic orbit shown as a conic section: sphere with inscribed double cone, a cutting plane parallel to the z-axis forming two hyperbola branches, focus F, radius r, shaded area-swept sector, x, y, z axes">
+    <figcaption>Fig. H-1 — Hyperbolic orbit in a conical frame.</figcaption>
+  </figure>
 
-    <figure class="figure w38">
-      <img src="figh1-equal-energy-family.png" alt="Hyperbolic orbits in edge view with equal total energy: generators fanning from the apex at different half-angles, a dashed line at height a, and vertical cutting planes rising from where each generator meets that line, with each orbit drawn rotated into the page">
-      <figcaption>Fig. H-1 — Hyperbolic orbits in edge view with equal total energy, all sharing the same <em>a</em>. Each cutting plane lies a distance \(\rho = a\tan\Phi_c = a\sqrt{e^{2}-1}\) from the axis, and each orbit is drawn rotated into the page from its vertex at height <em>a</em>. (Preliminary sketch, to be redrawn in site style.)</figcaption>
-    </figure>
+  <p>
+    Because a hyperbolic trajectory is open, neither the cone nor the sphere in Fig. H-1 has
+    a natural boundary. The distance <em>R</em> from the apex to a point on the orbit, shown
+    below to equal <em>r</em> + <em>a</em>, grows without limit as the spacecraft recedes
+    along its asymptote. The sphere drawn in the figure is therefore only a convenient cutoff
+    for illustration. The true construction extends indefinitely, with the orbit remaining on
+    the cone surface while its direction of travel approaches that of the asymptotes. This
+    contrasts with the elliptical case, where the closed orbit stays within a sphere of finite
+    radius.
+  </p>
 
-    <p>
-      Fig. H-1 is the hyperbolic counterpart of the elliptical equal-energy family
-      (Fig. E-4). Holding <em>a</em> fixed holds the energy \(+\mu/2a\) fixed, and the
-      eccentricity then sets the half-angle through Eq. H-3 and the plane offset through
-      Eq. H-4. Low-eccentricity orbits lie on steep generators with planes close to the
-      axis; as \(e \to 1\), \(\Phi_c \to 0\) and the plane approaches the axis itself.
-      As \(e\) grows, the generator flattens and the plane moves outward.
-    </p>
+  <h2>Edge and Face Views</h2>
+  <p>
+    The elliptical and hyperbolic models differ in which quantity carries eccentricity. In
+    the elliptical model, the cone half angle is fixed at 45° and the eccentricity is carried
+    by the tilt of the orbital plane (Eq. E-7). In the hyperbolic model, the plane does not
+    tilt relative to the cone axis. It stays parallel to it, and the eccentricity is carried
+    instead by the opening of the cone.
+  </p>
+  <p>
+    Figures H-2 and H-3 show a single hyperbolic orbit in this arrangement from two
+    directions. In the edge view, Fig. H-2, the line of sight lies in the orbital plane, so
+    the plane appears as a vertical line a distance <em>ρ</em> from the cone axis. The plane
+    meets the upper nappe at the vertex, a height <em>a</em> above the apex <em>C</em>, and
+    the lower nappe at the mirror point a height <em>a</em> below. The horizontal line through
+    <em>C</em> meets the plane at right angles at <em>O</em>. Two angles are marked at
+    <em>C</em>: the cone half angle \(\Phi_c\), measured from the axis to the cone's surface
+    line, and \(\Phi_h\), the direction of <em>CO</em> measured from the same axis. Because
+    <em>CO</em> is parallel to \(\mathbf{h}\) and the plane is parallel to the axis,
+    \(\Phi_h = 90^\circ\) for every hyperbola in this model. On the Elliptical page,
+    \(\Phi_h\) varied with eccentricity while \(\Phi_c\) stayed at 45°. Here the roles are
+    exchanged.
+  </p>
+  <p>
+    In the face view, Fig. H-3, the line of sight is along \(\mathbf{h}\), perpendicular to
+    the orbital plane, so the apex <em>C</em> lies directly behind <em>O</em> and the two are
+    labeled together. The physical branch curves about the focus <em>F</em> on the upper
+    nappe, and its mirror image about <em>F′</em> on the lower nappe. The straight lines
+    through <em>C</em>,<em>O</em> are the outline of the cone seen from this direction. They
+    are also the asymptotes. The two surface lines that form this outline lie in the plane
+    through the axis parallel to the orbital plane, so they point in the directions the
+    trajectory approaches far from <em>F</em>, and seen face on, the asymptotes through
+    <em>O</em> fall exactly on them. Each asymptote therefore makes the angle \(\Phi_c\)
+    with the orbit axis.
+  </p>
 
-    <figure class="figure w38">
-      <img src="figh2-bridge.png" alt="Hyperbola in its plane: center O, foci, point P, focal distances r and r-prime, and r-double-prime from O to P">
-      <figcaption>Fig. H-2 — Hyperbolic orbit in its plane, with center <em>O</em>, focal distances <em>r</em> and <em>r′</em>, and <em>r″</em> = <em>OP</em>. (Placeholder, to be drawn in site style.)</figcaption>
-    </figure>
+  <figure class="figure wpx" style="width: 76%;">
+    <img src="figh2-h3-edge-face.png" alt="Left, edge view: orbital plane as a vertical line at distance rho from the cone axis, apex C, center O, height a, angles Phi c and Phi h at C. Right, face view: two hyperbola branches with foci, cone outline lines through C,O as asymptotes, and a dotted Dandelin sphere">
+    <figcaption>Fig. H-2 — Edge view of a hyperbolic orbit (left).<br>Fig. H-3 — Face view of the same orbit (right).</figcaption>
+  </figure>
 
-    <p>
-      <strong>Slant distance.</strong> For a point <em>P</em> on the orbit, the slant distance
-      from the apex is \(R^{2} = x^{2} + y^{2} + z^{2}\). On the cone, Eq. H-1 turns this into
-      \(R^{2} = z^{2}\sec^{2}\Phi_c\), and by Eq. H-3:
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        R = e\,z
-      \]
-      </div>
-      <div class="eq-num">(H-5)</div>
+  <h2>Edge View with Derivation of <em>ρ</em> and <em>R</em></h2>
+  <p>
+    The relation between the apex distance <em>R</em> and the orbital radius <em>r</em> can
+    be built up in five steps, starting from the edge view of Fig. H-2. Each later step adds
+    one element to the figure.
+  </p>
+
+  <h3>Step 1. The center <em>O</em></h3>
+  <p>
+    In Fig. H-2, <em>CO</em> = <em>ρ</em>, and because the plane is parallel to the axis,
+    <em>CO</em> is horizontal. What remains is to show that <em>O</em> is the center of the
+    hyperbola.
+  </p>
+  <p>
+    The cone and the plane are both symmetric about the horizontal plane through <em>C</em>:
+    turning the picture upside down leaves both unchanged. The branch on the lower nappe is
+    therefore the mirror image of the branch on the upper nappe, and the point midway between
+    them, the center of the hyperbola, is level with <em>C</em>. That point is <em>O</em>,
+    where the asymptotes cross in the face view of Fig. H-3.
+  </p>
+
+  <h3>Step 2. Periapsis \(R_{\mathrm{P}}\) and triangle \(R_{\mathrm{P}}OC\)</h3>
+  <p>
+    Periapsis \(R_{\mathrm{P}}\) is the vertex of the near branch, and its distance from the
+    center is the semi-major axis, so \(OR_{\mathrm{P}} = a\). \(R_{\mathrm{P}}\) lies in the
+    orbital plane directly above <em>O</em>, and it also lies on the cone, so in the edge view
+    it is the point where the plane line crosses the outline of the cone.
+  </p>
+  <p>
+    This gives the shaded right triangle \(R_{\mathrm{P}}OC\) in Fig. H-4, with the right
+    angle at <em>O</em> and legs <em>OC</em> = <em>ρ</em> and \(OR_{\mathrm{P}} = a\). Because
+    \(OR_{\mathrm{P}}\) is parallel to the cone axis, the angle at \(R_{\mathrm{P}}\) equals
+    the cone half angle \(\Phi_c\), so
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \tan\Phi_c = \frac{\rho}{a}
+    \]
     </div>
-    <p>
-      The eccentricity is the secant of the half-angle, converting axial height into slant
-      distance. On the near branch the focal distance is \(r = ez - a\), so
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        R = r + a
-      \]
-      </div>
-      <div class="eq-num">(H-6)</div>
-    </div>
-    <p>
-      <strong>In-plane view.</strong> The perpendicular from <em>C</em> meets the orbital plane
-      at <em>O</em>, so with \(r'' = OP\),
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        R^{2} = \rho^{2} + r''^{2}, \qquad r''^{2} = (r + a)^{2} - b^{2}
-      \]
-      </div>
-      <div class="eq-num">(H-7)</div>
-    </div>
-    <p>
-      and with \(\rho = b\) from Eq. H-4, Eq. H-7 collapses to Eq. H-6.
-    </p>
-    <p>
-      <strong>General form.</strong> The focus <em>F</em> lies a distance \(c = ae\) from
-      <em>O</em>. With the true anomaly \(\theta\) measured from periapsis, the periapsis
-      direction from <em>F</em> points toward <em>O</em>, and the law of cosines gives
-      \(r''^{2} = c^{2} + r^{2} - 2cr\cos\theta\). The orbit equation gives
-      \(e\,r\cos\theta = p - r\), so \(c\,r\cos\theta = a(p - r)\), and
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        R^{2} = r^{2} + 2a(r - p) + CF^{2}, \qquad CF^{2} = \rho^{2} + c^{2} = a^{2} + 2ap
-      \]
-      </div>
-      <div class="eq-num">(H-8)</div>
-    </div>
-    <p>
-      where <em>CF</em> is the distance from the apex to the focus. Expanding confirms that
-      Eq. H-8 is identical to \((r + a)^{2}\). This is the general form carried in earlier
-      framework notes, now derived for the hyperbolic case.
-    </p>
-    <p>
-      <strong>Comparison with the ellipse.</strong> In the elliptical construction the
-      perpendicular from the apex lands on the focus itself, so there is no in-plane offset
-      and the cross term vanishes, giving Eq. E-9, \(R^{2} = r^{2} + ap\). In the hyperbolic
-      construction it lands on the center, offset from the focus by <em>c</em>. Both are
-      instances of
-    </p>
-    <div class="eq-row">
-      <div class="eq-body">
-      \[
-        R^{2} = r^{2} + CF^{2} - 2\,d\,r\cos\theta
-      \]
-      </div>
-      <div class="eq-num">(H-9)</div>
-    </div>
-    <p>
-      where <em>d</em> is the in-plane distance from the foot of the apex perpendicular to
-      <em>F</em>: \(d = 0\) for the ellipse and \(d = c\) for the hyperbola.
-    </p>
+    <div class="eq-num">(H-1)</div>
   </div>
+
+  <figure class="figure wpx" style="width: 30%;">
+    <img src="figh4-triangle.png" alt="Edge view with the shaded right triangle formed by periapsis R P, center O and apex C, legs rho and a, and the angle Phi c marked at R P and at C">
+    <figcaption>Fig. H-4 — Triangle \(R_{\mathrm{P}}OC\).</figcaption>
+  </figure>
+
+  <h3>Step 3. The Dandelin sphere</h3>
+  <p>
+    Now place a sphere inside the upper nappe so that it touches the cone all the way around
+    and also touches the orbital plane. This is a Dandelin sphere, named for Germinal
+    Dandelin, who used it in 1822 to show where the focus of a conic section comes from. The
+    point where the sphere touches the orbital plane is the focus <em>F</em>.
+  </p>
+  <p>
+    By symmetry, the center <em>Q</em> of the sphere lies on the cone axis. The radius
+    <em>QF</em> is perpendicular to the orbital plane, so <em>QF</em> is horizontal,
+    <em>F</em> is level with <em>Q</em>, and the radius equals the distance from the axis to
+    the plane, <em>ρ</em>. The sphere touches the cone along a horizontal circle, the circle
+    of contact, which meets the outline of the cone at <em>T</em>. The radius <em>QT</em> is
+    perpendicular to the cone's surface line at that point (Fig. H-5).
+  </p>
+
+  <figure class="figure wpx" style="width: 82%;">
+    <img src="figh5-h6-dandelin-face.png" alt="Left, edge view with the Dandelin sphere centered at Q touching the orbital plane at F and the cone at T, the shaded triangle at C, and the dotted line R from C to S. Right, face view with the central rectangle, the arc of radius ae, distances r, r-prime and r-double-prime to S, and height a">
+    <figcaption>Fig. H-5 — Edge view with the Dandelin sphere (left).<br>Fig. H-6 — Face view with the central rectangle (right).</figcaption>
+  </figure>
+
+  <h3>Step 4. Two matching triangles</h3>
+  <p>
+    Compare triangle <em>CTQ</em> with triangle \(R_{\mathrm{P}}OC\) (Fig. H-7). Each has a
+    right angle, at <em>T</em> and at <em>O</em>. Each has the angle \(\Phi_c\), at
+    <em>C</em> and at \(R_{\mathrm{P}}\). In each, the side opposite \(\Phi_c\) has length
+    <em>ρ</em>: <em>QT</em> in one, <em>OC</em> in the other. Two right triangles with the
+    same angle and the same side opposite it are congruent, so
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      CT = OR_{\mathrm{P}} = a, \qquad CQ = CR_{\mathrm{P}}
+    \]
+    </div>
+    <div class="eq-num">(H-2)</div>
+  </div>
+  <p>
+    Since <em>F</em> is level with <em>Q</em>, the length <em>CQ</em> is also the distance
+    from the center to the focus, <em>c</em> = <em>ae</em>. So \(CR_{\mathrm{P}} = ae\), and
+    triangle \(R_{\mathrm{P}}OC\) gives \((ae)^{2} = a^{2} + \rho^{2}\). For every hyperbola,
+    \((ae)^{2} = a^{2} + b^{2}\), where <em>b</em> is the semi-conjugate axis. Therefore the
+    offset of the plane is <em>b</em>, and with \(p = b^{2}/a\),
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \rho = b = a\sqrt{e^{2}-1} = \sqrt{ap}
+    \]
+    </div>
+    <div class="eq-num">(H-3)</div>
+  </div>
+  <p>The same triangle gives the cone half angle:</p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \cos\Phi_c = \frac{OR_{\mathrm{P}}}{CR_{\mathrm{P}}} = \frac{a}{ae} = \frac{1}{e}
+    \]
+    </div>
+    <div class="eq-num">(H-4)</div>
+  </div>
+  <p>
+    The arc of radius <em>ae</em> about <em>C</em> passes through both <em>Q</em> and
+    \(R_{\mathrm{P}}\). Triangle \(R_{\mathrm{P}}OC\) has the same sides <em>a</em>,
+    <em>b</em> and <em>ae</em> as the corner triangle in the standard drawing of the
+    hyperbola, where the arc of radius <em>ae</em> about <em>O</em> passes through
+    <em>F</em> and the corners of the central rectangle, shown in the face view of
+    Fig. H-6.
+  </p>
+
+  <figure class="figure wpx" style="width: 27%;">
+    <img src="figh7-matching-triangles.png" alt="Edge view with two shaded right triangles: C T Q with legs a and rho and hypotenuse ae, and R P O C, each with the angle Phi c">
+    <figcaption>Fig. H-7 — Matching triangles <em>CTQ</em> and \(R_{\mathrm{P}}OC\).</figcaption>
+  </figure>
+
+  <h3>Step 5. Equal tangents and <em>R</em> = <em>r</em> + <em>a</em></h3>
+  <p>
+    Figs. H-8A and H-8B add a satellite at <em>S</em>. Fig. H-8A is the edge view, and
+    Fig. H-8B is the view normal to the orbital plane, drawn to the same scale. Two
+    properties of the Dandelin sphere carry the argument. The sphere touches the orbital
+    plane at the focus <em>F</em>, and it touches the cone along the circle of contact, which
+    appears edge-on as the dashed horizontal line through <em>T</em> in both views.
+  </p>
+  <p>
+    From any point outside a sphere, every line segment drawn from that point to touch the
+    sphere has the same length. Two such segments run from <em>S</em>:
+  </p>
+  <ul>
+    <li>
+      <em>SF</em> lies in the orbital plane, which is tangent to the sphere at <em>F</em>,
+      so <em>SF</em> touches the sphere there. Its length is the orbital radius <em>r</em>.
+    </li>
+    <li>
+      The second runs along the cone's surface line through <em>S</em>, from <em>S</em>
+      down to the point <em>T</em> where that line touches the circle of contact.
+    </li>
+  </ul>
+  <p>
+    A tangent segment is perpendicular to the radius at its point of contact, so
+    <em>SQT</em> and <em>SQF</em> are right triangles that share the hypotenuse <em>SQ</em>
+    and have equal legs <em>QT</em> = <em>QF</em> = <em>ρ</em>. Their remaining legs are
+    therefore equal, and <em>ST</em> = <em>SF</em> = <em>r</em>.
+  </p>
+  <p>
+    Step 4 showed that <em>CT</em> = <em>a</em>, and the same holds on every surface line,
+    since the circle of contact lies at the same slant distance from the apex all the way
+    around. The near branch lies entirely above the circle of contact, so <em>C</em>,
+    <em>T</em> and <em>S</em> fall in order along one straight surface line, and the lengths
+    add:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      R = a + r
+    \]
+    </div>
+    <div class="eq-num">(H-5)</div>
+  </div>
+  <p>
+    The surface line through <em>S</em> generally does not lie in the plane of Fig. H-8A.
+    Turning it about the cone axis onto the outline of the cone preserves every length along
+    it. That turned position is <em>S′</em>, joined to <em>S</em> by the dotted horizontal
+    line, and <em>R</em>, <em>r</em> and <em>a</em> are dimensioned at true length along it.
+    In Fig. H-8B, <em>C</em> and <em>O</em> coincide and <em>Q</em> lies directly behind
+    <em>F</em>. The solid arrow <em>SF</em> lies in the orbital plane and shows the radius
+    <em>r</em> at true length. The dashed dimension lines lie along the cone's surface,
+    outside the orbital plane, and show the same lengths <em>a</em> and <em>r</em> as in
+    Fig. H-8A. The segment marked <em>r</em> along the surface is not the radius itself, but
+    the equal-tangent property guarantees it has the same length.
+  </p>
+
+  <figure class="figure wpx" style="width: 84%;">
+    <img src="figh8-equal-tangents.png" alt="Left, edge view of the Dandelin sphere centered at Q touching the orbital plane at F, with S on the orbital plane and its revolved position S-prime on the cone outline, and dimensions a, r and R along the surface line from C. Right, view normal to the orbital plane with C,O coincident, the circle of contact edge-on, the arrow r from F to S, and the same dimensions along the cone outline">
+    <figcaption>Fig. H-8A — Edge view of the Dandelin sphere (left).<br>Fig. H-8B — View normal to the orbital plane (right).</figcaption>
+  </figure>
+
+  <h3>Summary</h3>
+  <p>The five steps give the edge-view results together:</p>
+  <p>
+    \[
+      \rho = b = \sqrt{ap}, \qquad \cos\Phi_c = \frac{1}{e}, \qquad R = r + a
+    \]
+  </p>
+  <p>
+    As a check, at periapsis <em>r</em> = <em>a</em>(<em>e</em> − 1), and Eq. H-5 gives
+    <em>R</em> = <em>ae</em>, which is \(CR_{\mathrm{P}}\) from Step 4.
+  </p>
+  <p>
+    Eccentricity does not appear in Eq. H-5. The elliptical relation,
+    \(R^{2} = r^{2} + ap = r^{2} + a^{2}(1 - e^{2})\), depends on <em>e</em>. The hyperbolic
+    apex distance depends only on <em>a</em> and <em>r</em>, and the eccentricity enters
+    through the offset <em>ρ</em> and the cone angle \(\Phi_c\).
+  </p>
+
+  <h2>The Center Distance <em>r″</em></h2>
+  <p>
+    Fig. H-6 shows the orbit face on, with the satellite <em>S</em> and three distances to
+    it: <em>r</em> from the focus <em>F</em>, <em>r′</em> from the second focus <em>F′</em>,
+    and <em>r″</em> from the center <em>O</em>. The first two are tied together by the
+    defining property of the hyperbola. For every point on the near branch, the distance to
+    the far focus exceeds the distance to the near focus by the transverse axis:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      r' - r = 2a
+    \]
+    </div>
+    <div class="eq-num">(H-6)</div>
+  </div>
+  <p>
+    Because <em>O</em> is the midpoint of <em>FF′</em>, the segment <em>OS</em> is a median
+    of triangle <em>FSF′</em>. Writing the law of cosines for triangles <em>SOF</em> and
+    <em>SOF′</em>, whose angles at <em>O</em> are supplementary, and adding the two results
+    eliminates the angle and gives the median length:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      r''^{2} = \frac{r^{2} + r'^{2}}{2} - (ae)^{2}
+    \]
+    </div>
+    <div class="eq-num">(H-7)</div>
+  </div>
+  <p>
+    Substituting <em>r′</em> = <em>r</em> + 2<em>a</em> from Eq. H-6 and
+    \((ae)^{2} = a^{2} + b^{2}\) gives
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      r''^{2} = (r + a)^{2} - b^{2}
+    \]
+    </div>
+    <div class="eq-num">(H-8)</div>
+  </div>
+  <p>
+    Now return to the edge view. Because <em>CO</em> is perpendicular to the entire orbital
+    plane, it is perpendicular to <em>OS</em> for every position <em>S</em>, and triangle
+    <em>COS</em> has a right angle at <em>O</em>. In Fig. H-5, <em>S</em> has been turned
+    about <em>CO</em> into the plane of the drawing, so the triangle appears at its true size,
+    with legs <em>ρ</em> and <em>r″</em> and hypotenuse <em>R</em>:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      R^{2} = \rho^{2} + r''^{2}
+    \]
+    </div>
+    <div class="eq-num">(H-9)</div>
+  </div>
+  <p>
+    With <em>ρ</em> = <em>b</em> from Eq. H-3, Eqs. H-8 and H-9 together give
+    \(R^{2} = (r + a)^{2}\), which is Eq. H-5 reached by a second route. Step 5 obtained it
+    from the Dandelin sphere and the equal-tangent property; here it follows from the face
+    view and the right triangle <em>COS</em>.
+  </p>
+  <p>
+    At periapsis, <em>r″</em> = <em>a</em>. This right triangle is the closest counterpart of
+    the elliptical edge view. Both have the leg \(\sqrt{ap}\) from the apex perpendicular to
+    the orbital plane. In the ellipse its foot is at the focus <em>F</em>, giving
+    \(R^{2} = r^{2} + ap\). In the hyperbola its foot is at the center <em>O</em>, giving
+    \(R^{2} = r''^{2} + ap\).
+  </p>
+
+  <h2>An Equal-Energy Family</h2>
+  <p>
+    For a fixed semi-major axis <em>a</em>, equivalent to a fixed total specific energy of
+    \(+\mu/2a\), the eccentricity of a hyperbola is free to range from the rectilinear limit
+    <em>e</em> = 1 upward without bound. Fig. H-9 shows four members of this equal-energy
+    family, on cones with half angles of 0°, 30°, 45° and 60° (<em>e</em> = 1, 1.155,
+    \(\sqrt{2}\) and 2 by Eq. H-4). It is the hyperbolic counterpart of the elliptical family
+    in Fig. E-4.
+  </p>
+
+  <figure class="figure wpx" style="width: 80%;">
+    <img src="figh9-equal-energy-family.png" alt="Left, edge view: four vertical plane lines at increasing distances from the cone axis for half angles 0, 30, 45 and 60 degrees, all with vertices at height a. Right, face view: the four hyperbolas superimposed with a shared vertex, their asymptotes meeting at the center, and the angles Phi c and delta over 2 marked on the 60-degree member">
+    <figcaption>Fig. H-9 — Equal-energy family, edge view (left) and face view (right).</figcaption>
+  </figure>
+
+  <p>
+    The edge view on the left shows each orbital plane as a vertical line at
+    \(\rho = a\tan\Phi_c\) from the cone axis, standing farther out as the cone opens, with
+    every vertex at the same height <em>a</em> above <em>C</em>. The face view on the right
+    shows the matching trajectories, each drawn in its own plane and superimposed so that
+    they share the vertex and the center <em>O</em> a distance <em>a</em> below it. At
+    \(\Phi_c = 0\) the plane lies on the cone axis and the trajectory becomes a straight line
+    along it: the rectilinear case. As the cone opens, the trajectory bends less, and as
+    \(\Phi_c\) approaches 90° it flattens toward a straight line across the orbit axis, the
+    undeflected path.
+  </p>
+  <p>
+    The bending can be stated exactly. Far from <em>F</em> the spacecraft travels along one
+    asymptote on the way in and the other on the way out. The turn angle <em>δ</em> is the
+    angle between the incoming and outgoing directions of travel, that is, the total angle
+    through which the velocity is deflected by the encounter. Each asymptote makes the angle
+    \(\Phi_c\) with the orbit axis (Fig. H-3). In Fig. H-9, the 60° member shows that each
+    asymptote therefore makes the angle \(\delta/2 = 90^\circ - \Phi_c\) with the
+    <em>x</em>-<em>y</em> plane, so the two asymptotes together turn the path through
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \delta = 180^\circ - 2\Phi_c
+    \]
+    </div>
+    <div class="eq-num">(H-10)</div>
+  </div>
+  <p>
+    The four members in Fig. H-9 are turned through 180°, 120°, 90° and 60°. With
+    \(\cos\Phi_c = 1/e\), Eq. H-10 is the classical turn angle relation
+    \(\sin(\delta/2) = 1/e\). What the family shares is the speed at great distance. As
+    <em>r</em> grows without limit, the vis-viva equation \(v^{2} = \mu(2/r + 1/a)\) gives
+    \(v_\infty^{2} = \mu/a\) for every member. The orbits in Fig. H-9 arrive and leave with
+    the same speed and differ only in how far that speed is turned. This parallels the
+    elliptical family, whose members all share the same period.
+  </p>
+  <p>
+    Set side by side, the two families divide the work in opposite ways. In Fig. E-4 a single
+    45° cone carries every member, and the orbital plane tilts. Each ellipse appears edge-on
+    as a chord of length 2<em>a</em> spanning the two surface lines, and the tilt of
+    \(\mathbf{h}\), measured by \(\Phi_h\), carries the eccentricity. In Fig. H-9 the plane
+    never tilts, \(\Phi_h\) stays at 90°, and each member needs a cone of its own. The vertex
+    holds at height <em>a</em>, and the opening of the cone carries the eccentricity. In the
+    ellipse, <em>a</em> appears as half of a chord of fixed length. In the hyperbola, it
+    appears as the fixed height of the vertex above the level of <em>C</em>.
+  </p>
+  <p>
+    One element is common to both figures: the perpendicular from <em>C</em> to the orbital
+    plane, of length \(\sqrt{ap}\), compared after Eq. H-9. Since \(ap = b^{2}\) for both the
+    ellipse and the hyperbola, that length is the semi-minor axis of the ellipse and the
+    semi-conjugate axis of the hyperbola (Eq. H-3). Across each family, <em>b</em> follows
+    the eccentricity in opposite directions. For the ellipse, \(b = a\sqrt{1 - e^{2}}\)
+    shrinks from <em>a</em> at the circle to zero at the linear limit. For the hyperbola,
+    \(b = a\sqrt{e^{2} - 1}\) grows from zero at the rectilinear limit without bound.
+  </p>
+  <p>
+    The two families therefore meet at <em>e</em> = 1, where <em>b</em> = 0 and the
+    perpendicular from <em>C</em> vanishes. Both limits are straight-line trajectories, but
+    they sit differently in the cone. In the elliptical family the chord lies along a surface
+    line of the cone, with <em>F</em> at the apex <em>C</em>. In the hyperbolic family the
+    plane lies on the cone axis, <em>O</em> coincides with <em>C</em>, and <em>F</em>
+    coincides with the vertex at height <em>a</em> above it.
+  </p>
 
   <!-- ON HOLD (9-29-2026): add after the bridge relation, general case first:
        (1) Conjugate pairing: complementary cone, rho' = a^2/sqrt(ap), 1/e^2 + 1/e'^2 = 1,
@@ -223,7 +552,7 @@
 <footer>
   D. H. May · Orbit-Mech research site · updated as work progresses
 </footer>
-<script src="nomenclature-data.js?v=5"></script>
-<script src="nomenclature-widget.js?v=5"></script>
+<script src="nomenclature-data.js?v=6"></script>
+<script src="nomenclature-widget.js?v=6"></script>
 </body>
 </html>

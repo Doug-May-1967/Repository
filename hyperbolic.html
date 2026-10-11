@@ -91,7 +91,7 @@
   <p>
     As with elliptical orbits, classical analyses of hyperbolic orbits are two-dimensional.
     In the absence of other forces, the constant angular momentum vector,
-    \(\mathbf{h}\), constrains orbital motion to a plane. Unlike the ellipse, the hyperbolic
+    <strong><em>h</em></strong>, constrains orbital motion to a plane. Unlike the ellipse, the hyperbolic
     cutting plane slices both nappes of the cone (Fig. F-3). Both "planar motion" and
     "conic section" can be captured together by embedding the orbit in a cone, as introduced
     in Fig. F-2. Consistent with that construction, a hyperbolic orbit is shown in a conical
@@ -106,7 +106,7 @@
     alignment always produces a hyperbola. The branch on the upper nappe is the physical
     trajectory about <em>F</em>, and the branch on the lower nappe is its mirror image. The
     perpendicular from the apex <em>C</em> meets the orbital plane at a point <em>O</em>, so
-    line <em>CO</em> is parallel to \(\mathbf{h}\). The edge view that follows shows that
+    line <em>CO</em> is parallel to <strong><em>h</em></strong>. The edge view that follows shows that
     <em>O</em> is the center of the hyperbola, that the offset <em>ρ</em> equals the
     semi-conjugate axis <em>b</em>, and that the cone half angle is fixed by the eccentricity.
   </p>
@@ -144,13 +144,13 @@
     <em>C</em> meets the plane at right angles at <em>O</em>. Two angles are marked at
     <em>C</em>: the cone half angle \(\Phi_c\), measured from the axis to the cone's surface
     line, and \(\Phi_h\), the direction of <em>CO</em> measured from the same axis. Because
-    <em>CO</em> is parallel to \(\mathbf{h}\) and the plane is parallel to the axis,
+    <em>CO</em> is parallel to <strong><em>h</em></strong> and the plane is parallel to the axis,
     \(\Phi_h = 90^\circ\) for every hyperbola in this model. On the Elliptical page,
     \(\Phi_h\) varied with eccentricity while \(\Phi_c\) stayed at 45°. Here the roles are
     exchanged.
   </p>
   <p>
-    In the face view, Fig. H-3, the line of sight is along \(\mathbf{h}\), perpendicular to
+    In the face view, Fig. H-3, the line of sight is along <strong><em>h</em></strong>, perpendicular to
     the orbital plane, so the apex <em>C</em> lies directly behind <em>O</em> and the two are
     labeled together. The physical branch curves about the focus <em>F</em> on the upper
     nappe, and its mirror image about <em>F′</em> on the lower nappe. The straight lines
@@ -496,7 +496,7 @@
     Set side by side, the two families divide the work in opposite ways. In Fig. E-4 a single
     45° cone carries every member, and the orbital plane tilts. Each ellipse appears edge-on
     as a chord of length 2<em>a</em> spanning the two surface lines, and the tilt of
-    \(\mathbf{h}\), measured by \(\Phi_h\), carries the eccentricity. In Fig. H-9 the plane
+    <strong><em>h</em></strong>, measured by \(\Phi_h\), carries the eccentricity. In Fig. H-9 the plane
     never tilts, \(\Phi_h\) stays at 90°, and each member needs a cone of its own. The vertex
     holds at height <em>a</em>, and the opening of the cone carries the eccentricity. In the
     ellipse, <em>a</em> appears as half of a chord of fixed length. In the hyperbola, it
@@ -525,28 +525,196 @@
            reflection about the 45-degree line in Fig. H-1.
        (2) e = sqrt(2) special case: self-conjugate member on the 45-degree cone, rho = a = b,
            auxiliary hyperbola for the time solution (parallels Kepler's auxiliary circle).
-       Also pending: Doug's model corresponding to the elliptical model, time equation in trig terms. -->
+       Also pending: Doug's model corresponding to the elliptical model (dynamic model figures).
+       Time equation in trig terms drafted below (10-11-2026). -->
+
+  <h2 id="time-equation">From Vis-Viva to the Hyperbolic Time Equation<a class="footnote-ref" href="#fn-1" id="fnref-1">1</a></h2>
+  <p>
+    The Elliptical page closes by carrying the Commonality integral through to Kepler's
+    equation. The same integral, with the other sign, gives the time equation for the
+    hyperbola. Commonality develops the vis-viva relation together with conservation of
+    angular momentum into a single integral, good for all three conic types (Eq. C-4, C-5):
+  </p>
+  <p>
+    \[
+      \int \frac{r\,dr}{\sqrt{2ar - ap \pm r^{2}}} = \sqrt{\frac{\mu}{a}} \int dt
+    \]
+  </p>
+  <p>
+    with the plus sign for the hyperbolic case (\(\mathcal{E} = +\mu/2a\)). Substituting
+    <em>p</em> = <em>a</em>(<em>e</em><sup>2</sup> − 1), with <em>a</em> positive as
+    Commonality specifies, completes the square under the root:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \dot{r}^{2} = \frac{\mu}{a}\,\frac{(a + r)^{2} - a^{2}e^{2}}{r^{2}}
+    \]
+    </div>
+    <div class="eq-num">(H-11)</div>
+  </div>
+  <p>
+    The sum <em>a</em> + <em>r</em> is the apex distance <em>R</em> of Eq. H-5, and
+    <em>ae</em> is its value at periapsis, \(CR_{\mathrm{P}}\). Radial speed is therefore
+    zero exactly where <em>R</em> = <em>ae</em>, at periapsis, as it must be. Separating
+    variables gives the hyperbolic integral
+  </p>
+  <p>
+    \[
+      \int \frac{r\,dr}{\sqrt{(a + r)^{2} - a^{2}e^{2}}} = \sqrt{\frac{\mu}{a}}\, t + C
+    \]
+  </p>
+  <p>Carrying out the integral gives</p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \sqrt{\frac{\mu}{a}}\, t = \sqrt{(a + r)^{2} - a^{2}e^{2}} - a\ln\!\left(a + r + \sqrt{(a + r)^{2} - a^{2}e^{2}}\right) + C
+    \]
+    </div>
+    <div class="eq-num">(H-12)</div>
+  </div>
+  <p>
+    Taking <em>t</em> = 0 at periapsis, where <em>r</em> = <em>a</em>(<em>e</em> − 1) and
+    the root vanishes, fixes the constant at \(C = a\ln(ae)\). Dividing it into the
+    logarithm leaves everything in terms of the single ratio (<em>a</em> + <em>r</em>)/<em>ae</em>:
+  </p>
+  <p>
+    \[
+      \sqrt{\frac{\mu}{a}}\, t = ae\sqrt{\left(\frac{a + r}{ae}\right)^{2} - 1} - a\ln\!\left[\frac{a + r}{ae} + \sqrt{\left(\frac{a + r}{ae}\right)^{2} - 1}\,\right]
+    \]
+  </p>
+  <p>
+    That ratio is never less than one, so it can be written as a secant. Define the angle
+    <em>η</em> by
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \sec\eta = \frac{a + r}{ae}, \qquad r = ae\sec\eta - a
+    \]
+    </div>
+    <div class="eq-num">(H-13)</div>
+  </div>
+  <p>
+    The angle <em>η</em> plays the role that <em>E</em> plays in Eq. E-12. The root becomes \(ae\tan\eta\), and the
+    time equation takes its trigonometric form:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \sqrt{\frac{\mu}{a}}\, t = ae\tan\eta - a\ln\left(\sec\eta + \tan\eta\right)
+    \]
+    </div>
+    <div class="eq-num">(H-14)</div>
+  </div>
+  <p>
+    Eq. H-14 is the hyperbolic counterpart of Kepler's equation (Eq. E-13), and like it, it
+    comes directly from the starting integral with no separate argument. As <em>r</em> runs
+    from periapsis out toward infinity, <em>η</em> runs from 0 toward 90°. Using
+    \(R = r + a\), Eq. H-13 also reads \(\cos\eta = ae/R\): the cosine of <em>η</em> is the
+    ratio of the apex distance at periapsis to the apex distance at the satellite.
+  </p>
+
+  <h3>Equivalence with the classical equation</h3>
+  <p>
+    The classical treatment writes the same motion with the hyperbolic anomaly <em>H</em>,
+    defined by \(r = a(e\cosh H - 1)\), and the time equation
+    \(\sqrt{\mu/a^{3}}\,t = e\sinh H - H\). Comparing the definition of <em>H</em> with
+    Eq. H-13 shows
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \cosh H = \sec\eta = \frac{a + r}{ae}
+    \]
+    </div>
+    <div class="eq-num">(H-15)</div>
+  </div>
+  <p>
+    From \(\cosh^{2}H - \sinh^{2}H = 1\) and \(\sec^{2}\eta - \tan^{2}\eta = 1\), it follows
+    that \(\sinh H = \tan\eta\). The inverse hyperbolic cosine has the logarithmic form
+    \(\cosh^{-1}x = \ln\left(x + \sqrt{x^{2} - 1}\right)\), so
+  </p>
+  <p>
+    \[
+      H = \ln\left(\sec\eta + \tan\eta\right)
+    \]
+  </p>
+  <p>
+    Substituting both into Eq. H-14 gives
+  </p>
+  <p>
+    \[
+      \sqrt{\frac{\mu}{a}}\, t = ae\sinh H - aH
+    \]
+  </p>
+  <p>
+    which is the classical equation multiplied through by <em>a</em>. The two forms are
+    term-for-term identical and return the same time for every <em>r</em>.
+  </p>
+  <p>
+    The link between <em>η</em> and <em>H</em> has a name. The Gudermannian function, after
+    Christoph Gudermann, who studied it in the 1830s, maps a hyperbolic argument to a
+    circular angle without passing through imaginary numbers:
+  </p>
+  <p>
+    \[
+      \eta = \operatorname{gd} H = \tan^{-1}(\sinh H), \qquad H = \operatorname{gd}^{-1}\eta = \ln\left(\sec\eta + \tan\eta\right)
+    \]
+  </p>
+  <p>
+    Under this mapping each hyperbolic function of <em>H</em> becomes a circular function of
+    <em>η</em>: \(\cosh H = \sec\eta\), \(\sinh H = \tan\eta\), and \(\tanh H = \sin\eta\).
+    The first two are exactly the substitutions used above. The inverse form may be familiar
+    from navigation: on a Mercator chart, the distance of a parallel from the equator is
+    proportional to \(\ln(\sec\varphi + \tan\varphi)\) of its latitude \(\varphi\), the
+    same expression that appears as the logarithmic term in Eq. H-14. The trigonometric form
+    keeps the hyperbolic time equation in the same functions a reader already uses for the
+    ellipse, and keeps <em>a</em> a positive length throughout.
+  </p>
+
+  <h3>The rectilinear case</h3>
+  <p>
+    Setting <em>e</em> = 1 (<em>p</em> = 0) in Eqs. H-13 and H-14 gives the rectilinear
+    hyperbolic trajectory directly:
+  </p>
+  <p>
+    \[
+      r = a\sec\eta - a, \qquad \sqrt{\frac{\mu}{a}}\, t = a\tan\eta - a\ln\left(\sec\eta + \tan\eta\right)
+    \]
+  </p>
+  <p>
+    Periapsis is now at <em>r</em> = 0, so the boundary condition <em>r</em> = 0 at
+    <em>t</em> = 0 matches the other rectilinear trajectories. As on the Elliptical page,
+    nothing about the integration changes at <em>e</em> = 1. The rectilinear case falls out of
+    the general result, and only the sign carried in from the energy separates it from the
+    rectilinear ellipse.
+  </p>
 
   <h2>Elliptical-to-hyperbolic transition</h2>
   <p>
-    Conic sections — elliptical, parabolic, and hyperbolic — take on a renewed structure in
+    Conic sections (elliptical, parabolic, and hyperbolic) take on a renewed structure in
     the conical reference frame. The transition from one type to another becomes smooth,
     perhaps continuous.
   </p>
-
-  <div class="figure">
-    <img src="img/fig-transition-1.png" alt="Diagram of linear elliptical and hyperbolic regions and the elliptical to hyperbolic transition, on a square field split by diagonal lines">
-    <figcaption>Elliptical orbits occupy a fixed 45° half-angle cone; hyperbolic orbits occupy cones with a varying half-angle greater than 45°.</figcaption>
-  </div>
-
-  <div class="figure">
-    <img src="img/fig-transition-2.png" alt="Diagram showing eccentricity families e1 and e2 traced across the elliptical and hyperbolic regions">
-  </div>
-
-  <p class="placeholder-note">
-    Figure captions here are carried over directly from the storyboard slide and still need
-    to be reconciled with which image supports which claim before this becomes final.
+  <p>
+    The two families use the cone differently. Every ellipse in this framework lies on a
+    single cone with a fixed 45° half-angle, and the tilt of the orbital plane carries the
+    eccentricity. Each hyperbola, with its plane parallel to the cone axis, needs a cone of
+    its own, with \(\cos\Phi_c = 1/e\) (Eq. H-4). The half-angle therefore runs from 0° at
+    the rectilinear limit <em>e</em> = 1 toward 90° as <em>e</em> grows without bound, and
+    passes through 45° at <em>e</em> = \(\sqrt{2}\).
   </p>
+  <!-- PLANNED (10-11-2026): a transition figure for this section, design not yet decided.
+       Storyboard placeholders (img/fig-transition-1/2.png, never in repo) removed. -->
+
+  <div class="footnote" id="fn-1">
+    <sup>1</sup> The trigonometric time equation was first derived in D. H. May, "Orbital
+    Motion Equations with Dynamic Models," Paper AAS 05-354, AAS/AIAA Astrodynamics
+    Specialist Conference, Lake Tahoe, CA, August 2005, which also develops the dynamic
+    hyperbolic models built on it.
+    <a href="#fnref-1">↩</a>
+  </div>
 </main>
 
 <footer>

@@ -614,6 +614,19 @@
     \(R = r + a\), Eq. H-13 also reads \(\cos\eta = ae/R\): the cosine of <em>η</em> is the
     ratio of the apex distance at periapsis to the apex distance at the satellite.
   </p>
+  <p>
+    The logarithmic term can also be written with a single tangent. From the half-angle
+    identities, \(\sec\eta + \tan\eta = (1 + \sin\eta)/\cos\eta = \tan(\pi/4 + \eta/2)\), so
+    Eq. H-14 takes the equivalent form
+  </p>
+  <p>
+    \[
+      \sqrt{\frac{\mu}{a}}\, t = ae\tan\eta - a\ln\tan\left(\frac{\pi}{4} + \frac{\eta}{2}\right)
+    \]
+  </p>
+  <p>
+    which is the form given in the original derivation.<a class="footnote-ref" href="#fn-1" id="fnref-1b">1</a>
+  </p>
 
   <h3>Equivalence with the classical equation</h3>
   <p>
@@ -667,8 +680,9 @@
     <em>η</em>: \(\cosh H = \sec\eta\), \(\sinh H = \tan\eta\), and \(\tanh H = \sin\eta\).
     The first two are exactly the substitutions used above. The inverse form may be familiar
     from navigation: on a Mercator chart, the distance of a parallel from the equator is
-    proportional to \(\ln(\sec\varphi + \tan\varphi)\) of its latitude \(\varphi\), the
-    same expression that appears as the logarithmic term in Eq. H-14. The trigonometric form
+    proportional to \(\ln(\sec\varphi + \tan\varphi)\), or equivalently
+    \(\ln\tan(\pi/4 + \varphi/2)\), of its latitude \(\varphi\), the same expression that
+    appears as the logarithmic term in Eq. H-14. The trigonometric form
     keeps the hyperbolic time equation in the same functions a reader already uses for the
     ellipse, and keeps <em>a</em> a positive length throughout.
   </p>
@@ -704,6 +718,15 @@
     its own, with \(\cos\Phi_c = 1/e\) (Eq. H-4). The half-angle therefore runs from 0° at
     the rectilinear limit <em>e</em> = 1 toward 90° as <em>e</em> grows without bound, and
     passes through 45° at <em>e</em> = \(\sqrt{2}\).
+  </p>
+  <p>
+    The apparent jump at <em>e</em> = 1, from a 45° cone for the ellipse to a 0° cone for the
+    hyperbola, is not a break between the two families. As <em>e</em> approaches 1 with
+    <em>a</em> held fixed, <em>p</em> and \(\rho = \sqrt{ap}\) go to zero together, and both
+    constructions degenerate to a straight line through the apex. For the ellipse the cone
+    loses its significance and the trajectory runs along a single generator. For the
+    hyperbola the cone itself collapses to a line. The rectilinear trajectories of all three
+    orbit types are compared on a later page.
   </p>
   <!-- PLANNED (10-11-2026): a transition figure for this section, design not yet decided.
        Storyboard placeholders (img/fig-transition-1/2.png, never in repo) removed. -->

@@ -185,11 +185,16 @@
       sections, without needing a fully closed surface at every step.
     </li>
     <li>
-      <strong>The conic sector's flux is constant.</strong> Since flux lines follow the
-      radial generators of the cone, and the \(R^{2}\) cancellation holds at every radius,
-      a conic sector of fixed half-angle subtends a fixed solid angle regardless of how far
-      along the generator you measure. The flux through that sector therefore stays
-      constant as the satellite moves along its orbit, even though <em>R</em> itself is changing.
+      <strong>The conic sector's flux is constant.</strong> For a cone whose apex sits
+      at the primary body, flux lines run along the radial generators, and the \(R^{2}\)
+      cancellation holds at every radius, so a conic sector of fixed half-angle subtends a
+      fixed solid angle regardless of how far along the generator you measure. The flux
+      through that sector therefore stays constant even though <em>R</em> itself is changing.
+      In this framework the apex coincides with the primary body only when \(p = 0\), the
+      rectilinear case. For \(p &gt; 0\) the apex sits a distance \(\rho = \sqrt{ap}\) from
+      <em>F</em> along <strong>h</strong> (Level 2), so the generators of the orbit's cone are
+      no longer flux lines, and the constant-flux statement applies exactly to a cone of the
+      same half-angle with its apex at <em>F</em>.
     </li>
   </ul>
   <p>
@@ -230,7 +235,7 @@
       \frac{\dot{r}^{2}}{2} = \frac{\mu}{r} - \frac{\mu p}{2r^{2}} \pm \frac{\mu}{2a}
     \]
     </div>
-    <div class="eq-num">(C-4)</div>
+    <div class="eq-num">(C-1)</div>
   </div>
   <p>
     The \(\pm\) here is not a free choice, it tracks the sign of the total energy row in
@@ -260,10 +265,10 @@
       \int \frac{r\, dr}{\sqrt{2ar - ap \pm r^{2}}} = \sqrt{\frac{\mu}{a}} \int dt
     \]
     </div>
-    <div class="eq-num">(C-5)</div>
+    <div class="eq-num">(C-2)</div>
   </div>
   <p>
-    Eq. (C-5) is the template: one integral, general across conic type, that each
+    Eq. (C-2) is the template: one integral, general across conic type, that each
     individual conic page carries out with its own values of <em>a</em>, <em>e</em>, <em>p</em>, and sign
     substituted in. Table C-1 collects those substitutions, both for the general orbit and
     for the rectilinear (<em>e</em> = 1, purely radial) special case each conic type reduces to.

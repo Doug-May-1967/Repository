@@ -118,7 +118,7 @@
       <figcaption>Fig. E-2 — Elliptical orbit edge view, with the unknown segment <em>ρ</em> and angles <em>α</em>, <em>β</em> at apex <em>C</em>.</figcaption>
     </figure>
     <figure class="figure">
-      <img src="fige3-edge-view-solved.png" alt="Edge view after solving for rho, alpha, beta, CA, and CP: same triangle with root ap labeled for rho, and CA and CP labeled a root(2+2e) and a root(2-2e)">
+      <img src="fige3-edge-view-solved.png" alt="Edge view after solving for rho, alpha, beta, CA, and CP: root ap labeled for rho, CA and CP labeled a root(2+2e) and a root(2-2e), center O marked on AP, and a dashed circle with diameter AP passing through apex C">
       <figcaption>Fig. E-3 — Edge view after solving for <em>ρ</em>, <em>α</em>, <em>β</em>, <em>CA</em>, and <em>CP</em>.</figcaption>
     </figure>
   </div>
@@ -175,6 +175,32 @@
     This same length <em>ρ</em> reappears as <em>CF</em> in the Bridge Relation below. These
     are two names for the same segment, arrived at from two different auxiliary
     constructions.
+  </p>
+
+  <h2>Thales' Theorem and the Geometric Mean</h2>
+  <p>
+    The 45° choice has a classical reading. With <em>α</em> + <em>β</em> = <em>π</em>/2, the
+    angle <em>ACP</em> at the apex is a right angle. By Thales' theorem, the vertex of a right
+    angle whose sides pass through the two ends of a segment lies on the circle having that
+    segment as its diameter. The apex <em>C</em> therefore lies on the circle with diameter
+    <em>AP</em> = 2<em>a</em>, centered at the ellipse center <em>O</em> with radius
+    <em>a</em>. In the edge view this is the auxiliary circle, rotated out of the orbital
+    plane, and is shown dashed in Fig. E-3.
+  </p>
+  <p>
+    <em>CF</em> is the altitude from the right angle to the hypotenuse <em>AP</em>, and
+    <em>F</em> divides <em>AP</em> into <em>FP</em> = <em>a</em>(1 − <em>e</em>) and
+    <em>FA</em> = <em>a</em>(1 + <em>e</em>). That altitude is the geometric mean of the two
+    pieces it cuts (Euclid VI.13), so
+  </p>
+  <p>
+    \[
+      \rho^{2} = a(1-e)\cdot a(1+e) = a^{2}(1-e^{2}) = ap
+    \]
+  </p>
+  <p>
+    which is Eq. E-4 again, reached without the cotangent algebra. The circle also returns in
+    the derivation of sin(2\(\Phi_h\)) = <em>e</em> below.
   </p>
 
   <h2>An Equal-Energy Family</h2>
@@ -319,6 +345,20 @@
   <p>
     matching Table F-1 and the Level 2 entry on the Commonality page.
   </p>
+  <p>
+    The circle through <em>C</em> gives the same result in one step. Thales' theorem is the
+    special case of the inscribed-angle theorem: an angle inscribed in a circle is half the
+    central angle on the same arc. The angle at <em>A</em> in triangle <em>ACP</em> is
+    inscribed on arc <em>CP</em>, and in a right triangle the altitude makes that same angle at
+    the apex, so it equals <em>α</em>. The central angle <em>POC</em> on the same arc is
+    therefore 2<em>α</em>. Since <em>α</em> = 45° − \(\Phi_h\), the central angle is
+    90° − 2\(\Phi_h\), and
+  </p>
+  <p>
+    \[
+      \cos 2\alpha = \frac{OF}{OC} = \frac{ae}{a} = e = \sin(2\Phi_h)
+    \]
+  </p>
 
   <div id="bridge-relation">
     <h2>The Bridge Relation</h2>
@@ -452,6 +492,23 @@
   <p>
     Kepler's equation. It comes out directly from the same starting integral used for every
     conic type, with no separate argument needed for this one.
+  </p>
+  <p>
+    The inscribed-angle theorem also explains why <em>E</em>/2 keeps appearing. The eccentric
+    anomaly <em>E</em> is a central angle on the auxiliary circle, measured at the ellipse
+    center from periapsis. Seen from apoapsis, at the far end of the diameter, the same point
+    on the circle subtends <em>E</em>/2. Half-angles therefore enter whenever <em>E</em> is
+    connected to the true anomaly <em>θ</em>, the angle at the focus from periapsis:
+  </p>
+  <p>
+    \[
+      \tan\frac{\theta}{2} = \sqrt{\frac{1+e}{1-e}}\,\tan\frac{E}{2} = \cot\alpha\,\tan\frac{E}{2}
+    \]
+  </p>
+  <p>
+    The factor is the same \(\cot\alpha\) found in Eq. E-1 once <em>ρ</em> = \(\sqrt{ap}\),
+    and <em>α</em> is itself an inscribed half-angle on the circle through <em>C</em>. The
+    edge view and the auxiliary circle carry the same eccentricity factor.
   </p>
   <p>
     The same starting integral also covers the rectilinear (<em>e</em> = 1) case, and the

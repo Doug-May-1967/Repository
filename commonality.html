@@ -161,10 +161,16 @@
   <p>
     Gauss's law for gravitation states that the total outward gravitational flux through
     any closed surface equals \(-4\pi\mu\), where \(\mu = GM\) is the gravitational
-    parameter of the enclosed mass. For a sphere of radius <em>R</em> centered on the primary body,
-    the field magnitude is \(\mu/R^{2}\) and the surface area is \(4\pi R^{2}\), so the
-    integrand is constant and the \(R^{2}\) factors cancel identically. The flux is
-    \(-4\pi\mu\) regardless of the sphere's size.
+    parameter of the enclosed mass. In this framework the natural closed surface is the
+    sphere of radius <em>R</em> centered on the cone apex <em>C</em>, the sphere that bounds
+    both nappes. The primary body at <em>F</em> lies a distance \(\rho = \sqrt{ap}\) from
+    <em>C</em>, and the Bridge Relation \(R^{2} = r^{2} + ap\) gives \(R &gt; \rho\) whenever
+    \(r &gt; 0\). The primary body is therefore always inside this sphere, and the flux through
+    it is \(-4\pi\mu\) at every point of the orbit. When the mass sits at the center, as it
+    does when \(p = 0\), the field on the sphere has the constant magnitude \(\mu/R^{2}\) and
+    the surface area is \(4\pi R^{2}\), so the \(R^{2}\) factors cancel identically. When
+    \(p &gt; 0\) the field varies over the sphere, but the total is still \(-4\pi\mu\),
+    because Gauss's law depends only on what is enclosed.
   </p>
   <p>Three properties of this cancellation carry directly into the conical framework:</p>
   <ul>
@@ -178,7 +184,7 @@
     <li>
       <strong>Shape doesn't matter, only solid angle.</strong> Because the \(R^{2}\)
       factors cancel, flux depends only on the solid angle a surface subtends, not on its
-      particular shape or size. A spherical cap of half-angle \(\Phi\) subtends solid angle
+      particular shape or size. A spherical cap of half-angle \(\Phi\) centered on the mass subtends solid angle
       \(\Omega = 2\pi(1 - \cos\Phi)\) and carries flux \(-\mu\Omega\), independent of
       radius. A flat disk subtending the same solid angle carries the same flux. This is
       what licenses replacing curved surfaces with flat ones, or evaluating a surface in

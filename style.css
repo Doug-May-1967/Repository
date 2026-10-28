@@ -235,9 +235,9 @@ footer {
 
 .author-photo {
   float: left;
-  width: 140px;
-  height: auto;
-  margin: 0.3rem 1.2rem 0.5rem 0;
+  height: 96px;   /* about one inch on screen */
+  width: auto;
+  margin: 0.25rem 1rem 0.3rem 0;
   border: 1px solid var(--rule-color);
 }
 

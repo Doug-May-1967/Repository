@@ -227,3 +227,28 @@ footer {
   margin: 1rem auto 0;
   padding: 0 1.5rem;
 }
+
+/* Background page: author bio with small photo */
+.author-bio {
+  overflow: hidden;
+}
+
+.author-photo {
+  float: left;
+  width: 140px;
+  height: auto;
+  margin: 0.3rem 1.2rem 0.5rem 0;
+  border: 1px solid var(--rule-color);
+}
+
+@media (max-width: 520px) {
+  .author-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 0.8rem;
+  }
+}
+
+.author-bio p {
+  margin-top: 0.2rem;
+}

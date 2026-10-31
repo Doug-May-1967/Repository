@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rectilinear Trajectories — Orbit-Mech</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nomenclature.css">
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      mathStyle: 'ISO'
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js"></script>
+<style>
+  .eq-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5em 0;
+  }
+  .eq-row > .eq-body { flex: 1; }
+  .eq-row > .eq-num  { flex: 0 0 auto; margin-left: 1.5em; }
+
+  figure.figure.w38 {
+    width: 38%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 640px) {
+    figure.figure.w38 { width: 100%; }
+  }
+
+  .figure-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 1.8rem 0;
+  }
+  .figure-row figure.figure {
+    margin: 0;
+    flex: 0 1 auto;
+    width: 36.1%;
+  }
+  @media (max-width: 640px) {
+    .figure-row figure.figure { width: 100%; }
+  }
+
+  figure.figure.wpx { margin-left: auto; margin-right: auto; }
+  @media (max-width: 640px) {
+    figure.figure.wpx { width: 100% !important; }
+  }
+
+  .footnote {
+    font-size: 0.88rem;
+    color: #555;
+    border-top: 1px solid var(--rule-color);
+    margin-top: 2.5rem;
+    padding-top: 0.8rem;
+  }
+  .footnote-ref {
+    font-size: 0.75em;
+    vertical-align: super;
+    text-decoration: none;
+    color: var(--accent-color);
+  }
+</style>
+</head>
+<body>
+<header>
+  <a class="site-title" href="index.html">Orbit-Mech</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="background.html">Background</a>
+    <a href="framework.html">Framework</a>
+    <a href="commonality.html">Commonality</a>
+    <a href="elliptical.html">Elliptical Orbits</a>
+    <a href="hyperbolic.html">Hyperbolic Orbits</a>
+    <a href="rectilinear.html" class="active">Rectilinear Trajectories</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow">Rectilinear Trajectories</p>
+  <h1>Rectilinear trajectory analysis and results</h1>
+
+  <p>
+    A rectilinear trajectory is the limit <em>e</em> = 1, <em>p</em> = 0 of each conic type.
+    The angular momentum vanishes and the motion runs along a straight line through the
+    attracting center. The Elliptical and Hyperbolic pages each close by showing that their
+    time equations reduce to this case with no change in the integration, and Table C-1
+    collects its parameters. Only the sign of the energy separates the three rectilinear
+    trajectories, so this is where the orbit types meet, and the natural place to compare
+    them and to examine the smooth transition from one type to another, a topic that is
+    largely absent from the literature.
+  </p>
+  <p>
+    Without angular momentum the trajectory is no longer confined to a plane, and the cone
+    no longer constrains its direction. This page first follows the whole family of
+    equal-energy radial trajectories launched in every direction at once, whose envelope is
+    a sphere that expands and collapses once per period, and compares that motion across the
+    three energies. It then returns to the conical frame, where the cone keeps its shape and
+    scales with the sphere.
+  </p>
+
+  <h2>The Breathing Sphere</h2>
+
+  <p>In the rectilinear ellipse the angular momentum vanishes, so <i>h</i> = <i>p</i> = 0 and the trajectory lies in every plane that contains its line. No direction is preferred. Consider, then, the whole family of equal-energy radial trajectories launched from the center in every direction at the same instant. At any later time every member sits at the same radius, so their envelope is a sphere. That sphere expands, stops, and collapses back to the center once per orbital period. It is a genuinely three-dimensional periodic motion, and among the rectilinear cases it belongs to the ellipse alone.</p>
+
+  <h3>Radius and time</h3>
+
+  <p>With <i>e</i> = 1 the radius and Kepler's equation become</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        r = a(1-\cos E) = 2a\sin^2\!\tfrac{E}{2}
+      \]
+      </div>
+      <div class="eq-num">(R-1)</div>
+    </div>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \sqrt{\mu/a^3}\;t = E - \sin E
+      \]
+      </div>
+      <div class="eq-num">(R-2)</div>
+    </div>
+
+  <p>where <i>E</i> is the eccentric anomaly. Together, Eqs. R-1 and R-2 describe a cycloid: a circle of radius <i>a</i> rolling along the time axis, with <i>E</i> the angle through which it has turned. Each arch touches <i>r</i> = 0 at a collision and reaches <i>r</i> = 2<i>a</i> at <i>E</i> = &pi;.</p>
+
+  <p>Here a collision means <i>r</i> = 0, with the attracting body idealized as a point mass. This point is a singularity: the potential &minus;&mu;/<i>r</i> and the radial speed are both unbounded there, and the equations of motion do not hold. The time to reach it from any finite radius is nevertheless finite, since near the center &radic;(&mu;/<i>a</i><sup>3</sup>)&#8201;<i>t</i> &asymp; <i>E</i><sup>3</sup>/6. We take <i>t</i> = 0 at <i>r</i> = 0, which is periapsis passage for <i>e</i> = 1, defined as the limit of <i>t</i> as <i>r</i> &rarr; 0. The motion is continued past the singularity by reversal, as the regularized solution and the limit <i>e</i> &rarr; 1 of an ordinary ellipse both require, so Eqs. R-1 and R-2 describe a periodic motion.</p>
+
+  <p>Differentiating Eq. R-2 gives</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        r\dot{E} = \sqrt{\mu/a}
+      \]
+      </div>
+      <div class="eq-num">(R-3)</div>
+    </div>
+
+  <p>The product <i>r</i><i>&Edot;</i> is a constant, &radic;(&mu;/<i>a</i>), the speed on a circle of radius <i>a</i>. The same step applied to the general Kepler equation, &radic;(&mu;/<i>a</i><sup>3</sup>)&#8201;<i>t</i> = <i>E</i> &minus; <i>e</i> sin <i>E</i>, gives <i>&Edot;</i>(1 &minus; <i>e</i> cos <i>E</i>) = &radic;(&mu;/<i>a</i><sup>3</sup>), so Eq. R-3 holds for every ellipse, not only <i>e</i> = 1. It makes <i>E</i> a regularized clock. <i>E</i> advances quickly near the center, where <i>r</i> is small, and slowly near apoapsis, so the collision is smooth in <i>E</i> even though the radial speed is unbounded there in <i>t</i>.</p>
+
+  <h3>Area and area rate</h3>
+
+  <p>The surface area of the sphere follows directly from Eq. R-1:</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        A = 4\pi r^2 = 16\pi a^2 \sin^4\!\tfrac{E}{2}
+      \]
+      </div>
+      <div class="eq-num">(R-4)</div>
+    </div>
+
+  <p>Because the radius is a squared sine, <i>A</i> never goes negative and has a single hump per period. It rises from zero at <i>E</i> = 0 to 16&pi;<i>a</i><sup>2</sup> at <i>E</i> = &pi; and returns to zero at <i>E</i> = 2&pi;, one cycle per period <i>T</i> = 2&pi;&radic;(<i>a</i><sup>3</sup>/&mu;).</p>
+
+  <p>For the rate of change, <i>dA</i>/<i>dt</i> = 8&pi;<i>r</i>&#7769;. With &#7769; = <i>a</i> sin <i>E</i> <i>&Edot;</i>, Eq. R-3 lets the factor of <i>r</i> cancel:</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        r\dot{r} = a\sin E\,(r\dot{E}) = \sqrt{\mu a}\,\sin E
+      \]
+      </div>
+      <div class="eq-num">(R-5)</div>
+    </div>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \frac{dA}{dt} = 8\pi\sqrt{\mu a}\,\sin E
+      \]
+      </div>
+      <div class="eq-num">(R-6)</div>
+    </div>
+
+  <p>The area rate is a pure sine of <i>E</i>. It stays finite through the collision, where &#7769; itself is singular. For a general ellipse Eq. R-5 reads <i>r</i>&#7769; = <i>e</i>&radic;(&mu;<i>a</i>) sin <i>E</i>, so the rectilinear result is simply the case <i>e</i> = 1. The constant &radic;(&mu;<i>a</i>) is the angular momentum per unit mass of the circular orbit of radius <i>a</i>, just as &radic;(&mu;/<i>a</i>) is its speed.</p>
+
+  <h3>Area as an explicit function of time</h3>
+
+  <p>Kepler's equation cannot be inverted in elementary functions, so Eqs. R-2 and R-4 give <i>A</i>(<i>t</i>) only parametrically. An exact explicit form comes from the classical Bessel expansion of <i>r</i><sup>2</sup>/<i>a</i><sup>2</sup> in the mean anomaly, the standard way of writing the solution of Kepler's equation as a series in time, evaluated at <i>e</i> = 1:</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        A(t) = 4\pi a^2\left[\frac{5}{2} - 4\sum_{k=1}^{\infty}\frac{J_k(k)}{k^2}\cos\!\left(\frac{2\pi k t}{T}\right)\right]
+      \]
+      </div>
+      <div class="eq-num">(R-7)</div>
+    </div>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \frac{dA}{dt} = 16\pi\sqrt{\mu a}\sum_{k=1}^{\infty}\frac{J_k(k)}{k}\sin\!\left(\frac{2\pi k t}{T}\right)
+      \]
+      </div>
+      <div class="eq-num">(R-8)</div>
+    </div>
+
+  <p>where <i>J<sub>k</sub></i> is the Bessel function of the first kind. Only cosines appear in Eq. R-7 because <i>A</i>(<i>t</i>) is symmetric about each collision and about apoapsis. The constant term gives the time-averaged area,</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \langle A \rangle = 10\pi a^2
+      \]
+      </div>
+      <div class="eq-num">(R-9)</div>
+    </div>
+
+  <p>compared with the peak of 16&pi;<i>a</i><sup>2</sup>. The sphere spends more of each period large than small, since it moves slowly near apoapsis.</p>
+
+  <figure class="figure wpx" style="width: 70%;">
+  <img src="fig_r_area.png" alt="Area and area rate of the breathing sphere over two periods">
+  <figcaption>Fig. R-1. Sphere area and area rate</figcaption>
+  </figure>
+
+  <p>Figure R-1 shows two periods. In the upper panel the solid curve is the exact area from Eqs. R-2 and R-4, the dotted line is the mean of Eq. R-9, and the dashed curve keeps only the first three terms of Eq. R-7. The three-term curve follows the exact one closely everywhere except at collision, where it rounds off the cusp. The lower panel shows Eq. R-6. Its extremes of &plusmn;8&pi;&radic;(&mu;<i>a</i>) occur at <i>E</i> = &pi;/2, which by Eq. R-2 is <i>t</i>/<i>T</i> &asymp; 0.09, well before a quarter period.</p>
+
+  <h3>Gauss's law for the breathing sphere</h3>
+
+  <p>Every point on the sphere has the same radial acceleration, <i>r&#776;</i> = &minus;&mu;/<i>r</i><sup>2</sup>, so the sphere is a Gaussian surface that moves with the motion. Multiplying by the area <i>A</i> = 4&pi;<i>r</i><sup>2</sup> gives</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        A\ddot{r} = -4\pi\mu
+      \]
+      </div>
+      <div class="eq-num">(R-10)</div>
+    </div>
+
+  <p>which is Gauss's law for gravity: the flux of the field through the sphere equals &minus;4&pi;&mu;. The radius cancels, so the flux is the same at every instant of the cycle, and the result holds for all three energies. The factor 4&pi; is the full solid angle. Each element of solid angle d&Omega; in the isotropic family contributes <i>r</i><sup>2</sup><i>r&#776;</i> d&Omega; = &minus;&mu; d&Omega;, independent of time, and summing over every direction gives Eq. R-10.</p>
+
+  <p>The same constant governs the second derivative of the area. Differentiating Eq. R-6 and using Eq. R-3 for <i>&Edot;</i> gives</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        r\,\ddot{A} = 8\pi\mu\cos E = -2\,(A\ddot{r})\cos E
+      \]
+      </div>
+      <div class="eq-num">(R-11)</div>
+    </div>
+
+  <p>At apoapsis, <i>E</i> = &pi; and <i>r</i><i>&Auml;</i> = &minus;8&pi;&mu;, twice the flux. Near collision cos <i>E</i> approaches 1 while <i>r</i> approaches zero, so <i>&Auml;</i> grows without bound, consistent with the vertical tangent in the lower panel of Fig. R-1. The leading coefficient of Eq. R-6 can be written the same way, 8&pi;&radic;(&mu;<i>a</i>) = 2(4&pi;&mu;)/&radic;(&mu;/<i>a</i>).</p>
+
+  <h3>Collision behavior and the other energies</h3>
+
+  <p>Near collision, <i>E</i> is small and Eqs. R-1 and R-2 give <i>r</i> &asymp; <i>aE</i><sup>2</sup>/2 and &radic;(&mu;/<i>a</i><sup>3</sup>)&#8201;<i>t</i> &asymp; <i>E</i><sup>3</sup>/6. Then <i>r</i> &prop; <i>t</i><sup>2/3</sup>, <i>A</i> &prop; <i>t</i><sup>4/3</sup>, and <i>dA</i>/<i>dt</i> &prop; <i>t</i><sup>1/3</sup>. The area rate therefore passes through zero with a vertical tangent at each collision, as the lower panel of Fig. R-1 shows. This is also why Eq. R-8 converges more slowly than Eq. R-7: since <i>J<sub>k</sub></i>(<i>k</i>) falls off as <i>k</i><sup>&minus;1/3</sup>, the terms of Eq. R-8 decrease as <i>k</i><sup>&minus;4/3</sup> and those of Eq. R-7 as <i>k</i><sup>&minus;7/3</sup>.</p>
+
+  <p>The other two rectilinear cases do not return. With zero energy the radius grows as <i>r</i> = (9&mu;<i>t</i><sup>2</sup>/2)<sup>1/3</sup>, and with positive energy <i>r</i> = <i>a</i>(sec &eta; &minus; 1) with &radic;(&mu;/<i>a</i><sup>3</sup>)&#8201;<i>t</i> = tan &eta; &minus; ln(sec &eta; + tan &eta;), the rectilinear form of the time equation on the <a href="hyperbolic.html#time-equation">Hyperbolic page</a>. In both, the sphere expands without limit. The same three solutions describe the closed, critical, and open universes of Newtonian cosmology (Milne and McCrea, 1934)<a class="footnote-ref" href="#ref-1" id="cite-1">1</a>, where each shell of a uniform sphere follows a radial Kepler trajectory, and the negative-energy case is the spherical collapse model used for galaxy halos (Gunn and Gott, 1972)<a class="footnote-ref" href="#ref-2" id="cite-2">2</a>.</p>
+
+  <h3>Comparing the three energies</h3>
+
+  <p>Equating <i>r</i> and <i>t</i> for the rectilinear parabola gives (&radic;2/3)<i>r</i><sup>3/2</sup> = &radic;&mu; <i>t</i>. The parabola has no length scale of its own, so it can be normalized by the <i>a</i> of any ellipse or hyperbola. Dividing by <i>a</i><sup>3/2</sup> puts all three cases on common axes:</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \frac{\sqrt{2}}{3}\left(\frac{r}{a}\right)^{3/2} = \sqrt{\mu/a^3}\;t
+      \]
+      </div>
+      <div class="eq-num">(R-12)</div>
+    </div>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \frac{r}{a} = \sec\eta - 1, \qquad \sqrt{\mu/a^3}\;t = \tan\eta - \ln(\sec\eta + \tan\eta)
+      \]
+      </div>
+      <div class="eq-num">(R-13)</div>
+    </div>
+
+  <p>with the ellipse given by Eqs. R-1 and R-2. The vis-viva equation shows why the three agree near the center. It reads <i>v</i><sup>2</sup> = 2&mu;/<i>r</i> &minus; &mu;/<i>a</i> for the ellipse, 2&mu;/<i>r</i> for the parabola, and 2&mu;/<i>r</i> + &mu;/<i>a</i> for the hyperbola. As <i>r</i> becomes small, the 2&mu;/<i>r</i> term dominates and the energy term no longer matters, so both the ellipse and the hyperbola tend toward the parabolic motion. The series confirm this. For small <i>E</i>, Eqs. R-1 and R-2 give <i>r</i>/<i>a</i> &asymp; <i>E</i><sup>2</sup>/2 and &radic;(&mu;/<i>a</i><sup>3</sup>)&#8201;<i>t</i> &asymp; <i>E</i><sup>3</sup>/6, and eliminating <i>E</i> returns Eq. R-12 exactly. Eq. R-13 does the same for small &eta;, where sec &eta; &minus; 1 &asymp; &eta;<sup>2</sup>/2 and tan &eta; &minus; ln(sec &eta; + tan &eta;) &asymp; &eta;<sup>3</sup>/6. Eq. R-12 is therefore the leading term of both the elliptic and hyperbolic solutions.</p>
+
+  <p>Eq. R-3 has a hyperbolic partner. Differentiating the time equation of Eq. R-13 gives <i>r</i>&#8201;&eta;&#775; sec &eta; = &radic;(&mu;/<i>a</i>). For the rectilinear hyperbola the apex distance is <i>R</i> = <i>r</i> + <i>a</i>, so sec &eta; = <i>R</i>/<i>a</i> and</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        r R\,\dot{\eta} = \sqrt{\mu a}
+      \]
+      </div>
+      <div class="eq-num">(R-14)</div>
+    </div>
+
+  <p>The ellipse holds <i>r</i><i>&Edot;</i> at &radic;(&mu;/<i>a</i>), the speed on a circle of radius <i>a</i>, and the hyperbola holds <i>rR</i>&eta;&#775; at &radic;(&mu;<i>a</i>), the angular momentum on that circle. For a general hyperbola the same steps, with cos &eta; = <i>ae</i>/<i>R</i>, give <i>rR</i>&eta;&#775; = <i>e</i>&radic;(&mu;<i>a</i>).</p>
+
+  <figure class="figure wpx" style="width: 70%;">
+  <img src="fig_r_three.png" alt="Normalized radius versus time for the rectilinear ellipse, parabola, and hyperbola">
+  <figcaption>Fig. R-2. Rectilinear radius for the three energies</figcaption>
+  </figure>
+
+  <p>Figure R-2 plots <i>r</i>/<i>a</i> against &radic;(&mu;/<i>a</i><sup>3</sup>)&#8201;<i>t</i> for the three cases. All three leave the center along the same curve. Beyond that, the vis-viva ordering of speeds at a given radius keeps them ordered in time: the hyperbola is always farthest out, the ellipse closest in, and the parabola between them. For example, <i>r</i> = 2<i>a</i> is reached at &radic;(&mu;/<i>a</i><sup>3</sup>)&#8201;<i>t</i> = 1.066 on the hyperbola, 4/3 on the parabola, and &pi; on the ellipse, where it is apoapsis. Because the parabola is scale-free, it is a single reference curve, and every ellipse and hyperbola with the same <i>a</i> lie on either side of it. Gauss's law, Eq. R-10, holds for all three, but only the elliptic sphere returns.</p>
+
+  <p>Squaring the parabolic relation gives <i>r</i><sup>3</sup> = 9&mu;<i>t</i><sup>2</sup>/2, with <i>t</i> measured from the launch at <i>r</i> = 0, the periapsis passage, so the constant of integration is zero. Since &mu; has units of length cubed over time squared, &mu;<i>t</i><sup>2</sup> is a volume, and the relation has the structure of Kepler's third law with <i>r</i> and <i>t</i> in place of <i>a</i> and <i>T</i>. Multiplying by 4&pi;/3 gives the volume of the parabolic sphere,</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        V = \tfrac{4}{3}\pi r^3 = 6\pi\mu t^2
+      \]
+      </div>
+      <div class="eq-num">(R-15)</div>
+    </div>
+
+  <p>The volume grows exactly as <i>t</i><sup>2</sup>, in the same form as free fall, with a constant volumetric acceleration of 12&pi;&mu;. For all three energies, differentiating <i>V</i> twice and using the rectilinear vis-viva equation gives</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \frac{d^2V}{dt^2} = 12\pi\mu \mp 8\pi\mu\,\frac{r}{a}
+      \]
+      </div>
+      <div class="eq-num">(R-16)</div>
+    </div>
+
+  <p>with the upper sign for the ellipse, the lower sign for the hyperbola, and <i>a</i> &rarr; &infin; for the parabola. At <i>r</i> = 0 both the ellipse and the hyperbola take the parabolic value 12&pi;&mu;. At the elliptic apoapsis, <i>r</i> = 2<i>a</i> and Eq. R-16 gives &minus;4&pi;&mu;, which is the flux of Eq. R-10.</p>
+
+  <h2>The Breathing Cone</h2>
+
+  <p>With <i>p</i> = 0 the Bridge Relation <i>R</i><sup>2</sup> = <i>r</i><sup>2</sup> + <i>ap</i> reduces to <i>R</i> = <i>r</i>, so the bounding sphere of the conic frame is the breathing sphere itself. The cone half angle &Phi;<sub><i>c</i></sub> stays fixed while <i>r</i> changes, and the whole frame scales with <i>r</i> without changing shape. Every length in it goes as <i>r</i>, every area as <i>r</i><sup>2</sup>, and every volume as <i>r</i><sup>3</sup>, so all of them follow the cycloidal motion of Eqs. R-1 and R-2.</p>
+
+  <h3>Circumference</h3>
+
+  <p>A particle launched along a generator of the cone stays on that generator, and every particle has the same <i>r</i>(<i>t</i>). The particles launched together on either nappe therefore always lie on a circle, at height &plusmn;<i>r</i> cos &Phi;<sub><i>c</i></sub> on the cone axis, with radius <i>R&prime;</i> = <i>r</i> sin &Phi;<sub><i>c</i></sub>. This circle is the locus of all the rectilinear trajectories that begin simultaneously. Its circumference, per nappe, is</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        C' = 2\pi R' = 2\pi r\sin\Phi_c = 4\pi a\sin\Phi_c\,\sin^2\!\tfrac{E}{2}
+      \]
+      </div>
+      <div class="eq-num">(R-17)</div>
+    </div>
+
+  <p><i>C&prime;</i> is a constant fraction, sin &Phi;<sub><i>c</i></sub>, of the sphere's great circle. As a function of time it is the cycloid of Eqs. R-1 and R-2, scaled by 2&pi; sin &Phi;<sub><i>c</i></sub>.</p>
+
+  <figure class="figure wpx" style="width: 55%;">
+  <img src="fig_r_cone.png" alt="The 45-degree breathing cone at one, two, three, and four eighths of a period">
+  <figcaption>Fig. R-3. Breathing cone at equal time steps</figcaption>
+  </figure>
+
+  <p>Figure R-3 shows the 45&deg; frame from the side at 25, 50, 75, and 100 percent of the outbound half-period, <i>t</i> = <i>T</i>/8, <i>T</i>/4, 3<i>T</i>/8, and <i>T</i>/2. Each instant has its own gray level. The dotted circle is the breathing sphere, the solid lines are the generators out to radius <i>r</i>, and each ring <i>C&prime;</i> is drawn as a flattened ellipse. All the frames share the apex <i>C</i> and the half angle &Phi;<sub><i>c</i></sub>, so they are nested similar cones. Solving Eq. R-2 at these times gives <i>r</i>/<i>a</i> = 1.19, 1.67, 1.92, and 2. Equal steps in time give unequal steps in radius: the ring covers more than half its full excursion in the first eighth of the period, and the last two rings nearly coincide. This is the slow motion near apoapsis that weights the average of Eq. R-9. On the inbound half the rings retrace the same positions in reverse order.</p>
+
+  <p>Because <i>C&prime;</i> = <i>kr</i> with the constant <i>k</i> = 2&pi; sin &Phi;<sub><i>c</i></sub>, its acceleration is <i>k</i> times the radial acceleration, and substituting <i>r</i> = <i>C&prime;</i>/<i>k</i> gives</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \ddot{C}' = -\frac{k^3\mu}{C'^2}, \qquad k = 2\pi\sin\Phi_c
+      \]
+      </div>
+      <div class="eq-num">(R-18)</div>
+    </div>
+
+  <p>The circumference obeys its own rectilinear Kepler problem, with gravitational parameter <i>k</i><sup>3</sup>&mu; and semi-major axis <i>ka</i>. Its period, 2&pi;&radic;((<i>ka</i>)<sup>3</sup>/(<i>k</i><sup>3</sup>&mu;)), is the same as that of the sphere, which is why the ring breathes in step with it. The ring also lies on the sphere, an equipotential surface, so the potential summed around it, &#8750;(&minus;&mu;/<i>r</i>) <i>d&ell;</i> = &minus;&mu;<i>C&prime;</i>/<i>r</i> = &minus;2&pi;&mu; sin &Phi;<sub><i>c</i></sub>, is constant for all time.</p>
+
+  <h3>Lateral area</h3>
+
+  <p>Each nappe, from the apex <i>C</i> out to the sphere, has slant height <i>r</i> and base radius <i>R&prime;</i>. The lateral area of both nappes is</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        A_c = 2\pi r^2\sin\Phi_c = 8\pi a^2\sin\Phi_c\,\sin^4\!\tfrac{E}{2} = \tfrac{1}{2}\sin\Phi_c\,A
+      \]
+      </div>
+      <div class="eq-num">(R-19)</div>
+    </div>
+
+  <p>The cone area is the sphere area of Eq. R-4 scaled by the constant &frac12; sin &Phi;<sub><i>c</i></sub>, which is &radic;2/4 &asymp; 0.354 for the 45&deg; cone. Every result for <i>A</i>, including the series of Eqs. R-7 and R-8, carries over to <i>A<sub>c</sub></i> with the same factor.</p>
+
+  <h3>Rates at collision</h3>
+
+  <p>From Eq. R-5, &#7769; = &radic;(&mu;<i>a</i>) sin <i>E</i>/<i>r</i> = &radic;(&mu;/<i>a</i>) cot(<i>E</i>/2). The two rates are then</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \frac{dC'}{dt} = 2\pi\sqrt{\mu/a}\,\sin\Phi_c\cot\tfrac{E}{2}
+      \]
+      </div>
+      <div class="eq-num">(R-20)</div>
+    </div>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \frac{dA_c}{dt} = 4\pi\sqrt{\mu a}\,\sin\Phi_c\sin E
+      \]
+      </div>
+      <div class="eq-num">(R-21)</div>
+    </div>
+
+  <p>Eq. R-20 is singular at collision, like &#7769;, so the circumference carries the cusp of the cycloid. In Eq. R-21 the factors of (1 &minus; cos <i>E</i>) cancel as they did in Eq. R-6, and the rate stays finite. The circumference carries the cusp and the area smooths it out, the same split seen between &#7769; and <i>dA</i>/<i>dt</i> for the sphere.</p>
+
+  <h3>Time averages</h3>
+
+  <p>The constant terms of the Bessel expansions at <i>e</i> = 1 give &lang;<i>r</i>&rang; = 3<i>a</i>/2 and &lang;<i>r</i><sup>2</sup>&rang; = 5<i>a</i><sup>2</sup>/2, the second being the source of Eq. R-9. The averages per nappe for the circumference and for both nappes for the area are</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \langle C' \rangle = 3\pi a\sin\Phi_c, \qquad \langle A_c \rangle = 5\pi a^2\sin\Phi_c
+      \]
+      </div>
+      <div class="eq-num">(R-22)</div>
+    </div>
+
+  <p>With their constant factors removed, <i>C&prime;</i> and <i>A<sub>c</sub></i> reduce to <i>r</i>/<i>a</i> and (<i>r</i>/<i>a</i>)<sup>2</sup>, curves already shown in Figs. R-2 and R-1, so they need no figure of their own. The only new behavior is in the rates. Scaled the same way, Eq. R-20 becomes cot(<i>E</i>/2), unbounded at each collision, while Eq. R-21 becomes 2 sin <i>E</i>, with the shape of the lower panel of Fig. R-1.</p>
+
+  <h3>Gauss's law for the cone</h3>
+
+  <p>The gravity field is radial, and each cone wall is made of radial lines, so no flux crosses the walls. Close each nappe with the spherical cap of radius <i>r</i>. The normal component of the field on the cap is the full radial acceleration, the same at every point, and the cap area is 2&pi;<i>r</i><sup>2</sup>(1 &minus; cos &Phi;<sub><i>c</i></sub>). Per nappe, then,</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        A_{cap}\,\ddot{r} = -2\pi\mu\,(1-\cos\Phi_c)
+      \]
+      </div>
+      <div class="eq-num">(R-23)</div>
+    </div>
+
+  <p>This has the same form as Eq. R-10 and is constant through the cycle. The factor 2&pi;(1 &minus; cos &Phi;<sub><i>c</i></sub>) is the solid angle of the nappe, so the two caps together carry the fraction 1 &minus; cos &Phi;<sub><i>c</i></sub> of the sphere's flux, about 0.293 for the 45&deg; cone. Every field line through a cap also passes through its flat base, so the base carries the same flux. The enclosed volume of each nappe with its cap, (2/3)&pi;<i>r</i><sup>3</sup>(1 &minus; cos &Phi;<sub><i>c</i></sub>), likewise takes the same fraction of Eq. R-15 near collision.</p>
+
+  <p>The lateral area gives a companion relation. Multiplying Eq. R-19 by <i>r&#776;</i> = &minus;&mu;/<i>r</i><sup>2</sup>,</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        A_c\,\ddot{r} = -2\pi\mu\sin\Phi_c
+      \]
+      </div>
+      <div class="eq-num">(R-24)</div>
+    </div>
+
+  <p>which is Eq. R-10 scaled by the area ratio &frac12; sin &Phi;<sub><i>c</i></sub>. It is also constant, but it is not a flux, since none crosses the walls. The same holds for the base circle. Its radius <i>R&prime;</i> is the projection of <i>r</i> onto the base plane, so</p>
+
+  <div class="eq-row">
+      <div class="eq-body">
+      \[
+        \ddot{R}' = \sin\Phi_c\,\ddot{r} = -\frac{\mu\sin^3\Phi_c}{R'^2}
+      \]
+      </div>
+      <div class="eq-num">(R-25)</div>
+    </div>
+
+  <p>and the base area times this acceleration is &pi;<i>R&prime;</i><sup>2</sup><i>R&#776;&prime;</i> = &minus;&pi;&mu; sin<sup>3</sup>&Phi;<sub><i>c</i></sub> per nappe. Because <i>R&#776;&prime;</i> lies in the base plane rather than along its normal, this constant comes from the projection, not from Gauss's law. The flux through the base is the one given by Eq. R-23.</p>
+
+  <h3>Where the self-similarity stops</h3>
+
+  <p>All of this depends on <i>p</i> = 0. When <i>p</i> &gt; 0, <i>R</i> differs from <i>r</i>, the trajectories no longer run along generators, and the circle on the cone is no longer a single moving ring of particles. Extending the breathing frame to <i>p</i> &gt; 0 remains an open question.</p>
+
+  <div class="footnote" id="references">
+    <p id="ref-1">
+      <sup>1</sup> E. A. Milne, "A Newtonian expanding universe," <em>Quarterly Journal of
+      Mathematics</em> 5, 64–72 (1934); W. H. McCrea and E. A. Milne, "Newtonian universes
+      and the curvature of space," <em>Quarterly Journal of Mathematics</em> 5, 73–80 (1934).
+      <a href="#cite-1">↩</a>
+    </p>
+    <p id="ref-2">
+      <sup>2</sup> J. E. Gunn and J. R. Gott, "On the infall of matter into clusters of
+      galaxies and some effects on their evolution," <em>Astrophysical Journal</em> 176, 1–19
+      (1972).
+      <a href="#cite-2">↩</a>
+    </p>
+  </div>
+  <!-- PENDING: Doug to confirm reference details against the originals before going live. -->
+</main>
+
+<footer>
+  D. H. May · Orbit-Mech research site · updated as work progresses
+</footer>
+<script src="nomenclature-data.js?v=6"></script>
+<script src="nomenclature-widget.js?v=6"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Conic Crossword</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: drafting-sheet grid on the left, two clue columns on the right; stacks on phones */
+:root{
+  --bg:#eef1f4; --sheet:#fbfcfd; --ink:#18263a; --muted:#5b6a7d; --rule:#c5ced9;
+  --block:#111; --hl:#dbe6f3; --cur:#f2c14e; --bad:#c2452d; --good:#2f7a54;
+  --serif:"Newsreader","Times New Roman",Times,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1622; --sheet:#172131; --ink:#e3e9f1; --muted:#93a2b6; --rule:#33435a;
+  --block:#0a0f17; --hl:#253a56; --cur:#b8892a; --bad:#e2735c; --good:#5bbd8b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1622; --sheet:#172131; --ink:#e3e9f1; --muted:#93a2b6; --rule:#33435a;
+  --block:#0a0f17; --hl:#253a56; --cur:#b8892a; --bad:#e2735c; --good:#5bbd8b; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 48px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin-bottom:18px}
+h1{font-weight:600;font-size:2rem;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1 i{font-weight:400}
+.sub{color:var(--muted);font-size:.95rem;margin:4px 0 0}
+.eq{font-family:var(--mono);font-size:.8rem;color:var(--muted);letter-spacing:.04em}
+.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:28px;align-items:start}
+@media (max-width:900px){.main{grid-template-columns:1fr}}
+.board{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:14px;min-width:0}
+.gridbox{overflow-x:auto}
+.grid{display:grid;gap:0;width:100%;min-width:420px;max-width:620px;margin:0 auto;aspect-ratio:1/1}
+.cell{position:relative;border:.5px solid var(--block);background:var(--block)}
+.grid{border:1.5px solid var(--block)}
+.cell.open{background:var(--sheet);border-color:var(--ink);cursor:pointer}
+.cell.open.hl{background:var(--hl)}
+.cell.open.cur{background:var(--cur)}
+.cell .n{position:absolute;top:1px;left:2px;font-family:var(--mono);font-size:clamp(6px,1.1vw,9px);line-height:1;color:var(--muted)}
+.cell .ch{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-weight:600;font-size:clamp(10px,2.1vw,17px);padding-top:2px}
+.cell.bad .ch{color:var(--bad)}
+.cell.rev .ch{color:var(--good)}
+.cell.cur .ch{color:#18263a}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+button{font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:7px 11px;cursor:pointer}
+button:hover{border-color:var(--ink)}
+button:focus-visible,.cell:focus-visible{outline:2px solid var(--cur);outline-offset:1px}
+.status{margin-left:auto;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.current{margin-top:12px;padding:10px 12px;border-left:3px solid var(--cur);background:var(--hl);font-size:1rem;min-height:2.6em}
+.current b{font-family:var(--mono);font-size:.8rem;margin-right:8px}
+.clues{display:grid;grid-template-columns:1fr 1fr;gap:24px;min-width:0}
+@media (max-width:560px){.clues{grid-template-columns:1fr}}
+.clues h2{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--rule);font-weight:600}
+.clues ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.clues li{display:grid;grid-template-columns:2.2em 1fr;padding:4px 6px;border-radius:3px;cursor:pointer;font-size:.95rem;line-height:1.35}
+.clues li:hover{background:var(--hl)}
+.clues li.on{background:var(--hl);box-shadow:inset 3px 0 0 var(--cur)}
+.clues li.done{color:var(--muted)}
+.clues li.done span:last-child{text-decoration:line-through;text-decoration-color:var(--rule)}
+.clues li b{font-family:var(--mono);font-size:.78rem;font-weight:600;padding-top:2px}
+.len{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+#kb{position:absolute;opacity:0;width:1px;height:1px;left:-9999px}
+.win{margin-top:12px;font-family:var(--mono);font-size:.85rem;color:var(--good)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Conic Crossword <i>for the conical frame</i></h1>
+      <p class="sub">90 entries: conic geometry from the site, planets and moons, Star Trek, Star Wars, and trigonometry.</p>
+    </div>
+    <div class="eq">e = sin&Phi;<sub>h</sub> / cos&Phi;<sub>c</sub> &nbsp;·&nbsp; R² = r² + ap</div>
+  </header>
+
+  <div class="main">
+    <section class="board">
+      <div class="gridbox"><div class="grid" id="grid"></div></div>
+      <div class="current" id="current"></div>
+      <div class="bar">
+        <button id="checkBtn">Check</button>
+        <button id="wordBtn">Reveal word</button>
+        <button id="allBtn">Reveal all</button>
+        <button id="clearBtn">Clear</button>
+        <span class="status" id="status"></span>
+      </div>
+      <div class="win" id="win" hidden>Solved. Every conic accounted for.</div>
+      <input id="kb" autocomplete="off" autocapitalize="characters" inputmode="text" aria-label="Crossword entry">
+    </section>
+    <section class="clues">
+      <div><h2>Across</h2><ol id="across"></ol></div>
+      <div><h2>Down</h2><ol id="down"></ol></div>
+    </section>
+  </div>
+</div>
+
+<script>
+const P = {"h": 21, "w": 21, "words": [{"word": "NAPPE", "r": 0, "c": 1, "d": "A", "clue": "One half of a double cone"}, {"word": "DIRECTRIX", "r": 0, "c": 12, "d": "A", "clue": "Line paired with a focus to define a conic"}, {"word": "VISVIVA", "r": 1, "c": 5, "d": "A", "clue": "Energy equation, \"living force\"", "enum": "3,4"}, {"word": "ESCAPE", "r": 2, "c": 0, "d": "A", "clue": "___ velocity, √(2μ/<i>r</i>)"}, {"word": "ANGLE", "r": 2, "c": 12, "d": "A", "clue": "Φ<sub><i>c</i></sub> is the cone's half-___"}, {"word": "SINH", "r": 3, "c": 3, "d": "A", "clue": "Hyperbolic sine"}, {"word": "ZERO", "r": 3, "c": 8, "d": "A", "clue": "<i>e</i> for a circle"}, {"word": "ACT", "r": 4, "c": 2, "d": "A", "clue": "Perform"}, {"word": "SPUTNIK", "r": 4, "c": 14, "d": "A", "clue": "First satellite"}, {"word": "CONE", "r": 5, "c": 10, "d": "A", "clue": "The framework's 3-D reference surface"}, {"word": "STAR", "r": 6, "c": 5, "d": "A", "clue": "Sun, for one"}, {"word": "TAD", "r": 6, "c": 10, "d": "A", "clue": "Small amount"}, {"word": "KEPLER", "r": 6, "c": 14, "d": "A", "clue": "<i>M</i> = <i>E</i> − <i>e</i> sin <i>E</i> is his equation"}, {"word": "THETA", "r": 7, "c": 0, "d": "A", "clue": "Common angle symbol"}, {"word": "EXIT", "r": 7, "c": 8, "d": "A", "clue": "Way out"}, {"word": "ETA", "r": 7, "c": 16, "d": "A", "clue": "Greek letter after zeta"}, {"word": "KIRK", "r": 8, "c": 5, "d": "A", "clue": "Enterprise captain"}, {"word": "ET", "r": 8, "c": 13, "d": "A", "clue": "Phone home alien"}, {"word": "RAY", "r": 8, "c": 18, "d": "A", "clue": "Half-line"}, {"word": "SPOCK", "r": 9, "c": 0, "d": "A", "clue": "Logical first officer"}, {"word": "MIMAS", "r": 9, "c": 9, "d": "A", "clue": "Saturnian moon with a huge crater"}, {"word": "FINN", "r": 9, "c": 15, "d": "A", "clue": "Former stormtrooper"}, {"word": "LUNA", "r": 10, "c": 8, "d": "A", "clue": "Moon, in Latin"}, {"word": "3D", "r": 10, "c": 19, "d": "A", "clue": "Three-dimensional, briefly"}, {"word": "APHELION", "r": 11, "c": 0, "d": "A", "clue": "Farthest point from the Sun"}, {"word": "ENCELADUS", "r": 11, "c": 10, "d": "A", "clue": "Geyser moon of Saturn"}, {"word": "LATUSRECTUM", "r": 13, "c": 5, "d": "A", "clue": "Chord through the focus, length 2<i>p</i>", "enum": "5,6"}, {"word": "TAN", "r": 13, "c": 17, "d": "A", "clue": "Sin/cos, briefly"}, {"word": "MARS", "r": 14, "c": 0, "d": "A", "clue": "Red planet"}, {"word": "ONE", "r": 14, "c": 7, "d": "A", "clue": "<i>e</i> for a parabola"}, {"word": "APSE", "r": 15, "c": 4, "d": "A", "clue": "Line of ___s (major axis)"}, {"word": "CUTTINGPLANE", "r": 15, "c": 9, "d": "A", "clue": "It slices the cone to make a conic", "enum": "7,5"}, {"word": "TIDE", "r": 16, "c": 0, "d": "A", "clue": "Moon-driven sea change"}, {"word": "JET", "r": 17, "c": 4, "d": "A", "clue": "Like the F-22A Raptor"}, {"word": "AXIS", "r": 17, "c": 11, "d": "A", "clue": "Line of the cone's symmetry"}, {"word": "THEBE", "r": 18, "c": 0, "d": "A", "clue": "Small inner Jovian moon"}, {"word": "HEO", "r": 18, "c": 6, "d": "A", "clue": "Highly elliptical orbit, abbr."}, {"word": "PLOT", "r": 18, "c": 10, "d": "A", "clue": "Graph"}, {"word": "LEIA", "r": 18, "c": 17, "d": "A", "clue": "Princess with buns"}, {"word": "ERE", "r": 19, "c": 11, "d": "A", "clue": "Before"}, {"word": "CONICAL", "r": 20, "c": 1, "d": "A", "clue": "Like this site's reference frame"}, {"word": "COS", "r": 20, "c": 9, "d": "A", "clue": "Adjacent/hypotenuse, briefly"}, {"word": "MOMENTUM", "r": 20, "c": 13, "d": "A", "clue": "Angular ___, the vector <i>h</i>"}, {"word": "SEMILATUS", "r": 1, "c": 0, "d": "D", "clue": "___ rectum, <i>p</i>"}, {"word": "ASYMPTOTE", "r": 11, "c": 0, "d": "D", "clue": "Line a hyperbola approaches"}, {"word": "ARC", "r": 0, "c": 2, "d": "D", "clue": "Part of a circle"}, {"word": "EPOCH", "r": 7, "c": 2, "d": "D", "clue": "Reference time for orbital elements"}, {"word": "BRIDGE", "r": 13, "c": 2, "d": "D", "clue": "___ Relation: <i>R</i>² = <i>r</i>² + <i>ap</i>"}, {"word": "ASCENT", "r": 2, "c": 3, "d": "D", "clue": "Climb-out phase of a lofted trajectory"}, {"word": "PIT", "r": 2, "c": 4, "d": "D", "clue": "Crater"}, {"word": "KYLO", "r": 9, "c": 4, "d": "D", "clue": "___ Ren"}, {"word": "JEDI", "r": 17, "c": 4, "d": "D", "clue": "Lightsaber knight"}, {"word": "EVEN", "r": 0, "c": 5, "d": "D", "clue": "Not odd"}, {"word": "LAP", "r": 13, "c": 5, "d": "D", "clue": "One trip around the track"}, {"word": "HUTT", "r": 3, "c": 6, "d": "D", "clue": "Jabba's species"}, {"word": "IOTA", "r": 10, "c": 6, "d": "D", "clue": "Greek letter after theta"}, {"word": "SITH", "r": 15, "c": 6, "d": "D", "clue": "Dark side order"}, {"word": "CSC", "r": 0, "c": 7, "d": "D", "clue": "1/sin, briefly"}, {"word": "TOE", "r": 13, "c": 7, "d": "D", "clue": "Foot digit"}, {"word": "TREK", "r": 5, "c": 8, "d": "D", "clue": "Star ___"}, {"word": "SUN", "r": 12, "c": 8, "d": "D", "clue": "Our star"}, {"word": "MOON", "r": 16, "c": 8, "d": "D", "clue": "Earth's satellite"}, {"word": "SINE", "r": 0, "c": 9, "d": "D", "clue": "Opposite over hypotenuse"}, {"word": "MU", "r": 9, "c": 9, "d": "D", "clue": "μ, the gravitational parameter"}, {"word": "SEC", "r": 13, "c": 9, "d": "D", "clue": "1/cos, briefly"}, {"word": "RECTILINEAR", "r": 3, "c": 10, "d": "D", "clue": "Straight-line trajectory as <i>e</i> nears one"}, {"word": "OAT", "r": 5, "c": 11, "d": "D", "clue": "Grain"}, {"word": "MAN", "r": 9, "c": 11, "d": "D", "clue": "Staff a station"}, {"word": "THALES", "r": 15, "c": 11, "d": "D", "clue": "His theorem underlies the √(<i>ap</i>) circle"}, {"word": "END", "r": 4, "c": 12, "d": "D", "clue": "Finish"}, {"word": "COT", "r": 13, "c": 12, "d": "D", "clue": "Cos/sin, briefly"}, {"word": "XOR", "r": 17, "c": 12, "d": "D", "clue": "Exclusive or"}, {"word": "IONS", "r": 0, "c": 13, "d": "D", "clue": "Plasma particles"}, {"word": "DESCENT", "r": 7, "c": 13, "d": "D", "clue": "Fall back toward the primary"}, {"word": "ITEM", "r": 17, "c": 13, "d": "D", "clue": "Entry"}, {"word": "URN", "r": 13, "c": 14, "d": "D", "clue": "Vase"}, {"word": "ELLIPSE", "r": 0, "c": 15, "d": "D", "clue": "Closed conic, <i>e</i> &lt; 1"}, {"word": "AIM", "r": 11, "c": 15, "d": "D", "clue": "Target"}, {"word": "SUM", "r": 18, "c": 15, "d": "D", "clue": "Total"}, {"word": "PERIOD", "r": 6, "c": 16, "d": "D", "clue": "Time for one revolution"}, {"word": "APEX", "r": 14, "c": 16, "d": "D", "clue": "Point <i>C</i>, tip of the cone"}, {"word": "TILT", "r": 4, "c": 17, "d": "D", "clue": "___ from axial"}, {"word": "SIN", "r": 2, "c": 18, "d": "D", "clue": "Opposite/hypotenuse, briefly"}, {"word": "EARN", "r": 6, "c": 18, "d": "D", "clue": "Gain"}, {"word": "SMA", "r": 11, "c": 18, "d": "D", "clue": "Semimajor axis, abbr."}, {"word": "FETT", "r": 17, "c": 18, "d": "D", "clue": "Boba ___"}, {"word": "IO", "r": 0, "c": 19, "d": "D", "clue": "Volcanic Galilean moon"}, {"word": "LUKE", "r": 2, "c": 20, "d": "D", "clue": "Skywalker"}, {"word": "YODA", "r": 8, "c": 20, "d": "D", "clue": "Small green master"}, {"word": "LEMMA", "r": 14, "c": 20, "d": "D", "clue": "Helper theorem"}]};
+const H=P.h, W=P.w;
+const sol=[...Array(H)].map(()=>Array(W).fill(null));
+P.words.forEach(w=>{for(let i=0;i<w.word.length;i++){const r=w.r+(w.d==='D'?i:0),c=w.c+(w.d==='A'?i:0);sol[r][c]=w.word[i];}});
+// numbering
+const num=[...Array(H)].map(()=>Array(W).fill(0));let n=0;
+const startsA=(r,c)=>sol[r][c]&&(c===0||!sol[r][c-1])&&c+1<W&&sol[r][c+1];
+const startsD=(r,c)=>sol[r][c]&&(r===0||!sol[r-1][c])&&r+1<H&&sol[r+1][c];
+for(let r=0;r<H;r++)for(let c=0;c<W;c++)if(startsA(r,c)||startsD(r,c))num[r][c]=++n;
+P.words.forEach(w=>w.n=num[w.r][w.c]);
+P.words.sort((a,b)=>a.n-b.n);
+const cellsOf=w=>[...Array(w.word.length)].map((_,i)=>[w.r+(w.d==='D'?i:0),w.c+(w.d==='A'?i:0)]);
+const KEY='conic-crossword-v2';
+let fill=[...Array(H)].map(()=>Array(W).fill(''));
+let revealed=new Set();
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.fill&&s.fill.length===H){fill=s.fill;revealed=new Set(s.rev||[]);}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify({fill,rev:[...revealed]}))}catch(e){}};
+
+const gridEl=document.getElementById('grid');
+gridEl.style.gridTemplateColumns=`repeat(${W},1fr)`;
+const els=[];
+for(let r=0;r<H;r++){els.push([]);for(let c=0;c<W;c++){
+  const d=document.createElement('div');d.className='cell'+(sol[r][c]?' open':'');
+  if(sol[r][c]){ if(num[r][c]){const s=document.createElement('span');s.className='n';s.textContent=num[r][c];d.appendChild(s);}
+    const ch=document.createElement('span');ch.className='ch';d.appendChild(ch);
+    d.addEventListener('click',()=>select(r,c,true));}
+  gridEl.appendChild(d);els[r].push(d);}}
+
+const lists={A:document.getElementById('across'),D:document.getElementById('down')};
+P.words.forEach(w=>{const li=document.createElement('li');
+  li.innerHTML=`<b>${w.n}</b><span>${w.clue} <span class="len">(${w.enum||w.word.length})</span></span>`;
+  li.addEventListener('click',()=>{dir=w.d;const cs=cellsOf(w);const e=cs.find(([r,c])=>!fill[r][c])||cs[0];cur=e;render();focusKb();});
+  w.li=li;lists[w.d].appendChild(li);});
+
+let cur=null, dir='A';
+const wordAt=(r,c,d)=>P.words.find(w=>w.d===d&&cellsOf(w).some(([a,b])=>a===r&&b===c));
+function select(r,c,click){
+  if(click&&cur&&cur[0]===r&&cur[1]===c){const o=dir==='A'?'D':'A';if(wordAt(r,c,o))dir=o;}
+  else if(!wordAt(r,c,dir))dir=dir==='A'?'D':'A';
+  cur=[r,c];render();focusKb();}
+const kb=document.getElementById('kb');
+function focusKb(){try{kb.focus({preventScroll:true})}catch(e){}}
+
+function render(){
+  const w=cur&&wordAt(cur[0],cur[1],dir);
+  const hl=new Set(w?cellsOf(w).map(x=>x.join(',')):[]);
+  for(let r=0;r<H;r++)for(let c=0;c<W;c++){if(!sol[r][c])continue;const e=els[r][c];
+    e.querySelector('.ch').textContent=fill[r][c];
+    e.classList.toggle('hl',hl.has(r+','+c));
+    e.classList.toggle('cur',!!cur&&cur[0]===r&&cur[1]===c);
+    e.classList.toggle('rev',revealed.has(r+','+c));}
+  P.words.forEach(x=>{x.li.classList.toggle('on',x===w);
+    x.li.classList.toggle('done',cellsOf(x).every(([a,b])=>fill[a][b]===sol[a][b]));});
+  const cEl=document.getElementById('current');
+  cEl.innerHTML=w?`<b>${w.n} ${w.d==='A'?'Across':'Down'}</b>${w.clue}`:'Tap a square or a clue to begin.';
+  let tot=0,ok=0;for(let r=0;r<H;r++)for(let c=0;c<W;c++)if(sol[r][c]){tot++;if(fill[r][c])ok++;}
+  document.getElementById('status').textContent=`${ok} / ${tot} filled`;
+  document.getElementById('win').hidden=!P.words.every(x=>cellsOf(x).every(([a,b])=>fill[a][b]===sol[a][b]));
+}
+function step(dr,dc){if(!cur)return;let [r,c]=cur;r+=dr;c+=dc;
+  while(r>=0&&r<H&&c>=0&&c<W){if(sol[r][c]){cur=[r,c];return true;}r+=dr;c+=dc;}return false;}
+function advance(back){const w=wordAt(cur[0],cur[1],dir);if(!w)return;const cs=cellsOf(w);
+  const i=cs.findIndex(([a,b])=>a===cur[0]&&b===cur[1]);const j=i+(back?-1:1);if(j>=0&&j<cs.length)cur=cs[j];}
+function clearMarks(){els.flat().forEach(e=>e.classList.remove('bad'));}
+function type(ch){if(!cur)return;const k=cur.join(',');if(revealed.has(k)){advance();render();return;}
+  fill[cur[0]][cur[1]]=ch;els[cur[0]][cur[1]].classList.remove('bad');advance();save();render();}
+document.addEventListener('keydown',e=>{
+  if(!cur||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(e.target.tagName==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+  const k=e.key;
+  if(/^[a-zA-Z0-9]$/.test(k)){e.preventDefault();type(k.toUpperCase());}
+  else if(k==='Backspace'){e.preventDefault();const key=cur.join(',');
+    if(fill[cur[0]][cur[1]]&&!revealed.has(key)){fill[cur[0]][cur[1]]='';}else{advance(true);if(!revealed.has(cur.join(',')))fill[cur[0]][cur[1]]='';}
+    save();render();}
+  else if(k==='ArrowRight'){e.preventDefault();if(dir!=='A'&&wordAt(cur[0],cur[1],'A'))dir='A';else step(0,1);render();}
+  else if(k==='ArrowLeft'){e.preventDefault();if(dir!=='A'&&wordAt(cur[0],cur[1],'A'))dir='A';else step(0,-1);render();}
+  else if(k==='ArrowDown'){e.preventDefault();if(dir!=='D'&&wordAt(cur[0],cur[1],'D'))dir='D';else step(1,0);render();}
+  else if(k==='ArrowUp'){e.preventDefault();if(dir!=='D'&&wordAt(cur[0],cur[1],'D'))dir='D';else step(-1,0);render();}
+  else if(k===' '){e.preventDefault();const o=dir==='A'?'D':'A';if(wordAt(cur[0],cur[1],o))dir=o;render();}
+  else if(k==='Tab'){e.preventDefault();const w=wordAt(cur[0],cur[1],dir);let i=P.words.indexOf(w)+(e.shiftKey?-1:1);
+    i=(i+P.words.length)%P.words.length;const nw=P.words[i];dir=nw.d;cur=cellsOf(nw)[0];render();}
+});
+// mobile soft keyboards: read from the hidden input
+kb.addEventListener('input',()=>{const v=kb.value.replace(/[^a-z0-9]/gi,'');kb.value='';if(v)type(v.slice(-1).toUpperCase());});
+
+document.getElementById('checkBtn').onclick=()=>{clearMarks();
+  for(let r=0;r<H;r++)for(let c=0;c<W;c++)if(sol[r][c]&&fill[r][c]&&fill[r][c]!==sol[r][c])els[r][c].classList.add('bad');};
+document.getElementById('wordBtn').onclick=()=>{if(!cur)return;const w=wordAt(cur[0],cur[1],dir);if(!w)return;
+  cellsOf(w).forEach(([r,c])=>{if(fill[r][c]!==sol[r][c]){fill[r][c]=sol[r][c];revealed.add(r+','+c);}});clearMarks();save();render();};
+document.getElementById('allBtn').onclick=()=>{for(let r=0;r<H;r++)for(let c=0;c<W;c++)if(sol[r][c]&&fill[r][c]!==sol[r][c]){fill[r][c]=sol[r][c];revealed.add(r+','+c);}clearMarks();save();render();};
+document.getElementById('clearBtn').onclick=()=>{fill=fill.map(row=>row.map(()=>''));revealed.clear();clearMarks();save();render();};
+
+const first=P.words.find(w=>w.n===1);cur=cellsOf(first)[0];dir=first.d;render();
+</script>
+
+</body></html>

@@ -44,6 +44,19 @@
       margin: 1.8rem auto;
     }
   }
+  .footnote {
+    font-size: 0.88rem;
+    color: #555;
+    border-top: 1px solid var(--rule-color);
+    margin-top: 2.5rem;
+    padding-top: 0.8rem;
+  }
+  .footnote-ref {
+    font-size: 0.75em;
+    vertical-align: super;
+    text-decoration: none;
+    color: var(--accent-color);
+  }
 </style>
 </head>
 <body>
@@ -133,7 +146,7 @@
     convention of keeping derivations local to individual pages).
   </p>
   <p>
-    <strong>Level 3: Orbital.</strong> The satellite's actual position, <em>r</em>, \(\theta\), and
+    <strong>Level 3: Orbital.</strong> The satellite's actual position, <em>r</em>, \(\theta\),<a class="footnote-ref" href="#fn-1" id="fnref-1">1</a> and
     its slant-distance and axis-perpendicular coordinates <em>R</em> and <em>R′</em> within the cone, lives
     at this innermost level. This is where the classical two-body orbit (periapsis,
     apoapsis, true anomaly) is actually described, and where the cone's fixed geometry from
@@ -389,6 +402,13 @@
     center-to-focus distance. For a point <em>P</em> on the right branch, <em>r</em> = <em>FP</em> and <em>r′</em> = <em>F′P</em>, with
     \(\theta\) the true anomaly measured at <em>F</em>.
   </p>
+
+  <div class="footnote" id="fn-1">
+    <sup>1</sup> This site uses <em>θ</em> for the true anomaly, following Curtis and many
+    geometry references. Vallado and others use <em>ν</em>, which is easily confused with
+    the speed <em>v</em>, particularly when written by hand.
+    <a href="#fnref-1">↩</a>
+  </div>
 
 </main>
 <footer>

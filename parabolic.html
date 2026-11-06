@@ -31,13 +31,13 @@
     margin-left: auto;
     margin-right: auto;
   }
-  figure.figure.w40 {
-    width: 40%;
+  figure.figure.w49 {
+    width: 49%;
     margin-left: auto;
     margin-right: auto;
   }
   @media (max-width: 640px) {
-    figure.figure.w38, figure.figure.w40 { width: 100%; }
+    figure.figure.w38, figure.figure.w49 { width: 100%; }
   }
 
   table.tilt {
@@ -264,7 +264,7 @@
     \(r_\mathrm{P}\cot^{2}\Phi_c\).
   </p>
 
-  <figure class="figure w40">
+  <figure class="figure w49">
     <img src="figp3-dandelin.png" alt="Parabolic Dandelin construction in edge view on the 45 degree cone: apex C, z-axis, dashed sphere with center O tangent to the orbital plane at F and to the right generator at T, square O F P T with right angles at F and T, tilt angle Phi h at O and half-angle Phi c at C, tangent-circle chord through T, and dashed extensions of the chord and orbital plane meeting at the directrix">
     <figcaption>Fig. P-3. Parabolic Dandelin construction on the 45° cone.</figcaption>
   </figure>
@@ -380,9 +380,10 @@
     <div class="eq-num">(P-9)</div>
   </div>
   <p>
-    The angular momentum per unit mass is \(\sqrt{\mu p}\), so
-    \(dt = r^{2}\,d\theta/\sqrt{\mu p}\). Substituting <em>D</em> = tan(<em>θ</em>/2), with
-    \(r = p(1 + D^{2})/2\) from Eq. P-1, and integrating from the time of periapsis passage
+    The angular momentum per unit mass is constant,
+    \(h = r^{2}\,d\theta/dt = \sqrt{\mu p}\), so \(dt = r^{2}\,d\theta/\sqrt{\mu p}\).
+    Substituting <em>D</em> = tan(<em>θ</em>/2), Eq. P-1 becomes \(r = p(1 + D^{2})/2\) and
+    \(d\theta = 2\,dD/(1 + D^{2})\). Integrating from the time of periapsis passage
     <em>T</em> gives Barker's equation:
   </p>
   <div class="eq-row">
@@ -406,6 +407,13 @@
     </div>
     <div class="eq-num">(P-11)</div>
   </div>
+  <p>
+    Barker's equation and its inverse are also given by Vallado,<a class="footnote-ref" href="#fn-2" id="fnref-2">2</a>
+    with different symbols: <em>B</em> in place of <em>D</em>, <em>λ</em> in place of
+    <em>W</em>, and <em>ν</em> for the true anomaly <em>θ</em>. Vallado also notes that
+    Barker was not the first to find this solution, since Halley (1705) and Euler (1744)
+    had worked it out before him, though the equation carries Barker's name.
+  </p>
   <p>
     The factor \(\sqrt{\mu/p^{3}}\) is kept explicit, in the same way \(\sqrt{\mu/a^{3}}\) is
     on the other pages, rather than being written as a mean motion.
@@ -440,6 +448,11 @@
     August 2005.
     <!-- PENDING: add a link to the posted paper once AAS grants permission. -->
     <a href="#fnref-1">↩</a>
+  </div>
+  <div class="footnote" id="fn-2">
+    <sup>2</sup> D. A. Vallado, <em>Fundamentals of Astrodynamics and Applications</em>, 2nd ed.,
+    Microcosm Press, El Segundo, CA, 2004.
+    <a href="#fnref-2">↩</a>
   </div>
 
 </main>

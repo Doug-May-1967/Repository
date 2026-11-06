@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parabolic Orbits — Orbit-Mech</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nomenclature.css">
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      mathStyle: 'ISO'
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js"></script>
+<style>
+  .eq-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5em 0;
+  }
+  .eq-row > .eq-body { flex: 1; }
+  .eq-row > .eq-num  { flex: 0 0 auto; margin-left: 1.5em; }
+
+  figure.figure.w38 {
+    width: 38%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  figure.figure.w40 {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 640px) {
+    figure.figure.w38, figure.figure.w40 { width: 100%; }
+  }
+
+  table.tilt {
+    border-collapse: collapse;
+    margin: 1.5rem auto;
+    font-size: 0.95rem;
+  }
+  table.tilt th, table.tilt td {
+    border-bottom: 1px solid var(--rule-color);
+    padding: 0.45rem 0.8rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.tilt caption {
+    caption-side: top;
+    padding-bottom: 0.5rem;
+  }
+
+  .footnote {
+    font-size: 0.88rem;
+    color: #555;
+    border-top: 1px solid var(--rule-color);
+    margin-top: 2.5rem;
+    padding-top: 0.8rem;
+  }
+  .footnote-ref {
+    font-size: 0.75em;
+    vertical-align: super;
+    text-decoration: none;
+    color: var(--accent-color);
+  }
+</style>
+</head>
+<body>
+<header>
+  <a class="site-title" href="index.html">Orbit-Mech</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="background.html">Background</a>
+    <a href="framework.html">Framework</a>
+    <a href="commonality.html">Commonality</a>
+    <a href="elliptical.html">Elliptical Orbits</a>
+    <a href="hyperbolic.html">Hyperbolic Orbits</a>
+    <a href="parabolic.html" class="active">Parabolic Orbits</a>
+    <a href="rectilinear.html">Rectilinear Trajectories</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow">Parabolic Orbits</p>
+  <h1>Parabolic orbit analysis and results</h1>
+
+  <p>
+    The parabola is the boundary between closed and open orbits. Its eccentricity is exactly
+    <em>e</em> = 1 and its specific energy is exactly zero, so every parabolic orbit has the
+    same shape and differs from the others only in size. That size is set by the semi-latus
+    rectum <em>p</em> alone. The semi-major axis <em>a</em> has no finite value for a
+    parabola, so it does not appear on this page except where the parabola is compared with
+    the ellipse or the hyperbola.
+  </p>
+  <p>
+    As a conic section, the parabola is cut by a plane parallel to one generator of the cone.
+    Fig. P-1 shows it on the same 45° cone used for the ellipse in Fig. E-1, so the transition
+    from one to the other can be seen directly. The shaded area is the area swept in equal
+    times, as on the Elliptical and Hyperbolic pages. In polar form, with the true anomaly
+    <em>θ</em> measured from periapsis,
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      r = \frac{p}{1 + \cos\theta}
+    \]
+    </div>
+    <div class="eq-num">(P-1)</div>
+  </div>
+  <p>and the periapsis distance is</p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      r_\mathrm{P} = \frac{p}{2}
+    \]
+    </div>
+    <div class="eq-num">(P-2)</div>
+  </div>
+
+  <figure class="figure w38">
+    <img src="figp1-conic-section.png" alt="Parabolic orbit shown as a conic section: sphere with inscribed 45 degree cone, cutting plane parallel to one generator forming a parabola, focus F, radius vector r, shaded area-swept sector, x, y, z axes">
+    <figcaption>Fig. P-1. Parabolic orbit as a conic section, with focus <em>F</em> and radius <em>r</em>.</figcaption>
+  </figure>
+
+  <p>
+    Parabolic orbits are not limited to the 45° cone. A plane parallel to a generator of any
+    right circular cone cuts a parabola, with \(\Phi_h = 90^\circ - \Phi_c\). The 45° cone is
+    used here so the parabola can be compared directly with the elliptical geometry, and the
+    edge-view results that follow belong to that cone. On the 45° cone, ellipses come from
+    planes tilted less steeply than the parabola's, and hyperbolas from planes tilted more
+    steeply. The parabola's plane sits between them.
+  </p>
+
+  <h2>Edge-View Derivation of ρ</h2>
+  <p>
+    On the 45° cone, the apex <em>C</em> lies above periapsis <em>P</em>, not above the focus
+    as it does on the Elliptical page. In edge view the two generators meet at <em>C</em> at
+    90°. The orbital plane is parallel to one generator, which runs toward apoapsis at
+    infinity. The opposite generator is therefore perpendicular to the orbital plane and meets
+    it at periapsis <em>P</em>. The distance <em>CP</em> along that generator is
+    <em>ρ</em>. The lower view in Fig. P-2 shows this arrangement.
+  </p>
+  <p>
+    Two subscripts appear together in the derivation, so they are worth separating first.
+    \(R'_p\) and \(R_p\) carry a lowercase <em>p</em> because they belong to the section
+    circle through the latus rectum, whose half-chord is the semi-latus rectum <em>p</em>.
+    The uppercase P in \(r_\mathrm{P}\) marks periapsis. The derivation brings the two
+    together.
+  </p>
+  <p>
+    Pass a plane through <em>F</em> perpendicular to the cone axis. It cuts the cone in a
+    circle of radius \(R'_p\), shown in the upper view of Fig. P-2, and meets the
+    perpendicular generator at a point <em>Q</em>. In the edge view, triangle <em>PFQ</em>
+    has a right angle at <em>P</em> and a 45° angle at <em>Q</em>, so
+    <em>PQ</em> = \(r_\mathrm{P}\) and <em>FQ</em> = \(\sqrt{2}\,r_\mathrm{P}\). The latus
+    rectum is a chord of the section circle through <em>F</em>, with half-length <em>p</em>,
+    at a distance \(\sqrt{2}\,r_\mathrm{P}\) from the circle's edge:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      p^{2} = R'^{2}_p - \left(R'_p - \sqrt{2}\,r_\mathrm{P}\right)^{2} = 2\sqrt{2}\,R'_p\,r_\mathrm{P} - 2r_\mathrm{P}^{2}
+    \]
+    </div>
+    <div class="eq-num">(P-3)</div>
+  </div>
+  <p>Substituting \(r_\mathrm{P} = p/2\) from Eq. P-2,</p>
+  <p>
+    \[
+      p^{2} = \sqrt{2}\,R'_p\,p - \frac{p^{2}}{2} \quad\Rightarrow\quad R'_p = \frac{3}{2\sqrt{2}}\,p
+    \]
+  </p>
+  <p>
+    On the 45° cone the slant distance from <em>C</em> to the circle is \(\sqrt{2}\) times its
+    radius. Every point on the circle is this distance from <em>C</em>, including both ends of
+    the latus rectum:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      R_p = \sqrt{2}\,R'_p = \frac{3}{2}\,p
+    \]
+    </div>
+    <div class="eq-num">(P-4)</div>
+  </div>
+  <p>Along the perpendicular generator, <em>CP</em> = <em>CQ</em> − <em>PQ</em>, so</p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \rho = R_p - r_\mathrm{P} = \frac{3}{2}\,p - \frac{p}{2} = p
+    \]
+    </div>
+    <div class="eq-num">(P-5)</div>
+  </div>
+  <p>
+    The result <em>ρ</em> = <em>p</em> holds only on the 45° cone. On a cone of half-angle
+    \(\Phi_c\), \(\rho = p/(2\sin^{2}\Phi_c)\).
+  </p>
+
+  <figure class="figure w38">
+    <img src="figp2-section-circle.png" alt="Upper view: section circle of radius R prime p through the focus F, with the latus rectum as a vertical chord of half-length p and root 2 r P from F to the circle's edge. Lower view: 45 degree cone in edge view with apex C, orbital plane parallel to the left generator meeting the right generator at periapsis P, horizontal section line through F meeting the right generator at Q, with rho from C to P and r P from P to Q">
+    <figcaption>Fig. P-2. Edge view and section circle on the 45° cone.</figcaption>
+  </figure>
+
+  <p>
+    Every parabola has zero energy, so the whole family of parabolas is an equal-energy
+    family, and each member is the same shape scaled by <em>p</em>. On one 45° cone the
+    family is a set of parallel cutting planes, each a distance <em>ρ</em> = <em>p</em> from
+    <em>C</em>, so <em>p</em> grows linearly with the offset.
+  </p>
+  <p>
+    On the Elliptical page, <em>C</em> sits above <em>F</em> at height \(\sqrt{ap}\), on the
+    circle whose diameter is the major axis. That construction has no parabolic counterpart,
+    because the circle grows without bound. The elliptical equal-energy family (Fig. E-4) is a
+    fan sharing a common <em>a</em>, and the hyperbolic family uses cones of different
+    \(\Phi_c\). The parabolic family needs neither: one cone and a translation.
+  </p>
+
+  <h2>The Dandelin Construction, Specific to the Parabola</h2>
+  <p>
+    Commonality introduced the Dandelin sphere construction in general terms. For the
+    parabola a single sphere fits, tangent to the orbital plane at <em>F</em>. The second
+    sphere and the empty focus <em>F′</em> recede to infinity. Fig. P-3 shows the
+    construction in edge view on the 45° cone, with the sphere's center <em>O</em> on the
+    <em>z</em>-axis and its tangent point <em>T</em> on the perpendicular generator.
+  </p>
+  <p>
+    The sphere touches the cone along a circle, its tangent circle, and the directrix is the
+    line where the plane of that circle meets the orbital plane. Equal tangents from any
+    orbit point to the sphere give: distance to <em>F</em> = distance to the tangent circle
+    along the generator = distance to the directrix. That is <em>e</em> = 1. In the edge view
+    the tangent circle is the horizontal chord through <em>T</em>, below the sphere's center,
+    and the directrix, perpendicular to the page, appears as the point where that chord,
+    extended, meets the orbital plane extended past <em>P</em>. <em>P</em> lies midway
+    between <em>F</em> and the directrix, a distance \(r_\mathrm{P}\) from each.
+  </p>
+  <p>
+    On the 45° cone the distance from <em>C</em> to the tangent circle along any generator
+    equals \(r_\mathrm{P}\). Measured on the perpendicular generator, <em>PT</em> =
+    <em>PF</em> = \(r_\mathrm{P}\) (equal tangents from <em>P</em>), so the distance from
+    <em>C</em> to the tangent circle is <em>ρ</em> − \(r_\mathrm{P}\):
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \rho - r_\mathrm{P} = r_\mathrm{P}
+    \]
+    </div>
+    <div class="eq-num">(P-6)</div>
+  </div>
+  <p>
+    Fig. P-3 shows Eq. P-6 directly. The points <em>O</em>, <em>F</em>, <em>P</em> and
+    <em>T</em> form a square of side \(r_\mathrm{P}\): <em>OF</em> and <em>OT</em> are radii
+    meeting the orbital plane and the generator at right angles, and <em>PF</em> = <em>PT</em>
+    are equal tangents from <em>P</em>. The sphere's radius is therefore \(r_\mathrm{P}\), and
+    on the 45° cone <em>CT</em> = <em>OT</em> = \(r_\mathrm{P}\). On a cone of half-angle
+    \(\Phi_c\), the distance from <em>C</em> to the tangent circle is
+    \(r_\mathrm{P}\cot^{2}\Phi_c\).
+  </p>
+
+  <figure class="figure w40">
+    <img src="figp3-dandelin.png" alt="Parabolic Dandelin construction in edge view on the 45 degree cone: apex C, z-axis, dashed sphere with center O tangent to the orbital plane at F and to the right generator at T, square O F P T with right angles at F and T, tilt angle Phi h at O and half-angle Phi c at C, tangent-circle chord through T, and dashed extensions of the chord and orbital plane meeting at the directrix">
+    <figcaption>Fig. P-3. Parabolic Dandelin construction on the 45° cone.</figcaption>
+  </figure>
+
+  <h2>Tilt Angle and the Cone Half-Angle</h2>
+  <p>
+    With <em>e</em> = \(\sin\Phi_h/\cos\Phi_c\) = 1, the tilt angle and the half-angle are
+    complementary:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      \Phi_h + \Phi_c = 90^\circ
+    \]
+    </div>
+    <div class="eq-num">(P-7)</div>
+  </div>
+  <p>
+    Every cone therefore carries a parabola, and its half-angle fixes the tilt, as noted in
+    the introduction. On the 45° cone, \(\Phi_h\) = 45°, the hinge between ellipses and
+    hyperbolas. Eq. E-7, sin(2\(\Phi_h\)) = <em>e</em>, also gives \(\Phi_h\) = 45° at
+    <em>e</em> = 1. It is the one tilt where sin(2\(\Phi_h\)) and \(\sqrt{2}\sin\Phi_h\)
+    agree.
+  </p>
+  <p>
+    The same 45° cone also carries the hyperbola with <em>e</em> = \(\sqrt{2}\), the parallel
+    cut of the Hyperbolic page (\(\cos\Phi_c = 1/e\)), which is the equilateral member of the
+    hyperbolic family. The 45° choice therefore ties this page to both the Elliptical and
+    Hyperbolic pages. Table P-1 collects the three cases.
+  </p>
+
+  <table class="tilt">
+    <caption>Table P-1. Tilt angle and cone half-angle by orbit type</caption>
+    <thead>
+      <tr><th>Case</th><th>Cone relation</th><th>On the 45° cone</th><th>Half-angle \(\Phi_c\)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ellipse</td>
+        <td>\(\sin\Phi_h/\cos\Phi_c = e < 1\)</td>
+        <td>\(\Phi_h < 45^\circ\)</td>
+        <td>Any; fixes \(\Phi_h\)</td>
+      </tr>
+      <tr>
+        <td>Parabola</td>
+        <td>\(\Phi_h + \Phi_c = 90^\circ\)</td>
+        <td>\(\Phi_h = 45^\circ\)</td>
+        <td>Any; fixes \(\Phi_h\)</td>
+      </tr>
+      <tr>
+        <td>Hyperbola</td>
+        <td>Parallel cut: \(\cos\Phi_c = 1/e\)</td>
+        <td>\(\Phi_h > 45^\circ\), up to <em>e</em> = \(\sqrt{2}\)</td>
+        <td>At least \(\cos^{-1}(1/e)\); the parallel cut is the minimum</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    For the hyperbola, \(\sin\Phi_h = e\cos\Phi_c\) cannot exceed 1, which is why its
+    half-angle has a lower limit. On the 45° cone, <em>ρ</em> = <em>p</em> and the distance
+    from the apex to the tangent circle equals \(r_\mathrm{P}\). On a cone of half-angle
+    \(\Phi_c\), \(\rho = p/(2\sin^{2}\Phi_c)\) and that distance is
+    \(r_\mathrm{P}\cot^{2}\Phi_c\).
+  </p>
+
+  <div id="bridge-relation">
+    <h2>The Bridge Relation</h2>
+    <p>
+      On the 45° cone, the apex distance <em>R</em> exceeds the focal radius <em>r</em> by the
+      constant \(r_\mathrm{P}\). From any orbit point, the tangent along the generator to the
+      sphere's tangent circle equals the tangent to <em>F</em>, which is <em>r</em>. Adding
+      the constant distance \(r_\mathrm{P}\) from <em>C</em> to the tangent circle (Eq. P-6)
+      gives
+    </p>
+    <div class="eq-row">
+      <div class="eq-body">
+      \[
+        R = r + r_\mathrm{P}
+      \]
+      </div>
+      <div class="eq-num">(P-8)</div>
+    </div>
+    <p>
+      At the ends of the latus rectum, <em>r</em> = <em>p</em> and <em>R</em> = 3<em>p</em>/2,
+      which matches \(R_p\) from Eq. P-4. The same result follows directly from Eq. P-5.
+      Since <em>CP</em> is perpendicular to the orbital plane, an orbit point a distance
+      <em>d</em> from <em>P</em> satisfies \(R^{2} = \rho^{2} + d^{2}\), and on the parabola
+      this equals \((r + r_\mathrm{P})^{2}\).
+    </p>
+    <p>
+      The hyperbola's parallel cut gives the same linear form, <em>R</em> = <em>r</em> +
+      <em>a</em> (see <a href="hyperbolic.html#bridge-relation">the Hyperbolic page</a>). The
+      ellipse's \(R^{2} = r^{2} + ap\) (Eq. E-9) is a Pythagorean form, from <em>C</em> placed
+      above <em>F</em>, which the parabola cannot use. Whether a linear Bridge Relation also
+      holds for the ellipse on its own right circular cone, which would make the relation
+      uniform across all three cases, remains an open item.
+    </p>
+  </div>
+
+  <h2 id="barker-equation">From Vis-Viva to Barker's Equation<a class="footnote-ref" href="#fn-1" id="fnref-1">1</a></h2>
+  <p>
+    The integral developed on the Commonality page is written in terms of <em>a</em>, which
+    the parabola does not have (Table C-1). With zero energy the motion equation follows
+    directly from vis-viva instead:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      v^{2} = \frac{2\mu}{r}
+    \]
+    </div>
+    <div class="eq-num">(P-9)</div>
+  </div>
+  <p>
+    The angular momentum per unit mass is \(\sqrt{\mu p}\), so
+    \(dt = r^{2}\,d\theta/\sqrt{\mu p}\). Substituting <em>D</em> = tan(<em>θ</em>/2), with
+    \(r = p(1 + D^{2})/2\) from Eq. P-1, and integrating from the time of periapsis passage
+    <em>T</em> gives Barker's equation:
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      2\sqrt{\frac{\mu}{p^{3}}}\,(t - T) = D + \frac{D^{3}}{3}
+    \]
+    </div>
+    <div class="eq-num">(P-10)</div>
+  </div>
+  <p>
+    With zero energy the time equation is a cubic in tan(<em>θ</em>/2), and unlike Kepler's
+    equation it inverts in closed form, with no iteration. With
+    \(W = 3\sqrt{\mu/p^{3}}\,(t - T)\),
+  </p>
+  <div class="eq-row">
+    <div class="eq-body">
+    \[
+      D = \sqrt[3]{W + \sqrt{W^{2} + 1}} + \sqrt[3]{W - \sqrt{W^{2} + 1}}
+    \]
+    </div>
+    <div class="eq-num">(P-11)</div>
+  </div>
+  <p>
+    The factor \(\sqrt{\mu/p^{3}}\) is kept explicit, in the same way \(\sqrt{\mu/a^{3}}\) is
+    on the other pages, rather than being written as a mean motion.
+  </p>
+
+  <h2>Relation to the Ellipse, Hyperbola and Rectilinear Cases</h2>
+  <p>
+    The parabola is the limit of both the ellipse and the hyperbola as <em>a</em> → ∞ with
+    <em>p</em> held fixed. The energy, \(-\mu/2a\) for the ellipse and \(+\mu/2a\) for the
+    hyperbola, goes to zero from either side, and the periapsis distance
+    \(r_\mathrm{P} = p/(1+e)\) goes to <em>p</em>/2.
+  </p>
+  <p>
+    The comparisons on this page fit together. The three equal-energy families are a fan
+    sharing a common <em>a</em> for the ellipse, a set of cones at different \(\Phi_c\) for
+    the hyperbola, and a translation on a single cone for the parabola. Table P-1 places the
+    parabola's tilt at the hinge between the other two. The Bridge Relation is linear for the
+    parabola and the hyperbola and Pythagorean for the ellipse as constructed on its page.
+  </p>
+  <p>
+    The radial case, <em>p</em> → 0, is taken up on the
+    <a href="rectilinear.html">Rectilinear page</a>, where the rectilinear parabola
+    \(r^{3} = 9\mu t^{2}/2\) serves as the reference curve between the rectilinear ellipse and
+    hyperbola, and the three <em>e</em> = 1 cases are compared. A fuller synthesis of all
+    three orbit types is planned for a closing Recap page.
+  </p>
+
+  <div class="footnote" id="fn-1">
+    <sup>1</sup> The full parabolic trajectory, including the inverse of Barker's equation and
+    its linear special case, is developed in D. H. May, "Orbital Motion Equations with Dynamic
+    Models," Paper AAS 05-354, AAS/AIAA Astrodynamics Specialist Conference, Lake Tahoe, CA,
+    August 2005.
+    <!-- PENDING: add a link to the posted paper once AAS grants permission. -->
+    <a href="#fnref-1">↩</a>
+  </div>
+
+</main>
+
+<footer>
+  D. H. May · Orbit-Mech research site · updated as work progresses
+</footer>
+<script src="nomenclature-data.js?v=6"></script>
+<script src="nomenclature-widget.js?v=6"></script>
+</body>
+</html>
